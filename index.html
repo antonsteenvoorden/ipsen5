@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html ng-app="ipsen3" lang="en">
+    <head>
+	<meta charset="UTF-8">
+
+	<title>Lionsclub Oegstgeest/Warmond</title>
+	
+        <!-- Javascript -->
+        <script type="text/javascript" src="assets/libraries.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+        
+	<!-- Main CSS file -->
+	<link rel="stylesheet" href="assets/css/libraries/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/libraries/owl.carousel.css" />
+	<link rel="stylesheet" href="assets/css/libraries/magnific-popup.css" />
+	<link rel="stylesheet" href="assets/css/libraries/font-awesome.css" />
+	<link rel="stylesheet" href="assets/css/libraries/style.css" />
+	<link rel="stylesheet" href="assets/css/libraries/responsive.css" />
+        <link rel="stylesheet" href="assets/css/layout.css"/>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/icon/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icon/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icon/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icon/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="assets/images/icon/apple-touch-icon-57-precomposed.png">
+        
+    </head>
+
+<body ng-controller="headerController">
+
+
+	<!-- PRELOADER -->
+	<div id="st-preloader">
+		<div id="pre-status">
+			<div class="preload-placeholder"></div>
+		</div>
+	</div>
+	<!-- /PRELOADER -->
+
+
+	<header ng-include="'assets/partials/template/header.html'"></header>
+	<main ng-view></main>
+	<footer ng-include="'assets/partials/template/footer.html'"></footer>
+
+
+	<!-- Scroll-up -->
+	<div class="scroll-up">
+		<ul>
+			<li><a href="#header"><i class="fa fa-angle-up"></i></a></li>
+		</ul>
+	</div>
+
+
+</body>
+</html>
