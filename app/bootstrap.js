@@ -1,17 +1,14 @@
-angular.module('ipsen3', ['ngRoute'])
-    .config(function($httpProvider)
-    {
-        $httpProvider.interceptors.push('requestService');
+angular.module('wfpcs', ['ngRoute'])
+    .config(function ($httpProvider) {
+        //$httpProvider.interceptors.push('requestService');
 
-        if(!$httpProvider.defaults.headers.get)
-        {
+        if (!$httpProvider.defaults.headers.get) {
             $httpProvider.defaults.headers.get = {};
         }
+    }).config(function ($locationProvider) {
+    $locationProvider.baseHref = '/';
+    $locationProvider.html5Mode(true);
+});
 
-        //html5 support gets rid of the # after the url.
-        //Doen't really work so leave commented
-        //$locationProvider.html5Mode(true);
-    })
-;
 
     

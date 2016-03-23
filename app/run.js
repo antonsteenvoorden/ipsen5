@@ -1,14 +1,10 @@
-/*
- * Edited By: Sidney de Geus
- */
-
 /**
  * run file dat wordt uitgevoerd na de config en voor de headerController.
  * Checkt of de url veranderd, en zo ja gaat checken of iemand juiste rechten heeft
  * voor de nieuwe geopende pagina.
 **/
 
-angular.module('ipsen3').run(function($rootScope, $location, authenticationService, $route, $window) {
+angular.module('wfpcs').run(function($rootScope, $location, authenticationService, $route, $window) {
 
      $rootScope.nietBesteldBestelling = [];
      $rootScope.bestellingWachtende = false;
