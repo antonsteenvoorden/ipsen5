@@ -1,7 +1,20 @@
-<div><!-- Main directive container, template root element. -->
-  <div ng-repeat="stap in stappen">
-    stap {{stap.value}}
+<div class="processContainer"><!-- Main directive container, template root element. -->
+  <div class="stap" ng-repeat="stap in stappen.slice().reverse()">
+    <span class="stapnummer">
+      stap {{stap.value}}
+    </span>
+    <span class="buttonSpan">
+      <button class="btn btn-success btn-xs" ng-click="insert(stap.value)">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+
+      <button class="btn btn-danger btn-xs" ng-click="remove(stap.value)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </span>
+
   </div>
-  <button class="btn btn-primary" ng-click="add()">add</button>
-  <button class="btn btn-danger" ng-click="remove()">remove</button>
+
+  <button class="btn btn-success" ng-click="add()">add</button>
+  <button class="btn btn-danger" ng-click="removeLast()">remove</button>
 </div>

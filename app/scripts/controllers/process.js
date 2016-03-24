@@ -18,8 +18,16 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', function($s
     $scope.stappen.push({value: $scope.stappen.length + 1});
   };
 
-  $scope.remove = function() {
+  $scope.insert = function(stap) {
+    $scope.stappen.splice(stap + 1, 0, {value: stap + 1});
+  }
+
+  $scope.removeLast = function() {
     $scope.stappen.pop();
+  };
+
+  $scope.remove = function(stap) {
+    $scope.stappen.splice(stap -1, 1);
   };
 
 }]);

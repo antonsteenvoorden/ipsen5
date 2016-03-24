@@ -98,3 +98,20 @@ body {
 .analyse {
   border: 1px solid black;
 }
+
+div.stap {
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+span.buttonSpan {
+  float: right;
+}
+
+div.processContainer div:nth-child(odd) {
+  background-color: #F6F6FF;
+}
+
+span.stapnummer {
+  padding-right: 20px;
+}
