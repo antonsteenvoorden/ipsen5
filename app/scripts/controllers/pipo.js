@@ -2,19 +2,19 @@
 
 /**
  * @ngdoc function
- * @name wfpcsFrontApp.controller:AboutCtrl
+ * @name wfpcsFrontApp.controller:PipoCtrl
  * @description
- * # AboutCtrl
+ * # PipoCtrl
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('PipoCtrl', function ($scope, pipo) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
     $scope.test = function() {
-      console.log("test");
+      pipo.test();
     }
   });
