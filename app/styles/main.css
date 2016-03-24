@@ -81,3 +81,20 @@ body {
     border-bottom: 0;
   }
 }
+
+.analyseMenu ul li {
+  display: inline;
+  border: 1px solid black;
+}
+
+.pane {
+  height: 500px;
+}
+
+.process {
+  border: 1px solid black;
+}
+
+.analyse {
+  border: 1px solid black;
+}

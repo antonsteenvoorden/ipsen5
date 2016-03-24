@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+ angular
   .module('wfpcsFrontApp', [
     'ngAnimate',
     'ngCookies',
@@ -32,4 +32,21 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  });
+
+  angular.module('wfpcsFrontApp').directive("process", function() {
+    return {
+      restrict: 'AE',
+      replace: 'true',
+      templateUrl: 'views/process.html',
+      controller: 'ProcessCtrl'
+    };
+  });
+
+  angular.module('wfpcsFrontApp').directive("analyse", function() {
+    return {
+      restrict: 'AE',
+      replace: 'true',
+      templateUrl: 'views/improvement.html'
+    };
   });
