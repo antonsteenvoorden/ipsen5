@@ -13,6 +13,18 @@ angular.module('wfpcsFrontApp')
       return viewLocation == $location.path();
     }
 
+    $scope.setTab = function(tabSelected) {
+      $scope.tab = tabSelected;
+    }
+
+    $scope.getTab = function(tabSelected) {
+      if($scope.tab == tabSelected) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     $scope.goToHome = function()
     {
       $location.path('/');

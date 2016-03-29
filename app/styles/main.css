@@ -86,13 +86,15 @@ body {
   /*display: inline;*/
   /*border: 1px solid black;*/
 /*}*/
-
+.tab {
+  margin-bottom : 3px;
+}
 .pane {
   height: 500px;
 }
 
 .process {
-  border: 1px solid black;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .analyse {
