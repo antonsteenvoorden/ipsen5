@@ -82,10 +82,10 @@ body {
   }
 }
 
-.analyseMenu ul li {
-  display: inline;
-  border: 1px solid black;
-}
+/*.analyseMenu ul li {*/
+  /*display: inline;*/
+  /*border: 1px solid black;*/
+/*}*/
 
 .pane {
   height: 500px;
@@ -114,4 +114,9 @@ div.processContainer div:nth-child(odd) {
 
 span.stapnummer {
   padding-right: 20px;
+}
+
+.full-size {
+  width:100%;
+  float:left;
 }

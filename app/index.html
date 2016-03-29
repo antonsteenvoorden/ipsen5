@@ -5,13 +5,7 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
-  <!-- bower:css -->
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
@@ -37,10 +31,10 @@
         <a class="navbar-brand" href="#/">wfpcsFront</a>
       </div>
 
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
+      <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavigationCtrl">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#/">Home</a></li>
+          <li ng-class="{ active : isActive('/')}"><a ng-click="goToHome()">Home</a></li>
+          <li ng-class="{ active : isActive('/test')}"><a ng-click="goToTest()">test</a></li>
         </ul>
       </div>
     </div>
@@ -50,15 +44,14 @@
 <div class="container-fluid">
   <!-- Analyse menu -->
   <div class="analyseMenu col-md-6 col-md-offset-6">
-    <ul>
-      <li class="btn btn-primary">Improvement</li>
-      <li class="btn btn-primary">Tab 2</li>
-      <li class="btn btn-primary">Tab 3</li>
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-model="tab"><a href="#">Current</a></li>
+      <li role="presentation"><a href="#">Improvement</a></li>
+      <li role="presentation"><a href="#">Quality</a></li>
     </ul>
   </div>
-
   <!-- Main process container, defined in app.js -->
-  <process class="process pane col-md-6"></process>
+  <process class="process pane col-md-6" ng-style="full-size"></process>
 
   <!-- Analyse pane, defined in app.js -->
   <analyse class="analyse pane col-md-6"></analyse>
@@ -67,7 +60,7 @@
 
 <div class="footer">
   <div class="container">
-    <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+    <p>MOJO SOLUTIONS</p>
   </div>
 </div>
 
@@ -103,6 +96,7 @@
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/process.js"></script>
+<script src="scripts/controllers/navigation.js"></script>
 <!-- endbuild -->
 </body>
 </html>
