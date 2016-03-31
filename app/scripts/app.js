@@ -10,19 +10,18 @@
  */
  angular
   .module('wfpcsFrontApp', [
+    'ngAria',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -39,6 +38,12 @@
       });
   });
 
+angular.module('wfpcsFrontApp').directive("navigation", function() {
+  return {
+    templateUrl: 'views/navigation.html',
+    controller: 'NavigationCtrl'
+  };
+});
 
   angular.module('wfpcsFrontApp').directive("process", function() {
     return {
@@ -48,6 +53,7 @@
       controller: 'ProcessCtrl'
     };
   });
+
 
   angular.module('wfpcsFrontApp').directive("analyse", function() {
     return {

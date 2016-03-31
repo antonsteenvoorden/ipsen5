@@ -1,6 +1,7 @@
-<div class="processContainer">
+<md-card class="padded" flex="50" flex="noshrink" ng-style="full-size" md-whiteframe="5">
   <!-- Main directive container, template root element. -->
   <!-- @author Roy Touw -->
+  <md-list>
   <div class="container-fluid"> <!-- Header -->
    <div class="col-md-1">Activity</div>
    <div class="col-md-1">Activity Type</div>
@@ -31,17 +32,18 @@
       <input class="col-sm-1" type="text" />
     </span>
     <span class="buttonSpan">
-      <button class="btn btn-success btn-xs" ng-click="insert(stap.value)">
+      <md-button class="md-primaru" ng-click="insert(stap.value)">
         <span class="glyphicon glyphicon-plus"></span>
-      </button>
+      </md-button>
 
-      <button class="btn btn-danger btn-xs" ng-click="remove(stap.value)">
+      <md-button type="button" class="md-warn" ng-click="remove(stap.value)">
         <span class="glyphicon glyphicon-trash"></span>
-      </button>
+      </md-button>
     </span>
 
   </div>
 
-  <button class="btn btn-success" ng-click="add()">add</button>
-  <button class="btn btn-danger" ng-click="removeLast()">remove</button>
-</div>
+  <md-button class="md-primary" ng-click="add()">add</md-button>
+  <md-button class="md-warn" ng-click="removeLast()">remove</md-button>
+  </md-list>
+</md-card>
