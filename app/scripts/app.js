@@ -21,7 +21,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {})
+      .when('/', {
+        controller:'MainCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
@@ -41,11 +43,13 @@ angular
     $translateProvider.translations('nl', {
       KWALITEIT: "Kwaliteit",
       HUIDIGE: "Huidige",
-      VERTAALD: "Dit is een stukje nederlandse tekst"
+      VERTAALD: "Dit is een stukje nederlandse tekst",
+      TAAL:"Verander taal"
     })
 
     $translateProvider.translations('en', {
-      VERTAALD: 'THE same text but in english'
+      VERTAALD: 'THE same text but in english',
+      TAAL:"Change Language"
     })
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.preferredLanguage('nl');
