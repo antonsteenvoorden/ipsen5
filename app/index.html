@@ -43,15 +43,25 @@
 
 <navigation></navigation>
 
-<md-content ng-cloak>
-  <md-tabs md-selected="selectedIndex" >
+<md-content ng-cloak >
+  <md-tabs md-selected="selectedIndex" md-dynamic-height flex>
 
-  <md-tab label="Current">
+  <md-tab label="Current" >
+    <div layout="row" >
     <process></process>
     <analyse></analyse>
+    </div>
   </md-tab>
 
-  <md-tab label="Improvement"></md-tab>
+  <md-tab label="Improvement">
+    <div layout="row" >
+      <div flex="50">
+      <process flex></process>
+      <analyse flex></analyse>
+      </div>
+      <pipo></pipo>
+    </div>
+  </md-tab>
   <md-tab label="Quality"></md-tab>
 </md-tabs>
 <!--<ui-view layout layout-fill layout-align="space-around stretch">-->
@@ -66,6 +76,19 @@
     <p>{{'VERTAALD' | translate}}</p>
     <p>MOJO SOLUTIONS</p>
     <md-button ng-click="changeLanguage('en')" label="">{{'TAAL' | translate}}</md-button>
+
+    <form name="colorForm">
+      <md-input-container>
+        <label>Favorite Color</label>
+        <input name="favoriteColor" ng-model="favoriteColor" required>
+        <div ng-messages="userForm.lastName.$error">
+          <div ng-message="required">This is required!</div>
+        </div>
+      </md-input-container>
+
+
+    </form>
+
   </div>
 </div>
 
