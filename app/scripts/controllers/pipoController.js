@@ -8,7 +8,7 @@
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('PipoCtrl', function ($scope, pipo) {
+  .controller('PipoCtrl', function ($scope, pipoService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -17,4 +17,5 @@ angular.module('wfpcsFrontApp')
     $scope.test = function() {
       pipo.test();
     }
+    $scope.value = 10;
   });

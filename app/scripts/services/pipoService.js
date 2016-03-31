@@ -8,7 +8,7 @@
  * Service in the wfpcsFrontApp.
  */
 angular.module('wfpcsFrontApp')
-  .service('pipo', function () {
+  .service('pipoService', function () {
     this.test = function() {
       console.log('this is the timon directive');
     }
