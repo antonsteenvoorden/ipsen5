@@ -10,11 +10,12 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "angular-material": "^1.0.6"
+    "Chart.js": "^1.1.0",
+    "angular-material": "^1.0.6",
+    "angular-translate": "^2.11.0"
   },
   "devDependencies": {
-    "angular-mocks": "^1.4.0",
-    "angular-translate": "^2.11.0"
+    "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
   "moduleName": "wfpcsFrontApp",
