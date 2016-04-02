@@ -10,13 +10,14 @@
  */
 angular
   .module('wfpcsFrontApp', [
+    'pascalprecht.translate',
     'ngAria',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'pascalprecht.translate',
+    'chart.js',
     'ngMaterial'
   ])
   .config(function ($routeProvider) {
@@ -38,21 +39,22 @@ angular
         redirectTo: '/'
       });
   })
-  // Translate provider config.
+  //translation config
   .config(function ($translateProvider) {
-    $translateProvider.translations('nl', {
-      KWALITEIT: "Kwaliteit",
-      HUIDIGE: "Huidige",
-      VERTAALD: "Dit is een stukje nederlandse tekst",
-      TAAL:"Verander taal"
-    })
-
-    $translateProvider.translations('en', {
-      VERTAALD: 'THE same text but in english',
-      TAAL:"Change Language"
-    })
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.preferredLanguage('nl');
+
+    $translateProvider.translations('nl', {
+      'KWALITEIT': "Kwaliteit",
+      'HUIDIGE': "Huidige",
+      'VERTAALD': "Dit is een stukje nederlandse tekst",
+      'TAAL':"Verander taal"
+    });
+
+    $translateProvider.translations('en', {
+      'VERTAALD': 'THE same text but in english',
+      'TAAL':"Change Language"
+    });
 });
 
 angular.module('wfpcsFrontApp').directive("navigation", function () {

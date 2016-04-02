@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel='stylesheet' href='../bower_components/angular-material/angular-material.css'/>
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../bower_components/angular-chart.js/dist/angular-chart.css">
   <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- endbuild -->
@@ -61,7 +62,7 @@
       </div>
       <pipo></pipo>
     </div>
-    <canvas id="myChart" width="400" height="400"></canvas>
+
   </md-tab>
   <md-tab label="Quality"></md-tab>
 </md-tabs>
@@ -74,9 +75,9 @@
 
 <div class="footer">
   <div class="container">
-    <p>{{'VERTAALD' | translate}}</p>
+    <!--<p>{{'VERTAALD' | translate}}</p>-->
     <p>MOJO SOLUTIONS</p>
-    <md-button ng-click="changeLanguage('en')" label="">{{'TAAL' | translate}}</md-button>
+    <!--<md-button ng-click="changeLanguage('en')" label="">{{'TAAL' | translate}}</md-button>-->
 
     <form name="colorForm">
       <md-input-container>
@@ -121,18 +122,17 @@
 <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="../bower_components/angular-material/angular-material.js"></script>
 <script src="../bower_components/angular-translate/angular-translate.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
+<script src="../bower_components/Chart.js/Chart.js"></script>
+<script src="../bower_components/angular-chart.js/dist/angular-chart.js"></script>
 
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/pipoController.js"></script>
-<script src="scripts/directives/pipo.js"></script>
-<script src="scripts/services/pipoService.js"></script>
 <script src="scripts/controllers/process.js"></script>
 <script src="scripts/controllers/navigation.js"></script>
+<script src="scripts/directives/pipo.js"></script>
 <!-- endbuild -->
 
 </body>

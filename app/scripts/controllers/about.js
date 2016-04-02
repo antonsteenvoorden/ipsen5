@@ -8,7 +8,7 @@
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AboutCtrl', function ($scope, $translate) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
