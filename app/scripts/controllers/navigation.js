@@ -8,7 +8,7 @@
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('NavigationCtrl', function ($scope, $location, $translate) {
+  .controller('NavigationCtrl', function ($scope, $location) {
     $scope.isActive = function(viewLocation){
       return viewLocation == $location.path();
     }

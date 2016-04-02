@@ -1,15 +1,10 @@
+/**
+ * Created by Anton on 2-4-2016.
+ */
 'use strict';
 
-/**
- * @ngdoc function
- * @name wfpcsFrontApp.controller:PipoCtrl
- * @description
- * # PipoCtrl
- * Controller of the wfpcsFrontApp
- */
-angular.module('wfpcsFrontApp', ["chart.js"])
-  .controller('PipoCtrl', function ($scope) {
-
+angular.module('wfpcsFrontApp')
+  .controller('BarCtrl', function ($scope) {
     $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
     $scope.series = ['Series A', 'Series B'];
 

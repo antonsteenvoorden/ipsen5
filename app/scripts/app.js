@@ -41,43 +41,17 @@ angular
   })
   //translation config
   .config(function ($translateProvider) {
-    $translateProvider.useSanitizeValueStrategy('escape');
-    $translateProvider.preferredLanguage('nl');
-
     $translateProvider.translations('nl', {
-      'KWALITEIT': "Kwaliteit",
-      'HUIDIGE': "Huidige",
-      'VERTAALD': "Dit is een stukje nederlandse tekst",
-      'TAAL':"Verander taal"
+      KWALITEIT: "Kwaliteit",
+      HUIDIGE: "Huidige",
+      VERTAALD: "Dit is een stukje nederlandse tekst",
+      TAAL:"Verander taal"
     });
 
     $translateProvider.translations('en', {
-      'VERTAALD': 'THE same text but in english',
-      'TAAL':"Change Language"
+      VERTAALD: 'THE same text but in english',
+      TAAL:"Change Language"
     });
-});
-
-angular.module('wfpcsFrontApp').directive("navigation", function () {
-  return {
-    templateUrl: 'views/navigation.html',
-    controller: 'NavigationCtrl'
-  };
-});
-
-angular.module('wfpcsFrontApp').directive("process", function () {
-  return {
-    restrict: 'AE',
-    replace: 'true',
-    templateUrl: 'views/process.html',
-    controller: 'ProcessCtrl'
-  };
-});
-
-
-angular.module('wfpcsFrontApp').directive("analyse", function () {
-  return {
-    restrict: 'AE',
-    replace: 'true',
-    templateUrl: 'views/improvement.html'
-  };
-});
+    $translateProvider.useSanitizeValueStrategy('escape');
+    $translateProvider.preferredLanguage('nl');
+  });

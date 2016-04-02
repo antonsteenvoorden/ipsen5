@@ -18,67 +18,42 @@
   your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<!--<md-toolbar class="tabs-wrapper" layout-align="start center" layout="row" role="navigation">-->
-
-        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">-->
-          <!--<span class="sr-only">Toggle navigation</span>-->
-          <!--<span class="icon-bar"></span>-->
-          <!--<span class="icon-bar"></span>-->
-          <!--<span class="icon-bar"></span>-->
-        <!--</button>-->
-
-        <!--<a class="navbar-brand" href="#/">wfpcsFront</a>-->
-      <!--</div>-->
-
-      <!--<div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavigationCtrl" layout="row">-->
-        <!--<ul class="nav navbar-nav">-->
-          <!--<li ng-class="{ active : isActive('/')}"><a ng-click="goToHome()">Home</a></li>-->
-          <!--<li ng-class="{ active : isActive('/test')}"><a ng-click="goToTest()">test</a></li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-<!--</md-toolbar>-->
 
 <navigation></navigation>
 
 <md-content ng-cloak >
   <md-tabs md-selected="selectedIndex" md-dynamic-height flex>
 
-  <md-tab label="Current" >
-    <div layout="row" >
-    <process></process>
-    <analyse></analyse>
-    </div>
-  </md-tab>
-
-  <md-tab label="Improvement">
-    <div layout="row" >
-      <div flex="50">
-      <process flex></process>
-      <analyse flex></analyse>
+    <md-tab label="Current" >
+      <div layout="row" >
+        <process></process>
+        <analyse></analyse>
       </div>
-      <pipo></pipo>
-    </div>
+    </md-tab>
 
-  </md-tab>
-  <md-tab label="Quality"></md-tab>
-</md-tabs>
-<!--<ui-view layout layout-fill layout-align="space-around stretch">-->
+    <md-tab label="Improvement">
+      <div layout="row" >
+        <div flex="50">
+          <process flex></process>
+          <analyse flex></analyse>
+        </div>
+      </div>
+    <bar></bar>
+    </md-tab>
+    <md-tab label="Quality"></md-tab>
+  </md-tabs>
 
-
-
-<!--</ui-view>-->
-  </md-content>
+</md-content>
 
 <div class="footer">
   <div class="container">
-    <!--<p>{{'VERTAALD' | translate}}</p>-->
+    <p>{{'VERTAALD' | translate}}</p>
     <p>MOJO SOLUTIONS</p>
-    <!--<md-button ng-click="changeLanguage('en')" label="">{{'TAAL' | translate}}</md-button>-->
 
+    <div ng-controller="TranslateCtrl">
+      <md-button ng-click="changeLanguage('nl')" aria-label="Change language" >{{'TAAL' | translate}} NL</md-button>
+      <md-button ng-click="changeLanguage('en')" aria-label="Change language" >{{'TAAL' | translate}} EN</md-button>
+    </div>
     <form name="colorForm">
       <md-input-container>
         <label>Favorite Color</label>
@@ -87,8 +62,6 @@
           <div ng-message="required">This is required!</div>
         </div>
       </md-input-container>
-
-
     </form>
 
   </div>
@@ -109,7 +82,7 @@
 
 </script>
 
-<!-- build:js(.) scripts/vendor.js -->
+
 <!-- bower:js -->
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="../bower_components/angular/angular.js"></script>
@@ -127,13 +100,22 @@
 
 <script src="scripts/app.js"></script>
 
+
+<!--Controllers-->
+<script src="scripts/controllers/translate.js"></script>
 <script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/about.js"></script>
-<script src="scripts/controllers/pipoController.js"></script>
 <script src="scripts/controllers/process.js"></script>
 <script src="scripts/controllers/navigation.js"></script>
-<script src="scripts/directives/pipo.js"></script>
-<!-- endbuild -->
+<script src="scripts/controllers/bar.js"></script>
+<!--Directives-->
+<script src="scripts/directives/process.js"></script>
+<script src="scripts/directives/analyse.js"></script>
+<script src="scripts/directives/navigation.js"></script>
+<script src="scripts/directives/bar.js"></script>
+
+
+<!--Services-->
+
 
 </body>
 </html>
