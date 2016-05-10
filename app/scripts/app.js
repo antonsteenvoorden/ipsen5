@@ -10,26 +10,48 @@
  */
 angular
   .module('wfpcsFrontApp', [
+    'pascalprecht.translate',
+    'ngAria',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'chart.js',
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller:'MainCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/test', {
+        templateUrl: 'views/test.html',
+        controller: 'NavigationCtrl',
+        controllerAs: 'about'
+      })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  //translation config
+  .config(function ($translateProvider) {
+    $translateProvider.translations('nl', {
+      KWALITEIT: "Kwaliteit",
+      HUIDIGE: "Huidige",
+      VERTAALD: "Dit is een stukje nederlandse tekst",
+      TAAL:"Verander taal"
+    });
+
+    $translateProvider.translations('en', {
+      VERTAALD: 'THE same text but in english',
+      TAAL:"Change Language"
+    });
+    $translateProvider.useSanitizeValueStrategy('escape');
+    $translateProvider.preferredLanguage('nl');
   });

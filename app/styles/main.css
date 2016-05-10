@@ -81,3 +81,42 @@ body {
     border-bottom: 0;
   }
 }
+
+/*.analyseMenu ul li {*/
+  /*display: inline;*/
+  /*border: 1px solid black;*/
+/*}*/
+
+.pane {
+  height: 500px;
+}
+
+.process {
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.analyse {
+  border: 1px solid black;
+}
+
+div.stap {
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+span.buttonSpan {
+  float: right;
+}
+
+div.processContainer div:nth-child(odd) {
+  background-color: #F6F6FF;
+}
+
+span.stapnummer {
+  padding-right: 20px;
+}
+
+.full-size {
+  width:100%;
+  float:left;
+}
