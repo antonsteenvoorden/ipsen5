@@ -1,4 +1,4 @@
-<md-card class="padded" flex="50" flex="noshrink" ng-style="full-size" md-whiteframe="5">
+<md-card class="padded" flex="noshrink" ng-style="full-size" md-whiteframe="5">
   <!-- Main directive container, template root element. -->
   <!-- @author Roy Touw -->
     <div class="container-fluid"> <!-- Header -->
@@ -11,30 +11,24 @@
       <div class="col-md-1">Activity Head Count</div>
       <div class="col-md-1">Activity Energy Usage</div>
     </div>
+
   <md-list>
     <!-- Processtap -->
     <div class="stap container-fluid" ng-repeat="stap in stappen.slice().reverse()">
     <span class="stapnummer col-md-1">
       {{stap.value}}
     </span>
+
     <span class="col-md-1">
-
-<md-menu>
-  <md-button aria-label="Type menu" ng-click="$mdOpenMenu($event)">Type</md-button>
-  <md-menu-content width="6">
-    <md-menu-item>
-      <md-button ng-click="menuItemClick($index)">Transport</md-button>
-    </md-menu-item>
-    <md-menu-item>
-      <md-button ng-click="menuItemClick($index)">Hold</md-button>
-    </md-menu-item>
-    <md-menu-item>
-      <md-button ng-click="menuItemClick($index)">Convert</md-button>
-    </md-menu-item>
-  </md-menu-content>
-</md-menu>
-
+      <md-input-container>
+        <md-select ng-model="someModel" placeholder="Select a state">
+          <md-option ng-click="menuItemClick($index)">Transport</md-option>
+          <md-option ng-click="menuItemClick($index)">Hold</md-option>
+          <md-option ng-click="menuItemClick($index)">Convert</md-option>
+        </md-select>
+      </md-input-container>
     </span>
+
     <span class="col-md-1">
       <input class="col-sm-1" type="text"/>
     </span>
@@ -50,10 +44,10 @@
         <span class="glyphicon glyphicon-trash"></span>
       </md-button>
     </span>
-
     </div>
 
     <md-button class="md-primary" ng-click="add()">add</md-button>
     <md-button class="md-warn" ng-click="removeLast()">remove</md-button>
   </md-list>
+
 </md-card>
