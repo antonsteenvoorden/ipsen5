@@ -18,30 +18,49 @@ angular
     'ngRoute',
     'ngSanitize',
     'chart.js',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
+
+    $stateProvider
+      .state('/', {
+        url: "/",
         templateUrl: 'views/dashboard.html',
         controller:'MainCtrl'
       })
-      .when('/process', {
+      .state('process', {
+        url: "/process",
         templateUrl: 'views/process.html',
         controller:'MainCtrl'
       })
-      .when('/about', {
+      .state('process.current', {
+        url: "/current",
+        templateUrl: 'views/tabs/current.html',
+        controller:'MainCtrl'
+      })
+      .state('process.improvement', {
+        url: "/improvement",
+        templateUrl: 'views/tabs/improvement.html',
+        controller:'MainCtrl'
+      })
+      .state('process.quality', {
+        url: "/quality",
+        templateUrl: 'views/tabs/quality.html',
+        controller:'MainCtrl'
+      })
+      .state('about', {
+        url: "/about",
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/test', {
+      .state('test', {
+        url: "/test",
         templateUrl: 'views/test.html',
         controller: 'NavigationCtrl',
         controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   })
   //translation config
@@ -50,7 +69,8 @@ angular
       KWALITEIT: "Kwaliteit",
       HUIDIGE: "Huidige",
       VERTAALD: "Dit is een stukje nederlandse tekst",
-      TAAL:"Verander taal"
+      TAAL:"Verander taal",
+      TEST:"TEST"
     });
 
     $translateProvider.translations('en', {

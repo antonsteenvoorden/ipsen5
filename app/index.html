@@ -20,7 +20,9 @@
 
 
 <navigation></navigation>
-<ng-view ></ng-view>
+<md-content>
+  <ui-view layout-fill></ui-view>
+</md-content>
 
 <div class="footer">
   <div class="container">
@@ -74,6 +76,7 @@
 <script src="../bower_components/angular-translate/angular-translate.js"></script>
 <script src="../bower_components/Chart.js/Chart.js"></script>
 <script src="../bower_components/angular-chart.js/dist/angular-chart.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
 <script src="scripts/app.js"></script>
 
@@ -85,7 +88,7 @@
 <script src="scripts/controllers/bar.js"></script>
 <!--Directives-->
 <script src="scripts/directives/process.js"></script>
-<script src="scripts/directives/analyse.js"></script>
+<script src="scripts/directives/improvement.js"></script>
 <script src="scripts/directives/navigation.js"></script>
 <script src="scripts/directives/bar.js"></script>
 

@@ -1,30 +1,8 @@
-<md-content >
-  <md-tabs md-selected="selectedIndex" layout-fill>
-
-    <md-tab label="Current">
-      <div layout="row" >
-        <process></process>
-      </div>
-      <bar></bar>
-    </md-tab>
-
-    <md-tab label="Improvement" >
-      <div layout="row" >
-        <process flex="50"></process>
-        <analyse flex="50"></analyse>
-      </div>
-    </md-tab>
-
-    <md-tab label="Quality">
-      <div layout="row" >
-        <div flex="50">
-          <process flex></process>
-          <analyse flex></analyse>
-        </div>
-      </div>
-      <bar></bar>
-    </md-tab>
-    <md-tab label="Quality"></md-tab>
+  <md-tabs layout-fill>
+    <md-tab ui-sref="process.current" label="Current" md-active="$state.is('process.current')" layout-fill></md-tab>
+    <md-tab ui-sref="process.improvement" label="Improvement" md-active="$state.is('process.improvement')"></md-tab>
+    <md-tab ui-sref="process.quality" label="Quality" md-active="$state.is('process.quality')"></md-tab>
+    <md-tab label="{{'TEST' | translate}}"></md-tab>
   </md-tabs>
 
-</md-content>
+
