@@ -21,17 +21,24 @@
 
 <navigation></navigation>
 
-<md-content ng-cloak layout-fill >
-  <md-tabs md-selected="selectedIndex" md-dynamic-height flex layout-fill>
+<md-content md-dynamic-height layout-fill >
+  <md-tabs md-selected="selectedIndex" layout-fill>
 
-    <md-tab label="Current" >
+    <md-tab label="Current">
       <div layout="row" >
         <process></process>
-        <analyse></analyse>
+      </div>
+      <bar></bar>
+    </md-tab>
+
+    <md-tab label="Improvement" >
+      <div layout="row" >
+        <process flex="50"></process>
+        <analyse flex="50"></analyse>
       </div>
     </md-tab>
 
-    <md-tab label="Improvement">
+    <md-tab label="Quality">
       <div layout="row" >
         <div flex="50">
           <process flex></process>
