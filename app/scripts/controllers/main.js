@@ -9,6 +9,11 @@
  */
 angular.module('wfpcsFrontApp')
   .controller('MainCtrl', function ($scope, $translate, $state) {
+
+    $scope.process = {
+      name:"Awesome naam",
+      subtitle:"epic subtitle"
+    };
       $scope.changeLanguage = function (key) {
         $translate.use(key);
       };
