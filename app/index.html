@@ -23,28 +23,8 @@
 <md-content>
   <div ui-view layout-fill></div>
 </md-content>
+<footer></footer>
 
-<div class="footer">
-  <div class="container">
-    <p>{{'VERTAALD' | translate}}</p>
-    <p>MOJO SOLUTIONS</p>
-
-    <div ng-controller="TranslateCtrl">
-      <md-button ng-click="changeLanguage('nl')" aria-label="Change language" >{{'TAAL' | translate}} NL</md-button>
-      <md-button ng-click="changeLanguage('en')" aria-label="Change language" >{{'TAAL' | translate}} EN</md-button>
-    </div>
-    <form name="colorForm">
-      <md-input-container>
-        <label>Favorite Color</label>
-        <input name="favoriteColor" ng-model="favoriteColor" required>
-        <div ng-messages="userForm.lastName.$error">
-          <div ng-message="required">This is required!</div>
-        </div>
-      </md-input-container>
-    </form>
-
-  </div>
-</div>
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -81,17 +61,18 @@
 <script src="scripts/app.js"></script>
 
 <!--Controllers-->
-<script src="scripts/controllers/translate.js"></script>
+<script src="scripts/controllers/menu.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/process.js"></script>
 <script src="scripts/controllers/navigation.js"></script>
 <script src="scripts/controllers/bar.js"></script>
+
 <!--Directives-->
 <script src="scripts/directives/process.js"></script>
 <script src="scripts/directives/improvement.js"></script>
 <script src="scripts/directives/navigation.js"></script>
 <script src="scripts/directives/bar.js"></script>
-
+<script src="scripts/directives/footer.js"></script>
 
 <!--Services-->
 

@@ -66,18 +66,32 @@ angular
   })
   //translation config
   .config(function ($translateProvider) {
-    $translateProvider.translations('nl', {
-      KWALITEIT: "Kwaliteit",
-      HUIDIGE: "Huidige",
-      VERTAALD: "Dit is een stukje nederlandse tekst",
-      TAAL: "Verander taal",
-      TEST: "TEST"
-    });
 
     $translateProvider.translations('en', {
-      VERTAALD: 'THE same text but in english',
-      TAAL: "Change Language"
+      ENGLISH: "English",
+      BASE: "Base64",
+      SIGNOUT:"Sign out",
+      HOME:"Home",
+      PURCHASE:"Purchase",
+      CONTACT:"Contact",
+      CURRENT:"Current",
+      TOBE:"To be",
+      QUALITY:"Quality"
     });
+
+    $translateProvider.translations('nl', {
+      ENGLISH: "Engels",
+      BASE: "Baas",
+      SIGNOUT:"Uitloggen",
+      HOME:"Thuis",
+      PURCHASE:"Aankopen",
+      CONTACT:"Contact",
+      CURRENT: "Huidige",
+      TOBE:"Verbetering",
+      QUALITY: "Kwaliteit"
+    });
+
+
     $translateProvider.useSanitizeValueStrategy('escape');
-    $translateProvider.preferredLanguage('nl');
+    $translateProvider.preferredLanguage('en');
   });
