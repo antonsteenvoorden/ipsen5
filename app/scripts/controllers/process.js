@@ -7,7 +7,9 @@
  * # AboutCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', function($scope) {
+angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', function($scope, $state) {
+  $scope.$state = $state;
+
   $scope.stappen = [
     {value: 1},
     {value: 2},

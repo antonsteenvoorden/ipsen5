@@ -5,6 +5,6 @@ angular.module('wfpcsFrontApp').directive("improvement", function () {
   return {
     restrict: 'AE',
     replace: 'true',
-    templateUrl: 'views/tabs/improvement.html'
+    templateUrl: 'views/analyse/improvement.html'
   };
 });

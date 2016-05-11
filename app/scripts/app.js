@@ -28,28 +28,29 @@ angular
       .state('/', {
         url: "/",
         templateUrl: 'views/dashboard.html',
-        controller:'MainCtrl'
+        controller: 'MainCtrl'
       })
       .state('process', {
         url: "/process",
         templateUrl: 'views/process.html',
-        controller:'MainCtrl'
+        controller: 'ProcessCtrl'
       })
       .state('process.current', {
         url: "/current",
         templateUrl: 'views/tabs/current.html',
-        controller:'MainCtrl'
+        controller: 'ProcessCtrl'
       })
       .state('process.improvement', {
         url: "/improvement",
         templateUrl: 'views/tabs/improvement.html',
-        controller:'MainCtrl'
+        controller: 'ProcessCtrl'
       })
       .state('process.quality', {
         url: "/quality",
         templateUrl: 'views/tabs/quality.html',
-        controller:'MainCtrl'
+        controller: 'ProcessCtrl'
       })
+
       .state('about', {
         url: "/about",
         templateUrl: 'views/about.html',
@@ -69,13 +70,13 @@ angular
       KWALITEIT: "Kwaliteit",
       HUIDIGE: "Huidige",
       VERTAALD: "Dit is een stukje nederlandse tekst",
-      TAAL:"Verander taal",
-      TEST:"TEST"
+      TAAL: "Verander taal",
+      TEST: "TEST"
     });
 
     $translateProvider.translations('en', {
       VERTAALD: 'THE same text but in english',
-      TAAL:"Change Language"
+      TAAL: "Change Language"
     });
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.preferredLanguage('nl');

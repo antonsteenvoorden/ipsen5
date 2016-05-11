@@ -13,6 +13,6 @@ angular.module('wfpcsFrontApp')
         $translate.use(key);
       };
       $scope.goToProcess = function(){
-        $state.go('process');
+        $state.go('process.current');
       }
   });
