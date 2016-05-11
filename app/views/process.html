@@ -1,19 +1,15 @@
-<md-tabs md-selected="currentTab" md-dynamic-height >
-  <md-tab ui-sref="process.current" label="Current" md-active="$state.is('process.current')" layout-fill>
-    <ui-view layout-fill></ui-view>
-  </md-tab>
+<md-tabs md-selected="currentTab" md-dynamic-height>
+    <md-tab ui-sref="process.current" label="Current" md-active="$state.is('process.current')">
+    </md-tab>
 
-  <md-tab ui-sref="process.improvement" label="Improvement" md-active="$state.is('process.improvement')">
-    <ui-view layout-fill></ui-view>
-  </md-tab>
+    <md-tab ui-sref="process.improvement" label="Improvement" md-active="$state.is('process.improvement')">
+    </md-tab>
 
-  <md-tab ui-sref="process.quality" label="Quality" md-active="$state.is('process.quality')">
-    <ui-view layout-fill></ui-view>
-  </md-tab>
+    <md-tab ui-sref="process.quality" label="Quality" md-active="$state.is('process.quality')">
+    </md-tab>
 
-  <md-tab label="{{'TEST' | translate}}">
-
-  </md-tab>
+    <md-tab label="{{'TEST' | translate}}">
+    </md-tab>
 </md-tabs>
-
+<ui-view></ui-view>
 
