@@ -27,6 +27,11 @@ angular
     $stateProvider
       .state('/', {
         url: "/",
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .state('dashboard', {
+        url: "/dashboard",
         templateUrl: 'views/dashboard.html',
         controller: 'MainCtrl'
       })
@@ -72,7 +77,7 @@ angular
       BASE: "Base64",
       MYPROFILE:"My profile",
       SIGNOUT:"Sign out",
-      HOME:"Home",
+      HOME:"Dashboard",
       PURCHASE:"Purchase",
       CONTACT:"Contact",
       CURRENT:"Current",
@@ -85,7 +90,7 @@ angular
       BASE: "Baas",
       MYPROFILE:"Mijn profiel",
       SIGNOUT:"Uitloggen",
-      HOME:"Thuis",
+      HOME:"Dashboard",
       PURCHASE:"Aankopen",
       CONTACT:"Contact",
       CURRENT: "Huidige",
