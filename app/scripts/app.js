@@ -70,6 +70,7 @@ angular
     $translateProvider.translations('en', {
       ENGLISH: "English",
       BASE: "Base64",
+      MYPROFILE:"My profile",
       SIGNOUT:"Sign out",
       HOME:"Home",
       PURCHASE:"Purchase",
@@ -82,6 +83,7 @@ angular
     $translateProvider.translations('nl', {
       ENGLISH: "Engels",
       BASE: "Baas",
+      MYPROFILE:"Mijn profiel",
       SIGNOUT:"Uitloggen",
       HOME:"Thuis",
       PURCHASE:"Aankopen",
