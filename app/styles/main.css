@@ -120,3 +120,13 @@ span.stapnummer {
   width:100%;
   float:left;
 }
+
+.processCard {
+  width: 300px;
+  background-color: #2aabd2;
+  margin: 30px 50px;
+}
+
+.processCard p {
+  float: right;
+}
