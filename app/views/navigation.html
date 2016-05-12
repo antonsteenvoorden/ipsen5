@@ -4,17 +4,30 @@
     <span>Work Floor Process Control Analists</span>
     <!-- fill up the space between left and right area -->
     <span flex="5"></span>
-    <md-button>
-      Home
+    <md-button ui-sref="/">
+      {{'HOME' | translate}}
     </md-button>
 
     <md-button>
-      Purchase
+      {{'PURCHASE' | translate}}
     </md-button>
 
     <md-button>
-      Contact
+      {{'CONTACT' | translate}}
     </md-button>
+    <span flex></span>
+
+    <md-menu ng-controller="MenuCtrl">
+      <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+        <md-icon class="material-icons" ng-click="">settings</md-icon>
+      </md-button>
+      <md-menu-content>
+        <md-menu-item><md-button ng-click="changeLanguage('en')" aria-label="Change language" >{{'ENGLISH' | translate}}</md-button></md-menu-item>
+        <md-menu-item><md-button ng-click="changeLanguage('nl')" aria-label="Change language">{{'BASE' | translate}}</md-button></md-menu-item>
+        <md-menu-item><md-button ng-click="signOut()" aria-label="Sign out">{{'SIGNOUT' | translate}}</md-button></md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
   </div>
 </md-toolbar>
 
