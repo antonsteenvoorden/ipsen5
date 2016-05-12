@@ -73,6 +73,10 @@ angular
   .config(function ($translateProvider) {
 
     $translateProvider.translations('en', {
+      LOGIN: "Sign in first",
+      USERNAME:"Username",
+      PASSWORD:"Password",
+      LOGINBUTTON:"Sign in",
       ENGLISH: "English",
       BASE: "Base64",
       MYPROFILE:"My profile",
@@ -86,6 +90,10 @@ angular
     });
 
     $translateProvider.translations('nl', {
+      LOGIN: "Log eerst in",
+      USERNAME:"Gebruikersnaam",
+      PASSWORD:"Wachtwoord",
+      LOGINBUTTON:"Aanmelden",
       ENGLISH: "Engels",
       BASE: "Baas",
       MYPROFILE:"Mijn profiel",

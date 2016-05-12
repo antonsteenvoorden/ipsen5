@@ -120,3 +120,8 @@ span.stapnummer {
   width:100%;
   float:left;
 }
+
+.login-image {
+  width:200px;
+  margin:0 auto;
+}
