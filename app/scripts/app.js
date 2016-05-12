@@ -28,7 +28,12 @@ angular
       .state('/', {
         url: "/",
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'UserCtrl'
+      })
+      .state('register', {
+        url: "/register",
+        templateUrl: 'views/register.html',
+        controller: 'UserCtrl'
       })
       .state('dashboard', {
         url: "/dashboard",
@@ -77,6 +82,7 @@ angular
       USERNAME:"Username",
       PASSWORD:"Password",
       LOGINBUTTON:"Sign in",
+      REGISTER:"I don't have an account",
       ENGLISH: "English",
       BASE: "Base64",
       MYPROFILE:"My profile",
@@ -94,6 +100,7 @@ angular
       USERNAME:"Gebruikersnaam",
       PASSWORD:"Wachtwoord",
       LOGINBUTTON:"Aanmelden",
+      REGISTER:"Ik heb nog geen account",
       ENGLISH: "Engels",
       BASE: "Baas",
       MYPROFILE:"Mijn profiel",
