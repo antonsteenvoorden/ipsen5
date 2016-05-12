@@ -1,7 +1,6 @@
 <md-content layout-fill>
   <md-grid-list md-cols="5" md-gutter="1em" md-row-height="200px">
     <md-grid-tile ng-attr-id="{{'dashboard.tile.' + $index }}" ng-repeat="i in [1,2,3,4,5,6,7] track by $index">
-    <md-grid-tile ng-repeat="i in [1,2,3,4] track by $index">
       <md-card ng-click="goToProcess()">
       <md-card-title>{{process.name}}</md-card-title>
       <md-card-header-text>
