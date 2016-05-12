@@ -1,5 +1,16 @@
-<md-content>
-  <md-card layout="center center">
-  <md-button label="LOGIN">LOGIN</md-button>
-  </md-card>
+<md-content layout layout-padding layout-align="center center">
+      <md-card layout-padding style="width:30%;">
+        <img class="login-image" src="images/yeoman.png">
+        <form layout="column">
+          <md-input-container>
+            <label>{{'USERNAME' | translate}}</label>
+            <input required ng-model="username" type="text">
+          </md-input-container>
+          <md-input-container>
+            <label>{{'PASSWORD' | translate}}</label>
+            <input  required ng-model="password" type="password">
+          </md-input-container>
+          <md-button id="login.submit" type="submit">{{'LOGINBUTTON' | translate}}</md-button>
+        </form>
+      </md-card>
 </md-content>
