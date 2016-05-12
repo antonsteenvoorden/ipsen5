@@ -2,24 +2,24 @@
   <md-card class="processCard" ng-click="goToProcess()">
     <md-card-header>
       <md-card-title>
-        Workfloor Process Azië
+        {{process.name}}
       </md-card-title>
       <md-card-subtitle>
-        Date
+        {{process.date}}
       </md-card-subtitle>
     </md-card-header>
     <md-card-content>
       <ul>
-        <li>Batch Size: 5</li>
-        <li>Hours per day: 420</li>
-        <li>Pieces per day: 1337</li>
-        <li>Processs steps: 109</li>
+        <li>Batch Size: {{process.batchSize}}</li>
+        <li>Hours per day: {{process.hoursDay}}</li>
+        <li>Pieces per day: {{process.piecesDay}}</li>
+        <li>Processs steps: {{process.getStepsAmount()}}</li>
       </ul>
       <p>
-        <button class="btn btn-default">
+        <button ng-click="test(); $event.stopPropagation()" class="btn btn-default">
           <span class="glyphicon glyphicon-pencil"></span>
         </button>
-        <button class="btn btn-default">
+        <button ng-click="test(); $event.stopPropagation()" class="btn btn-default">
           <span class="glyphicon glyphicon-remove"></span>
         </button>
       </p>
