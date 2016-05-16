@@ -164,7 +164,9 @@ span.stapnummer {
 
 .processCard {
   width: 300px;
-  background-color: #2aabd2;
+  /*background-color: #2aabd2;*/
+  background-color: #F6F6FF;
+  border:1px;
   margin: 30px 50px;
 }
 
