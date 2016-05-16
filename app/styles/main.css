@@ -6,15 +6,25 @@
 }
 
 body {
-  padding: 0;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.md-tab, .heavy {
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  padding: 12px 24px;
+  transition: background-color .35s cubic-bezier(.35,0,.25,1);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  text-transform: uppercase;
+  float: left;
+  font-weight: 600;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Custom page header */
@@ -116,6 +126,10 @@ span.stapnummer {
   padding-right: 20px;
 }
 
+.navigation {
+  font-weight:500;
+}
+
 .full-size {
   width:100%;
   float:left;
@@ -125,8 +139,27 @@ span.stapnummer {
   width:200px;
   margin:0 auto;
 }
+
 .md-button.md-raised:not([disabled]) {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.md-button.md-primary {
+  background-color: rgb(63,81,181);
+  color:rgba(255,255,255,0.87);
+}
+.md-button.md-primary:hover:not([disabled]) {
+  background-color: rgb(63,81,181);
+  color:rgba(255,255,255,0.87);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.md-button.md-warn {
+  background-color: #f44336;
+  color:rgba(255,255,255,0.87);
+}
+.md-button.md-warn:hover:not([disabled]) {
+  background-color: #f44336;
+  color:rgba(255,255,255,0.87);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 .processCard {
