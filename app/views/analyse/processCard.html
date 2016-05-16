@@ -1,0 +1,28 @@
+<md-content md-whiteframe="5">
+  <md-card class="processCard" ng-click="goToProcess()">
+    <md-card-header>
+      <md-card-title>
+        {{process.name}}
+      </md-card-title>
+      <md-card-subtitle>
+        {{process.date}}
+      </md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <ul>
+        <li>Batch Size: {{process.batchSize}}</li>
+        <li>Hours per day: {{process.hoursDay}}</li>
+        <li>Pieces per day: {{process.piecesDay}}</li>
+        <li>Processs steps: {{process.getStepsAmount()}}</li>
+      </ul>
+      <p>
+        <button ng-click="test(); $event.stopPropagation()" class="btn btn-default">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button ng-click="test(); $event.stopPropagation()" class="btn btn-default">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </p>
+    </md-card-content>
+  </md-card>
+</md-content>

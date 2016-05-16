@@ -128,3 +128,13 @@ span.stapnummer {
 .md-button.md-raised:not([disabled]) {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
+
+.processCard {
+  width: 300px;
+  background-color: #2aabd2;
+  margin: 30px 50px;
+}
+
+.processCard p {
+  float: right;
+}
