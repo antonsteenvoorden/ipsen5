@@ -2,10 +2,10 @@
  * Created by Anton on 17-5-2016.
  */
 angular.module('wfpcsFrontApp')
-  .run(['$rootScope', '$state', 'userService', function ($rootScope, $state, userService) {
+  .run(['$rootScope', '$state', 'authenticationService', function ($rootScope, $state, authenticationService) {
     $rootScope.$on('$locationChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
       if (!toState.includes('register')) {//|| toState !== 'login') {
-        if (!userService.isLoggedIn()) {
+        if (!authenticationService.isAuthenticated()) {
           console.log(toState);
           console.log('DENY : Redirecting to Login');
           event.preventDefault();

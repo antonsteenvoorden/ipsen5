@@ -23,7 +23,7 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
-
+    //$urlRouterProvider.html5Mode(true);
     $stateProvider
       .state('/', {
         url: "/",
@@ -75,7 +75,10 @@ angular
         url: "/test",
         templateUrl: 'views/test.html',
         controller: 'NavigationCtrl',
-        controllerAs: 'about'
+        controllerAs: 'about',
+        //data: {
+        //  authorizedRoles: [USER_ROLES.admin, USER_ROLES.editor]
+        //}
       });
   })
   //translation config
@@ -83,41 +86,56 @@ angular
 
     $translateProvider.translations('en', {
       LOGIN: "Sign in first",
-      USERNAME:"Username",
-      PASSWORD:"Password",
-      LOGINBUTTON:"Sign in",
-      REGISTER:"I don't have an account",
+      USERNAME: "Username",
+      PASSWORD: "Password",
+      LOGINBUTTON: "Sign in",
+      REGISTER: "I don't have an account",
       ENGLISH: "English",
       BASE: "Base64",
-      MYPROFILE:"My profile",
-      SIGNOUT:"Sign out",
-      HOME:"Dashboard",
-      PURCHASE:"Purchase",
-      CONTACT:"Contact",
-      CURRENT:"Current",
-      TOBE:"To be",
-      QUALITY:"Quality"
+      MYPROFILE: "My profile",
+      SIGNOUT: "Sign out",
+      HOME: "Dashboard",
+      PURCHASE: "Purchase",
+      CONTACT: "Contact",
+      CURRENT: "Current",
+      TOBE: "To be",
+      QUALITY: "Quality"
     });
 
     $translateProvider.translations('nl', {
       LOGIN: "Log eerst in",
-      USERNAME:"Gebruikersnaam",
-      PASSWORD:"Wachtwoord",
-      LOGINBUTTON:"Aanmelden",
-      REGISTER:"Ik heb nog geen account",
+      USERNAME: "Gebruikersnaam",
+      PASSWORD: "Wachtwoord",
+      LOGINBUTTON: "Aanmelden",
+      REGISTER: "Ik heb nog geen account",
       ENGLISH: "Engels",
       BASE: "Baas",
-      MYPROFILE:"Mijn profiel",
-      SIGNOUT:"Uitloggen",
-      HOME:"Dashboard",
-      PURCHASE:"Aankopen",
-      CONTACT:"Contact",
+      MYPROFILE: "Mijn profiel",
+      SIGNOUT: "Uitloggen",
+      HOME: "Dashboard",
+      PURCHASE: "Aankopen",
+      CONTACT: "Contact",
       CURRENT: "Huidige",
-      TOBE:"Verbetering",
+      TOBE: "Verbetering",
       QUALITY: "Kwaliteit"
     });
 
 
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.preferredLanguage('en');
+  })
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('requestService');
+
+    if (!$httpProvider.defaults.headers.get) {
+      $httpProvider.defaults.headers.get = {};
+    }
+
+  })
+  .constant('USER_ROLES', {
+    all: '*',
+    admin: 'admin',
+    customer: 'customer',
+    guest: 'guest'
   });
+

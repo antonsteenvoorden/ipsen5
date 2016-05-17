@@ -8,14 +8,20 @@
  * Service in the wfpcsFrontApp.
  */
 angular.module('wfpcsFrontApp')
-  .service('userService', function ($http) {
+  .service('userService', function (authenticationService) {
     var self = this;
-    // AngularJS will instantiate a singleton by calling "new" on this function
+
+    //credential shit
+    var accessId = null;
+    var accessKey = null;
+    var permissions = [];
+    var authenticator = null;
+
     self.register = function (user) {
       var uri = 'api/klanten/';
       var data = {
-        username:user.username,
-        password:user.password
+        username: user.username,
+        password: user.password
       };
 
       $http.post(uri, data)
@@ -25,8 +31,13 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    self.isLoggedIn = function() {
-      return false;
+    self.authenticate = function(user) {
+      if(user) {
+        if(authenticationService.authenticate(user)){
+          $state.go('/dashboard')
+        }
+      }
     };
-  })
-;
+
+
+  });
