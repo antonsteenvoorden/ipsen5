@@ -8,7 +8,7 @@
  * Service in the wfpcsFrontApp.
  */
 angular.module('wfpcsFrontApp')
-  .service('user', function ($http) {
+  .service('userService', function ($http) {
     var self = this;
     // AngularJS will instantiate a singleton by calling "new" on this function
     self.register = function (user) {
@@ -23,6 +23,10 @@ angular.module('wfpcsFrontApp')
         .error(function (message) {
           alert('Aanmaken mislukt: ' + message);
         });
+    };
+
+    self.isLoggedIn = function() {
+      return false;
     };
   })
 ;

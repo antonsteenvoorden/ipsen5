@@ -27,6 +27,11 @@ angular
     $stateProvider
       .state('/', {
         url: "/",
+        templateUrl: 'views/register.html',
+        controller: 'UserCtrl'
+      })
+      .state('login', {
+        url: "/login",
         templateUrl: 'views/login.html',
         controller: 'UserCtrl'
       })
@@ -60,7 +65,6 @@ angular
         templateUrl: 'views/tabs/quality.html',
         controller: 'ProcessCtrl'
       })
-
       .state('about', {
         url: "/about",
         templateUrl: 'views/about.html',
