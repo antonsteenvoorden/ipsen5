@@ -8,6 +8,11 @@
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('UserCtrl', function ($scope, $translate, $state) {
-    
+  .controller('UserCtrl', function ($scope, $translate, $state, userService) {
+    $scope.login = function(user){
+      userService.authenticate(user)
+    }
+    $scope.logOut = function(){
+      userService.logOut();
+    }
   });
