@@ -33,7 +33,7 @@ angular
     $stateProvider
       .state('/', {
         url: "/",
-        templateUrl: 'views/register.html',
+        templateUrl: 'views/login.html',
         controller: 'UserCtrl'
       })
       .state('login', {
