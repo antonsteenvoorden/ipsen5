@@ -2,7 +2,7 @@
  * Created by Anton on 17-5-2016.
  */
 angular.module('wfpcsFrontApp')
-  .service('authenticationService', function ($rootScope) {
+  .service('authenticationService', function ($rootScope, $window) {
     var self = this;
 
     //credential shit
@@ -10,18 +10,22 @@ angular.module('wfpcsFrontApp')
     var accessKey = null;
     var permissions = [];
     var authenticator = null;
+    var authenticated = null;
 
     self.authenticate = function(user) {
       self.setAccessId(user.username);
       self.setAccessKey(user.password);
 
-      return self.requestAuthentication( function(authenticated){
-        self.setAuthenticator(user);
-        self.setPermissions(user.permissions);
-        self.storeAuthentication(user);
-        return authenticated;
+      self.requestAuthentication( function(authenticated){
+        console.log(authenticated);
+        if(authenticated) {
+          self.setAuthenticator(user);
+          self.setPermissions(user.permissions);
+          self.storeAuthentication(user);
+        }
+        self.authenticated = authenticated;
       });
-
+      return self.authenticated;
     };
 
     self.requestAuthentication = function (onSuccess) {
@@ -31,7 +35,7 @@ angular.module('wfpcsFrontApp')
       //  .error(function (message, status) {
       //    alert('Inloggen mislukt: ' + message);
       //  });
-      onSucces(true);
+      onSuccess(true);
     };
 
 // GETTERS & SETTERS
@@ -60,16 +64,14 @@ angular.module('wfpcsFrontApp')
       }
     };
     self.setAuthenticator = function (user) {
-      if (user) {
         $rootScope.authenticator = user;
-      }
     };
     self.createAuthorizationString = function () {
       return 'Basic ' + Base64.encode(accessId + ':' + accessKey);
     };
 
     self.isAuthenticated = function () {
-      return (accessId !== null && accessKey !== null)
+      return $rootScope.authenticator !== undefined;
     };
 
     self.createAuthentication = function (identifier, password) {
@@ -96,14 +98,13 @@ angular.module('wfpcsFrontApp')
         //self.setPermissions(authenticator.permissions);
         self.setAuthenticator(authenticator);
       }
-
     };
 
     self.deleteAuthentication = function () {
       self.setAccessId(null);
       self.setAccessKey(null);
       self.setPermissions(null);
-      self.setAuthenticator(null);
+      self.setAuthenticator(undefined);
 
       $window.sessionStorage.removeItem('authenticator');
       $window.localStorage.removeItem('authenticator');

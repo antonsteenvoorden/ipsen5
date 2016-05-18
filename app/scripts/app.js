@@ -21,6 +21,12 @@ angular
     'ngMaterial',
     'ui.router'
   ])
+  .constant('USER_ROLES', {
+    all: '*',
+    admin: 'admin',
+    customer: 'customer',
+    guest: 'guest'
+  })
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
     //$urlRouterProvider.html5Mode(true);
@@ -71,13 +77,13 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .state('test', {
-        url: "/test",
+      .state('admin', {
+        url: "/admin",
         templateUrl: 'views/test.html',
         controller: 'NavigationCtrl',
         controllerAs: 'about',
         //data: {
-        //  authorizedRoles: [USER_ROLES.admin, USER_ROLES.editor]
+        //  authorizedRoles: [USER_ROLES.admin]
         //}
       });
   })
@@ -131,11 +137,6 @@ angular
       $httpProvider.defaults.headers.get = {};
     }
 
-  })
-  .constant('USER_ROLES', {
-    all: '*',
-    admin: 'admin',
-    customer: 'customer',
-    guest: 'guest'
   });
+
 

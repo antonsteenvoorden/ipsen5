@@ -9,5 +9,10 @@
  */
 angular.module('wfpcsFrontApp')
   .controller('UserCtrl', function ($scope, $translate, $state, userService) {
-    userService.authenticate($scope.user);
+    $scope.login = function(user){
+      userService.authenticate(user)
+    }
+    $scope.logOut = function(){
+      userService.logOut();
+    }
   });

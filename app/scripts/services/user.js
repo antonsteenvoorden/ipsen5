@@ -8,7 +8,7 @@
  * Service in the wfpcsFrontApp.
  */
 angular.module('wfpcsFrontApp')
-  .service('userService', function (authenticationService) {
+  .service('userService', function (authenticationService, $state) {
     var self = this;
 
     //credential shit
@@ -31,13 +31,16 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    self.authenticate = function(user) {
-      if(user) {
-        if(authenticationService.authenticate(user)){
-          $state.go('/dashboard')
+    self.authenticate = function (user) {
+      if (user) {
+        if (authenticationService.authenticate(user)) {
+          $state.go('dashboard')
         }
       }
     };
 
+    self.logOut = function(){
+      authenticationService.deleteAuthentication();
+    };
 
   });
