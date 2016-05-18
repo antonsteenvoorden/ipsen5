@@ -19,7 +19,9 @@ angular
     'ngSanitize',
     'chart.js',
     'ngMaterial',
-    'ui.router'
+    'ui.router',
+    'permission',
+    'permission.ui'
   ])
   .constant('USER_ROLES', {
     all: '*',
@@ -28,7 +30,10 @@ angular
     guest: 'guest'
   })
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+    //$urlRouterProvider.otherwise( function($injector) {
+    //  var $state = $injector.get("$state");
+    //  $state.go('/');
+    //});
     //$urlRouterProvider.html5Mode(true);
     $stateProvider
       .state('/', {
@@ -44,12 +49,24 @@ angular
       .state('register', {
         url: "/register",
         templateUrl: 'views/register.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAdmin'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('dashboard', {
         url: "/dashboard",
         templateUrl: 'views/dashboard.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthorized'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('process', {
         url: "/process",
