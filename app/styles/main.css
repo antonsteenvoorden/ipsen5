@@ -123,10 +123,31 @@ span.stapnummer {
 
 .processCard {
   width: 300px;
-  background-color: #2aabd2;
+  background-color: #66afe9;
   margin: 30px 50px;
 }
 
 .processCard p {
   float: right;
+}
+
+/*  Process Dashboard Section.
+    Selector of md-card-* elements is recognized, and working
+    IDE is drunk.*/
+md-card-title {
+  color: #FFFFFF;
+}
+
+md-card-header {
+  margin-bottom: 0px;
+  padding-bottom: 0px !important;
+}
+
+md-card-content {
+  padding-top: 0px !important;
+  margin-top: 0px;
+}
+
+md-card-content ul {
+  list-style-type: none;
 }

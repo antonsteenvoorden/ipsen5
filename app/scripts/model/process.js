@@ -1,11 +1,12 @@
 /**
  * Created by Roy on 18-5-2016.
  */
-var Process = function(id, name, date, batchSize, piecesDay) {
+var Process = function(id, name, date, batchSize, hoursDay, piecesDay) {
   this.id = id;
   this.name = name;
   this.date = date;
   this.batchSize = batchSize;
+  this.hoursDay = hoursDay;
   this.piecesDay = piecesDay;
   this.stepAmount = this.getStepAmount();
 }
