@@ -41,6 +41,7 @@ angular.module('wfpcsFrontApp')
 
     self.logOut = function(){
       authenticationService.deleteAuthentication();
+      $state.go('login');
     };
 
   });
