@@ -10,6 +10,11 @@
 angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', function($scope, $state) {
   $scope.$state = $state;
 
+  $scope.testProcessen = [
+    new Process(1, "Alfa", "01/01/1999", 1, 3)
+  ];
+  $scope.process = new Process(1, "Alfa", "01/01/1991", 1, 3);
+
   $scope.stappen = [
     {value: 1},
     {value: 2},
