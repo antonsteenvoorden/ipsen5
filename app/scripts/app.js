@@ -143,14 +143,14 @@ angular
       CURRENT: "Huidige",
       TOBE: "Verbetering",
       QUALITY: "Kwaliteit",
-      COMPANYNAME:"Bedrijfs naam",
-      COMPANYDESCRIPTION:"Bedrijfs beschrijving",
+      COMPANYNAME:"Bedrijfsnaam",
+      COMPANYDESCRIPTION:"Bedrijfsomschrijving",
       ADRESS:"Adres",
-      ZIPCODE:"Zipcode",
-      CITY:"Stad",
-      EMAIL:"E-mail",
+      ZIPCODE:"Postcode",
+      CITY:"Woonplaats",
+      EMAIL:"E-mailadres",
       REGISTERBUTTON:"Registreer",
-      PASSWORDCONFIRM:"wachtwoord bevestigen"
+      PASSWORDCONFIRM:"Wachtwoord bevestigen"
     });
 
 
