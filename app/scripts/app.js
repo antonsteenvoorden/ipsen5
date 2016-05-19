@@ -109,6 +109,7 @@ angular
 
     $translateProvider.translations('en', {
       LOGIN: "Sign in first",
+      LOGINFAIL: "Log in failed! Make sure you enter the correct credentials",
       USERNAME: "Username",
       PASSWORD: "Password",
       LOGINBUTTON: "Sign in",
@@ -127,6 +128,7 @@ angular
 
     $translateProvider.translations('nl', {
       LOGIN: "Log eerst in",
+      LOGINFAIL: "Inloggen niet gelukt! Zorg dat je de goede gegevens invult!",
       USERNAME: "Gebruikersnaam",
       PASSWORD: "Wachtwoord",
       LOGINBUTTON: "Aanmelden",

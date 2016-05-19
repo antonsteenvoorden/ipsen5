@@ -8,7 +8,7 @@
  * Service in the wfpcsFrontApp.
  */
 angular.module('wfpcsFrontApp')
-  .service('userService', function (authenticationService, $state) {
+  .service('userService', function (authenticationService, $state, $mdToast, $translate) {
     var self = this;
 
     //credential shit
@@ -35,6 +35,8 @@ angular.module('wfpcsFrontApp')
       if (user) {
         if (authenticationService.authenticate(user)) {
           $state.go('dashboard')
+        } else {
+          $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
         }
       }
     };
