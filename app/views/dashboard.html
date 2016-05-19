@@ -1,3 +1,7 @@
 <div ng-controller="ProcessCtrl" class="md-padding" layout="row" layout-wrap>
   <process-card ng-repeat="process in testProcessen"/>
+  <div class="newCard"><md-button ng-click="test()" class="btn newCard">
+    <!--<span class="glyphicon glyphicon-plus-sign"></span>-->
+    <md-icon class="material-icons">add_circle_outline</md-icon>
+  </md-button></div>
 </div>

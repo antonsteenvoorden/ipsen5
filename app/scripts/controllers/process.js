@@ -26,6 +26,12 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', f
     {value: 3}
   ];
 
+  $scope.test = function() {
+    $scope.testProcessen.push(
+      new Process(9, "Created", "19/05/2016", 8, 8, 700)
+    );
+  }
+
   $scope.add = function() {
     $scope.stappen.push({value: $scope.stappen.length + 1});
   };
