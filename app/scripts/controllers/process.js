@@ -32,6 +32,10 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', f
     );
   };
 
+  $scope.openAddProcessView = function() {
+    
+  };
+
   /**
    * Delete process with given process id.
    * @param id
