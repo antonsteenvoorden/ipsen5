@@ -123,8 +123,9 @@ angular
       CITY:"City",
       EMAIL:"E-mail",
       REGISTERBUTTON:"Register",
-      PASSWORDCONFIRM: "Confirm password"
-
+      PASSWORDCONFIRM: "Confirm password",
+      CANCELRBUTTON:"Cancel",
+      REGISTERTITLE: "Register"
     });
 
     $translateProvider.translations('nl', {
@@ -150,7 +151,9 @@ angular
       CITY:"Woonplaats",
       EMAIL:"E-mailadres",
       REGISTERBUTTON:"Registreer",
-      PASSWORDCONFIRM:"Wachtwoord bevestigen"
+      PASSWORDCONFIRM:"Wachtwoord bevestigen",
+      CANCELRBUTTON:"Annuleren",
+      REGISTERTITLE:"Registreren"
     });
 
 

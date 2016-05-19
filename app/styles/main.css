@@ -173,3 +173,7 @@ span.stapnummer {
 .processCard p {
   float: right;
 }
+
+.md-title{
+  font-size: 24pt;
+}
