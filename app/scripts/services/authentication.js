@@ -20,7 +20,8 @@ angular.module('wfpcsFrontApp')
         console.log(authenticated);
         if(authenticated) {
           self.setAuthenticator(user);
-          self.setPermissions(user.permissions);
+          //self.setPermissions(user.permissions);
+          self.setPermissions(['ADMIN']);
           self.storeAuthentication(user);
         }
         self.authenticated = authenticated;
@@ -56,10 +57,12 @@ angular.module('wfpcsFrontApp')
     };
 
     self.getPermissions = function () {
-      return permissions;
+      return $rootScope.authenticator.permissions;
     };
+
     self.setPermissions = function (permissions) {
-      if (permissions != null) {
+      if (authenticator !== undefined) {
+        this.permissions = permissions;
         $rootScope.authenticator.permissions = permissions;
       }
     };
