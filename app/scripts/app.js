@@ -51,6 +51,11 @@ angular
         templateUrl: 'views/myprofile.html',
         controller: 'UserCtrl'
       })
+      .state('contact', {
+        url: "/contact",
+        templateUrl: 'views/contact.html',
+        controller: 'UserCtrl'
+      })
       .state('dashboard', {
         url: "/dashboard",
         templateUrl: 'views/dashboard.html',

@@ -1,0 +1,16 @@
+<md-content layout layout-padding layout-align="center center">
+  <md-card layout-padding style="width:30%;">
+      <form layout="column">
+        <md-input-container>
+          <md-icon class="material-icons"></md-icon>
+          <label>{{'RECEIVER' | translate}}</label>
+          <input required ng-model="user.receiver" type="text">
+        </md-input-container>
+
+        <textarea></textarea>
+
+        <md-button id="contact.submit" ng-click="" type="submit" class="md-primary">
+          {{'CONTACTBUTTON' | translate}}
+        </md-button>
+      </form>
+</md-content>
