@@ -1,0 +1,44 @@
+<md-content layout layout-padding layout-align="center center">
+  <md-card layout-padding style="width:30%;">
+    <form layout="column">
+
+    <md-input-container>
+      <md-icon class="material-icons"> </md-icon>
+      <label>{{'COMPANYNAME' | translate}}</label>
+      <input md-autofocus required ng-model="user.companyname" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <md-icon class="material-icons"> </md-icon>
+      <label>{{'COMPANYDESCRIPTION' | translate}}</label>
+      <input md-autofocus ng-model="user.companydescription" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <md-icon class="material-icons"> </md-icon>
+      <label>{{'ADRESS' | translate}}</label>
+      <input md-autofocus required ng-model="user.adress" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <md-icon class="material-icons"> </md-icon>
+      <label>{{'ZIPCODE' | translate}}</label>
+      <input md-autofocus required ng-model="user.zipcode" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <md-icon class="material-icons"> </md-icon>
+      <label>{{'CITY' | translate}}</label>
+      <input md-autofocus required ng-model="user.city" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <md-icon class="material-icons"> </md-icon>
+      <label>{{'EMAIL' | translate}}</label>
+      <input md-autofocus required ng-model="user.email" type="text">
+    </md-input-container>
+
+    </form>
+  </md-card>
+</md-content>
+

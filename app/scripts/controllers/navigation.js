@@ -35,4 +35,9 @@ angular.module('wfpcsFrontApp')
       $location.path('/test');
     };
 
+    $scope.goToMyProfile = function()
+    {
+      $location.path('/myprofile');
+    };
+
   });
