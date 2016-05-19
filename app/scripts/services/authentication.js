@@ -57,8 +57,9 @@ angular.module('wfpcsFrontApp')
     };
 
     self.getPermissions = function () {
-      return permissions;
+      return $rootScope.authenticator.permissions;
     };
+
     self.setPermissions = function (permissions) {
       if (authenticator !== undefined) {
         this.permissions = permissions;

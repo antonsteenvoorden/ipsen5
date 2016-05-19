@@ -30,10 +30,10 @@ angular
     guest: 'guest'
   })
   .config(function ($stateProvider, $urlRouterProvider) {
-    //$urlRouterProvider.otherwise( function($injector) {
-    //  var $state = $injector.get("$state");
-    //  $state.go('/');
-    //});
+    $urlRouterProvider.otherwise( function($injector) {
+     var $state = $injector.get("$state");
+     $state.go('/');
+    });
     //$urlRouterProvider.html5Mode(true);
     $stateProvider
       .state('/', {
