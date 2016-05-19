@@ -105,7 +105,16 @@ angular
       CONTACT: "Contact",
       CURRENT: "Current",
       TOBE: "To be",
-      QUALITY: "Quality"
+      QUALITY: "Quality",
+      COMPANYNAME:"Company name",
+      COMPANYDESCRIPTION:"Company description",
+      ADRESS:"Adress",
+      ZIPCODE:"Zipcode",
+      CITY:"City",
+      EMAIL:"E-mail",
+      REGISTERBUTTON:"Register",
+      PASSWORDCONFIRM: "Confirm password"
+
     });
 
     $translateProvider.translations('nl', {
@@ -123,7 +132,15 @@ angular
       CONTACT: "Contact",
       CURRENT: "Huidige",
       TOBE: "Verbetering",
-      QUALITY: "Kwaliteit"
+      QUALITY: "Kwaliteit",
+      COMPANYNAME:"Bedrijfs naam",
+      COMPANYDESCRIPTION:"Bedrijfs beschrijving",
+      ADRESS:"Adres",
+      ZIPCODE:"Zipcode",
+      CITY:"Stad",
+      EMAIL:"E-mail",
+      REGISTERBUTTON:"Registreer",
+      PASSWORDCONFIRM:"wachtwoord bevestigen"
     });
 
 

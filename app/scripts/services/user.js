@@ -21,7 +21,13 @@ angular.module('wfpcsFrontApp')
       var uri = 'api/klanten/';
       var data = {
         username: user.username,
-        password: user.password
+        password: user.password,
+        companyname: user.companyname,
+        companydescription: user.companydescription,
+        adress: user.adress,
+        zipcode: user.zipcode,
+        city: user.city,
+        email: user.email
       };
 
       $http.post(uri, data)

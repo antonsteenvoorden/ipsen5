@@ -15,7 +15,7 @@ angular.module('wfpcsFrontApp')
     $scope.logOut = function(){
       userService.logOut();
     }
-    $scope.register = function(){
+    $scope.register = function(user){
       userService.register(user);
     }
   });
