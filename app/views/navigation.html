@@ -4,6 +4,7 @@
     <span>Work Floor Process Control Analists</span>
     <!-- fill up the space between left and right area -->
     <span flex="5"></span>
+    <div permission permission-only="'isAuthorized'">
     <md-button class="heavy" id="nav.home" ui-sref="dashboard">
       {{'HOME' | translate}}
     </md-button>
@@ -15,9 +16,10 @@
     <md-button class="heavy" id="nav.contact">
       {{'CONTACT' | translate}}
     </md-button>
+    </div>
     <span flex></span>
 
-    <md-menu ng-controller="UserCtrl">
+    <md-menu permission permission-only="'isAuthorized'" ng-controller="UserCtrl">
       <md-button id="nav.account"  ng-click="$mdOpenMenu($event)" class="md-icon-button">
         <md-icon class="material-icons" ng-click="">account_circle</md-icon>
       </md-button>

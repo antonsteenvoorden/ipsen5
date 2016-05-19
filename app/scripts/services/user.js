@@ -17,6 +17,10 @@ angular.module('wfpcsFrontApp')
     var permissions = [];
     var authenticator = null;
 
+    self.isAuthenticated = function () {
+      return authenticationService.authenticated;
+    };
+
     self.register = function (user) {
       var uri = 'api/klanten/';
       var data = {
@@ -34,7 +38,7 @@ angular.module('wfpcsFrontApp')
     self.authenticate = function (user) {
       if (user) {
         if (authenticationService.authenticate(user)) {
-          $state.go('dashboard')
+          $state.go('dashboard');
         } else {
           $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
         }

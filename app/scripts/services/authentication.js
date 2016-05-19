@@ -30,7 +30,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.requestAuthentication = function (onSuccess) {
-      //var uri = '/api/klanten/' + authString.accessId;
+      //var uri = '/api/user/' + authString.accessId;
       //$http.get(uri)
       //  .success(onSuccess(true))
       //  .error(function (message, status) {
