@@ -30,9 +30,9 @@ angular
     guest: 'guest'
   })
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise( function($injector) {
-     var $state = $injector.get("$state");
-     $state.go('/');
+    $urlRouterProvider.otherwise(function ($injector) {
+      var $state = $injector.get("$state");
+      $state.go('/');
     });
     //$urlRouterProvider.html5Mode(true);
     $stateProvider
@@ -63,7 +63,7 @@ angular
         controller: 'MainCtrl',
         data: {
           permissions: {
-            only: ['isAuthorized'],
+            only: ['isAuthenticated'],
             redirectTo: 'login'
           }
         }
@@ -94,14 +94,21 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .state('401', {
+        url: "/401",
+        templateUrl: 'views/notAuthorized.html'
+      })
       .state('admin', {
         url: "/admin",
         templateUrl: 'views/test.html',
-        controller: 'NavigationCtrl',
+        controller: 'MainCtrl',
         controllerAs: 'about',
-        //data: {
-        //  authorizedRoles: [USER_ROLES.admin]
-        //}
+        data: {
+          permissions: {
+            only: ['isAdmin'],
+            redirectTo: '401'
+          }
+        }
       });
   })
   //translation config
