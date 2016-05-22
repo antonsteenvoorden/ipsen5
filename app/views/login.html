@@ -1,0 +1,21 @@
+<md-content layout layout-padding layout-align="center center">
+  <md-card layout-padding style="width:30%;">
+    <img class="login-image" src="images/wfpcs.png">
+    <form layout="column">
+      <md-input-container>
+        <md-icon class="material-icons">account_circle</md-icon>
+        <label>{{'USERNAME' | translate}}</label>
+        <input md-autofocus required ng-model="user.username" type="text">
+      </md-input-container>
+      <md-input-container>
+        <md-icon class="material-icons">vpn_key</md-icon>
+        <label>{{'PASSWORD' | translate}}</label>
+        <input required ng-model="user.password" type="password">
+      </md-input-container>
+      <md-button id="login.submit" ng-click="login(user)" type="submit" class="md-primary">
+        {{'LOGINBUTTON' | translate}}
+      </md-button>
+    </form>
+    <a ui-sref="register">{{'REGISTER' | translate }}</a>
+  </md-card>
+</md-content>
