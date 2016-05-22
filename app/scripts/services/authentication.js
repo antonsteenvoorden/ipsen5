@@ -9,7 +9,7 @@ angular.module('wfpcsFrontApp')
     var accessId = null;
     var accessKey = null;
     var permissions = [];
-    var authenticated = false;
+    self.authenticated = false;
 
     self.authenticate = function(user) {
       self.setAccessId(user.username);
@@ -80,7 +80,7 @@ angular.module('wfpcsFrontApp')
 
     self.isAuthenticated = function () {
       restoreAuthentication();
-      return $rootScope.authenticator !== undefined;
+      return self.authenticated;
     };
 
     self.createAuthentication = function (identifier, password) {
@@ -108,6 +108,7 @@ angular.module('wfpcsFrontApp')
         self.setAccessKey(authenticator.accessKey);
         //self.setPermissions(authenticator.permissions);
         self.setAuthenticator(authenticator);
+        self.authenticated = true;
       }
     };
 
