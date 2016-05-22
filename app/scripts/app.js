@@ -21,7 +21,8 @@ angular
     'ngMaterial',
     'ui.router',
     'permission',
-    'permission.ui'
+    'permission.ui',
+    'ngDialog',
   ])
   .constant('USER_ROLES', {
     all: '*',
