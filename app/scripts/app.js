@@ -46,6 +46,11 @@ angular
         templateUrl: 'views/login.html',
         controller: 'UserCtrl'
       })
+        .state('recover', {
+          url: "/recover",
+          templateUrl: 'views/recover.html',
+          controller: 'UserCtrl'
+        })
       .state('register', {
         url: "/register",
         templateUrl: 'views/register.html',
@@ -119,6 +124,7 @@ angular
       LOGINFAIL: "Log in failed! Make sure you enter the correct credentials",
       USERNAME: "Username",
       PASSWORD: "Password",
+      RECOVER_PASSWORD:"I forgot my password",
       LOGINBUTTON: "Sign in",
       REGISTER: "I don't have an account",
       ENGLISH: "English",
@@ -138,6 +144,7 @@ angular
       LOGINFAIL: "Inloggen niet gelukt! Zorg dat je de goede gegevens invult!",
       USERNAME: "Gebruikersnaam",
       PASSWORD: "Wachtwoord",
+      RECOVER_PASSWORD:"Ik ben mijn wachtwoord vergeten",
       LOGINBUTTON: "Aanmelden",
       REGISTER: "Ik heb nog geen account",
       ENGLISH: "Engels",
