@@ -20,7 +20,7 @@ angular
     'chart.js',
     'ngMaterial',
     'ngDialog',
-    'ui.router'
+    'ui.router',
     'ui.router',
     'permission',
     'permission.ui',
