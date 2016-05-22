@@ -21,6 +21,14 @@ angular.module('wfpcsFrontApp')
       );
     };
 
+    self.deleteProcess = function(id) {
+      processen.forEach(function(value, index) {
+        if(value.id == id) {
+          processen.splice(index, 1);//Remove one.
+        }
+      });
+    };
+
     self.getProcessen = function() {
       return processen;
     };
