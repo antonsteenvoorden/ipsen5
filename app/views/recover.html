@@ -20,10 +20,15 @@
         <label>{{'EMAIL' | translate}}</label>
         <input md-autofocus required ng-model="user.email" type="text">
       </md-input-container>
-      <md-button id="login.submit" ng-click="recover(user)" type="submit" class="md-primary">
+      <div layout="row">
+      <md-button id="recover.submit" ng-click="recover(user)" type="submit" class="md-primary">
         {{'RECOVER_PASSWORD_BUTTON' | translate}}
       </md-button>
 
+      <md-button id="recover.cancel" class="md-warn" ui-sref="/">
+        {{'CANCEL' | translate}}
+      </md-button>
+      </div>
     </form>
   </md-card>
 </md-content>
