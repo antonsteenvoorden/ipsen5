@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'chart.js',
     'ngMaterial',
-    'ui.router'
+    'ngDialog',
+    'ui.router',
   ])
   .constant('USER_ROLES', {
     all: '*',

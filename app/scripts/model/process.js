@@ -9,6 +9,7 @@ var Process = function(id, name, date, batchSize, hoursDay, piecesDay) {
   this.hoursDay = hoursDay;
   this.piecesDay = piecesDay;
   this.stepAmount = this.getStepAmount();
+  this.position = NaN; //@TODO: position should get fetched from database.
 }
 
 Process.prototype.test = function() {

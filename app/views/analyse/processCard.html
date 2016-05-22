@@ -1,11 +1,22 @@
   <md-card class="processCard" ng-click="goToProcess()" md-whiteframe="12">
     <md-card-header>
+      <md-card-avatar>
+        {{process.date}}<br />
+        v1.0
+      </md-card-avatar>
       <md-card-title>
         <h1>{{process.name}}</h1>
       </md-card-title>
       <md-card-subtitle>
-        {{process.date}}<br />
-        v1.0
+        <md-menu>
+          <a ng-click="$mdOpenMenu($event)">
+            <md-icon class="material-icons">more_verti</md-icon>
+          </a>
+          <md-menu-content>
+            <md-menu-item><md-button><md-icon class="material-icons">edit</md-icon></md-button></md-menu-item>
+            <md-menu-item><md-button ng-click="deleteProcess(process.id)"><md-icon class="material-icons">delete</md-icon></md-button></md-menu-item>
+          </md-menu-content>
+        </md-menu>
       </md-card-subtitle>
     </md-card-header>
     <md-card-content>
@@ -15,13 +26,5 @@
         <li>Pieces per day: {{process.piecesDay}}</li>
         <li>Processs steps: {{process.stepAmount}}</li>
       </ul>
-      <p>
-        <button ng-click="test(); $event.stopPropagation()" class="btn btn-default">
-          <span class="glyphicon glyphicon-pencil"></span>
-        </button>
-        <button ng-click="test(); $event.stopPropagation()" class="btn btn-default">
-          <span class="glyphicon glyphicon-remove"></span>
-        </button>
-      </p>
     </md-card-content>
   </md-card>

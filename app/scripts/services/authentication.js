@@ -71,6 +71,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.isAuthenticated = function () {
+      restoreAuthentication();
       return $rootScope.authenticator !== undefined;
     };
 
@@ -81,7 +82,8 @@ angular.module('wfpcsFrontApp')
 
     self.storeAuthentication = function (user) {
       var authenticator = angular.toJson(user);
-      var storage = (user.remember === true) ? $window.localStorage : $window.sessionStorage;
+      // var storage = (user.remember === true) ? $window.localStorage : $window.sessionStorage;
+      var storage = $window.localStorage;
       storage.setItem('authenticator', authenticator);
     };
 
@@ -90,7 +92,8 @@ angular.module('wfpcsFrontApp')
 
       if (authenticator === null) {
         authenticator = $window.localStorage.getItem('authenticator');
-      } else {
+      }
+      if(authenticator !== null) {
         authenticator = JSON.parse(authenticator);
 
         self.setAccessId(authenticator.accessId);

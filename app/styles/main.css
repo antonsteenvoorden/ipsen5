@@ -164,7 +164,8 @@ span.stapnummer {
 
 .processCard {
   width: 300px;
-  background-color: #66afe9;
+  background-color: #92e3b5;
+  border:1px;
   margin: 30px 50px;
 }
 
@@ -191,4 +192,32 @@ md-card-content {
 
 md-card-content ul {
   list-style-type: none;
+}
+
+md-card-content button {
+  background-color: #f5a948;
+}
+
+div.newCard {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+button.newCard {
+  font-size: 80pt;
+  color: green;
+  background-color: white;
+}
+
+button.newCard:active {
+  color: green;
+}
+
+button.newCard:hover {
+  color: green;
+  text-shadow:
+    -1px -1px 8px #AAff00,
+    1px -1px 8px #AAFF00,
+    -1px 1px 8px #AAff00,
+    1px 1px 8px #AAff00;
 }

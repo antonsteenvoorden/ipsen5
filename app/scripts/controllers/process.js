@@ -26,6 +26,28 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', f
     {value: 3}
   ];
 
+  $scope.addProcess = function() {
+    $scope.testProcessen.push(
+      new Process(9, "Created", "19/05/2016", 8, 8, 700)
+    );
+  };
+
+  $scope.openAddProcessView = function() {
+    
+  };
+
+  /**
+   * Delete process with given process id.
+   * @param id
+     */
+  $scope.deleteProcess = function(id) {
+    $scope.testProcessen.forEach(function(value, i) {
+      if(value.id == id) {
+        $scope.testProcessen.splice(i, 1);
+      }
+    });
+  };
+
   $scope.add = function() {
     $scope.stappen.push({value: $scope.stappen.length + 1});
   };
