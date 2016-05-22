@@ -16,6 +16,10 @@
         {{'LOGINBUTTON' | translate}}
       </md-button>
     </form>
-    <a ui-sref="register">{{'REGISTER' | translate }}</a>
+    <div layout="row">
+      <a ui-sref="register">{{'REGISTER' | translate }}</a>
+      <span flex></span>
+      <a ui-sref="recover">{{'RECOVER_PASSWORD' | translate }}</a>
+    </div>
   </md-card>
 </md-content>

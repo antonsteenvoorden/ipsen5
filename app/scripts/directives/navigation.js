@@ -3,7 +3,6 @@
  */
 angular.module('wfpcsFrontApp').directive("navigation", function () {
   return {
-    templateUrl: 'views/navigation.html',
-    controller: 'NavigationCtrl'
+    templateUrl: 'views/navigation.html'
   };
 });

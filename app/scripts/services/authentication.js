@@ -9,8 +9,7 @@ angular.module('wfpcsFrontApp')
     var accessId = null;
     var accessKey = null;
     var permissions = [];
-    var authenticator = null;
-    var authenticated = null;
+    self.authenticated = false;
 
     self.authenticate = function(user) {
       self.setAccessId(user.username);
@@ -20,7 +19,8 @@ angular.module('wfpcsFrontApp')
         console.log(authenticated);
         if(authenticated) {
           self.setAuthenticator(user);
-          self.setPermissions(user.permissions);
+          //self.setPermissions(user.permissions);
+          self.setPermissions(['ADMIN']);
           self.storeAuthentication(user);
         }
         self.authenticated = authenticated;
@@ -29,7 +29,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.requestAuthentication = function (onSuccess) {
-      //var uri = '/api/klanten/' + authString.accessId;
+      //var uri = '/api/user/' + authString.accessId;
       //$http.get(uri)
       //  .success(onSuccess(true))
       //  .error(function (message, status) {
@@ -56,10 +56,18 @@ angular.module('wfpcsFrontApp')
     };
 
     self.getPermissions = function () {
-      return permissions;
+      if($rootScope.authenticator) {
+        if ($rootScope.authenticator.permissions) {
+          return $rootScope.authenticator.permissions;
+        }
+      } else {
+        return [];
+      }
     };
+
     self.setPermissions = function (permissions) {
-      if (permissions != null) {
+      if ($rootScope.authenticator !== undefined) {
+        this.permissions = permissions;
         $rootScope.authenticator.permissions = permissions;
       }
     };
@@ -72,7 +80,7 @@ angular.module('wfpcsFrontApp')
 
     self.isAuthenticated = function () {
       restoreAuthentication();
-      return $rootScope.authenticator !== undefined;
+      return self.authenticated;
     };
 
     self.createAuthentication = function (identifier, password) {
@@ -100,6 +108,7 @@ angular.module('wfpcsFrontApp')
         self.setAccessKey(authenticator.accessKey);
         //self.setPermissions(authenticator.permissions);
         self.setAuthenticator(authenticator);
+        self.authenticated = true;
       }
     };
 
@@ -108,7 +117,7 @@ angular.module('wfpcsFrontApp')
       self.setAccessKey(null);
       self.setPermissions(null);
       self.setAuthenticator(undefined);
-
+      self.authenticated = false;
       $window.sessionStorage.removeItem('authenticator');
       $window.localStorage.removeItem('authenticator');
     };
