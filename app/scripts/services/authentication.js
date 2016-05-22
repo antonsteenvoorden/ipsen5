@@ -79,7 +79,8 @@ angular.module('wfpcsFrontApp')
     };
 
     self.isAuthenticated = function () {
-      return self.authenticated === true;
+      restoreAuthentication();
+      return $rootScope.authenticator !== undefined;
     };
 
     self.createAuthentication = function (identifier, password) {
