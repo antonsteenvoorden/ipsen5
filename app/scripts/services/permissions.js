@@ -5,11 +5,11 @@ angular
   .module('wfpcsFrontApp')
   .run(['PermissionStore', 'RoleStore', 'authenticationService', function (PermissionStore, RoleStore, authenticationService) {
     PermissionStore
-      .definePermission('isAuthorized', function () {
-        return authenticationService.isAuthenticated();
+      .definePermission('isAuthenticated', function(){
+        authenticationService.isAuthenticated()
       });
     PermissionStore
       .definePermission('isAdmin', function () {
-        return authenticationService.getPermissions().includes('ADMIN');
+        return authenticationService.getPermissions().indexOf('ADMIN') > -1
       });
   }]);
