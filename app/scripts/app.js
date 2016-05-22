@@ -20,7 +20,7 @@ angular
     'chart.js',
     'ngMaterial',
     'ngDialog',
-    'ui.router',
+    'ui.router'
   ])
   .constant('USER_ROLES', {
     all: '*',
@@ -50,7 +50,8 @@ angular
       .state('dashboard', {
         url: "/dashboard",
         templateUrl: 'views/dashboard.html',
-        controller: 'MainCtrl'
+        controller: 'ProcessCtrl',
+        controllerAs: 'dashboard'
       })
       .state('process', {
         url: "/process",

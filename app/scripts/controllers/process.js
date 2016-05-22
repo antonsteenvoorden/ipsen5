@@ -7,33 +7,34 @@
  * # AboutCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', function($scope, $state) {
+angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', 'ngDialog', 'processService', function($scope, $state, ngDialog, processService) {
   $scope.$state = $state;
-
-  $scope.testProcessen = [
-    new Process(1, "Alfa", "01/01/1999", 1, 1, 3),
-    new Process(2, "Beta", "18/05/2016", 2,  7, 14),
-    new Process(3, "Gamma", "18/05/2016", 3, 1337, 14),
-    new Process(5, "Delta", "18/05/2016", 4, 7, 14),
-    new Process(7, "Epsilon", "04/10/1992", 5, 14, 107),
-    new Process(8, "Dzèta", "18/05/2016", 6, 7, 9000)
-  ];
-  $scope.process = new Process(1, "Alfa", "01/01/1991", 1, 3);
-
-  $scope.stappen = [
-    {value: 1},
-    {value: 2},
-    {value: 3}
-  ];
+  $scope.processen = processService.getProcessen();
 
   $scope.addProcess = function() {
-    $scope.testProcessen.push(
-      new Process(9, "Created", "19/05/2016", 8, 8, 700)
-    );
+    var process = new Process();
+    process.name = $scope.newProcess.name;
+    process.date = $scope.newProcess.date;
+    process.batchSize = $scope.newProcess.batchSize;
+    process.hoursDay = $scope.newProcess.hoursDay;
+    process.piecesDay = $scope.newProcess.piecesDay;
+    processService.newProcess(process);
+    ngDialog.close();
   };
 
   $scope.openAddProcessView = function() {
-    
+    ngDialog.open({
+      template: '<newprocess></newprocess>',
+      plain: true
+    });
+  };
+
+  $scope.cancel = function() {
+    ngDialog.close();
+  };
+
+  $scope.test = function() {
+    return "test";
   };
 
   /**
@@ -41,12 +42,19 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', f
    * @param id
      */
   $scope.deleteProcess = function(id) {
-    $scope.testProcessen.forEach(function(value, i) {
-      if(value.id == id) {
-        $scope.testProcessen.splice(i, 1);
-      }
+    processService.deleteProcess(id);
+  };
+
+  $scope.editProcess = function(newProcess) {
+    ngDialog.open({
+      template: '<newprocess></newprocess>',
+      plain: true
     });
   };
+
+  $scope.getProcess = function(id) {
+    $scope.newProcess = processService.getProcess(2);
+  }
 
   $scope.add = function() {
     $scope.stappen.push({value: $scope.stappen.length + 1});

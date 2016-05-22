@@ -1,0 +1,32 @@
+<div layout="column" ng-cloak class="md-inline-form">
+  <md-content ng-init="getProcess(2)" layout-gt-sm="row" layout-padding>
+    <div>
+      <md-input-container>
+        <label>Processname</label>
+        <input ng-model="newProcess.name" />
+      </md-input-container>
+      <md-input-container
+        <label>Date</label>
+        <input ng-model="newProcess.date" />
+      </md-input-container>
+      <md-input-container>
+        <label>Batch Size</label>
+        <input ng-model="newProcess.batchSize" />
+      </md-input-container>
+      <md-input-container>
+        <label>Hours per Day</label>
+        <input ng-model="newProcess.hoursDay" />
+      </md-input-container>
+      <md-input-container>
+        <label>Pieces per Day</label>
+        <input ng-model="newProcess.piecesDay" />
+      </md-input-container>
+      <md-input-container>
+        <label>Version</label>
+        <input ng-model="newProcess.version"/>
+      </md-input-container>
+      <md-button ng-click="cancel()">Annuleren</md-button>
+      <md-button ng-click="addProcess()">Opslaan</md-button>
+    </div>
+  </md-content>
+</div>

@@ -33,4 +33,8 @@ angular.module('wfpcsFrontApp')
       return processen;
     };
 
+    self.getProcess = function() {
+      return new Process(8, "Dzèta", "18/05/2016", 6, 7, 9000);
+    }
+
 });
