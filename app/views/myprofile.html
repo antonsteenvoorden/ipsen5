@@ -1,15 +1,15 @@
 <md-content layout layout-padding layout-align="center center">
-  <md-card layout-padding style="width:30%;">
+  <md-card layout-padding style="width:50%;">
     <form layout="column">
 
-    <md-input-container>
-      <label>{{'COMPANYNAME' | translate}}</label>
-      <input md-autofocus required ng-model="user.companyname" type="text">
-    </md-input-container>
+      <md-input-container>
+        <label>{{'COMPANYNAME' | translate}}</label>
+        <input required ng-model="user.companyname" type="text">
+      </md-input-container>
 
       <md-input-container>
         <label>{{'COMPANYDESCRIPTION' | translate}}</label>
-        <textarea ng-model="user.companydescription" required> </textarea>
+        <textarea ng-model="user.companydescription"> </textarea>
       </md-input-container>
 
     <md-input-container>
@@ -17,29 +17,50 @@
       <input md-autofocus required ng-model="user.adress" type="text">
     </md-input-container>
 
-    <md-input-container>
-      <label>{{'ZIPCODE' | translate}}</label>
-      <input md-autofocus required ng-model="user.zipcode" type="text">
-    </md-input-container>
+      <div layout="row" layout-align="start center">
+        <md-input-container flex="50">
+          <label>{{'ZIPCODE' | translate}}</label>
+          <input required ng-model="user.zipcode" type="text">
+        </md-input-container>
 
-    <md-input-container>
-      <label>{{'CITY' | translate}}</label>
-      <input md-autofocus required ng-model="user.city" type="text">
-    </md-input-container>
+        <span layout-margin="5"></span>
+
+        <md-input-container flex="50">
+          <label>{{'CITY' | translate}}</label>
+          <input required ng-model="user.city" type="text">
+        </md-input-container>
+      </div>
 
     <md-input-container>
       <label>{{'EMAIL' | translate}}</label>
-      <input md-autofocus required ng-model="user.email" type="text">
+      <input required ng-model="user.email" type="text">
     </md-input-container>
 
       <div layout="row" layout-align="start center">
+        <md-input-container flex="50">
+          <label>{{'PASSWORD' | translate}}</label>
+          <input required ng-model="user.password" ng-model="user.password" type="password">
+        </md-input-container>
+
+        <span layout-margin="5"></span>
+
+        <md-input-container flex="50">
+          <label>{{'PASSWORDCONFIRM' | translate}}</label>
+          <input required ng-model="userpassword.passwordconfirm" type="password">
+        </md-input-container>
+      </div>
+
+
+
+
+      <div layout="row" layout-align="start center">
         <md-button id="myprofile.submit" flex = "50%" ng-click=" " type="submit" class="md-primary">
-          {{'REGISTERBUTTON' | translate}}
+          {{'SAVECHANGEBUTTON' | translate}}
         </md-button>
 
         <span layout-margin="5%"></span>
 
-        <md-button id="myprofile.cancel" flex = "50%" ng-click="goToHome()" class="md-warn">
+        <md-button id="myprofile.cancel" flex = "50%" ui-sref="/dashboard" class="md-warn">
           {{'CANCELRBUTTON' | translate}}
         </md-button>
       </div>
