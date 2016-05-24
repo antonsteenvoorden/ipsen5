@@ -33,6 +33,8 @@ angular.module('wfpcsFrontApp')
       return processen;
     };
 
+    //TODO: This should be the actual process to update,
+    //TODO: on new process no process should be loaded!
     self.getProcess = function() {
       return new Process(8, "Dzèta", "18/05/2016", 6, 7, 9000);
     }
