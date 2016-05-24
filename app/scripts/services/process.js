@@ -18,6 +18,13 @@ angular.module('wfpcsFrontApp')
     var editableProcess;
 
       /**
+       * Fecth the processes from the API.
+       */
+    self.loadProcesses = function() {
+      
+    };
+
+      /**
        * Add the new or altered process to the local list of processes.
        * @TODO: this should send the new or altered process to the API.
        * @param process
@@ -51,14 +58,14 @@ angular.module('wfpcsFrontApp')
 
     self.setEditableProcess = function(process) {
       self.editableProcess = process.clone();
-    }
+    };
 
     self.getEditableProcess = function() {
       return self.editableProcess;
-    }
+    };
 
     self.clearEditableProcess = function() {
       self.editableProcess = null;
-    }
+    };
 
 });
