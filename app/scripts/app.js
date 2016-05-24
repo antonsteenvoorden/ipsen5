@@ -55,13 +55,7 @@ angular
       .state('register', {
         url: "/register",
         templateUrl: 'views/register.html',
-        controller: 'UserCtrl',
-        data: {
-          permissions: {
-            only: ['isAdmin'],
-            redirectTo: 'login'
-          }
-        }
+        controller: 'UserCtrl'
       })
       .state('myprofile', {
         url: "/myprofile",

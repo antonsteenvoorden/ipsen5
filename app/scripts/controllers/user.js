@@ -24,7 +24,7 @@ angular.module('wfpcsFrontApp')
       authenticationService.deleteAuthentication();
       $state.go('login');
     };
-    
+
     $scope.isAuthenticated = function () {
       return authenticationService.authenticated;
     };
@@ -49,20 +49,18 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    /*check of de wachtwoorden overeen komen.
-     * dient nog aangepast te worden.
-     * moet uitgevoerd worden voor het registreren, en bepaalt of het registreren daadwerkelijk gebeurd.
-     * */
-    self.checkPassword = function (user,userPassword){
-      var data = {
-        password: user.password,
-        passwordconfirm: userPassword.passwordconfirm
-      }
-      if (user, userPassword){
-        if (data.password.equal(data.passwordconfirm)){
-
-        }
-      }
-    }
-    
+    // /*check of de wachtwoorden overeen komen.
+    //  * dient nog aangepast te worden.
+    //  * moet uitgevoerd worden voor het registreren, en bepaalt of het registreren daadwerkelijk gebeurd.
+    //  * */
+    // self.checkPassword = function (user,userPassword){
+    //   var data = {
+    //     password: user.password,
+    //     passwordconfirm: userPassword.passwordconfirm
+    //   };
+    //     if (data.password.equal(data.passwordconfirm)){
+    //
+    //     }
+    // };
+    //
   });
