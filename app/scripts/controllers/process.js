@@ -13,6 +13,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   $scope.addProcess = function() {
     var process = new Process();
+    process.id = $scope.newProcess.id;
     process.name = $scope.newProcess.name;
     process.date = $scope.newProcess.date;
     process.batchSize = $scope.newProcess.batchSize;
@@ -21,8 +22,9 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     processService.newProcess(process);
     ngDialog.close();
   };
-
+  
   $scope.openAddProcessView = function() {
+    processService.clearEditableProcess();
     ngDialog.open({
       template: '<newprocess></newprocess>',
       plain: true
@@ -45,15 +47,16 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     processService.deleteProcess(id);
   };
 
-  $scope.editProcess = function(newProcess) {
+  $scope.editProcess = function(editableProcess) {
+    processService.setEditableProcess(editableProcess);
     ngDialog.open({
       template: '<newprocess></newprocess>',
-      plain: true
+      plain: true,
     });
   };
 
-  $scope.getProcess = function(id) {
-    $scope.newProcess = processService.getProcess(2);
+  $scope.getProcess = function() {
+    $scope.newProcess = processService.getEditableProcess();
   }
 
   $scope.add = function() {

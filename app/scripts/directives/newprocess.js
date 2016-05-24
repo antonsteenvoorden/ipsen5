@@ -10,6 +10,7 @@ angular.module('wfpcsFrontApp').directive("newprocess", function() {
     replace: 'true',
     templateUrl: 'views/analyse/newProcess.html',
     controller: 'ProcessCtrl',
-    controllerAs: 'new'
+    controllerAs: 'new',
+    scope: { editableProcess: '=editableProcess'}
   };
 });
