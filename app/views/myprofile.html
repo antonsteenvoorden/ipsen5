@@ -1,0 +1,51 @@
+<md-content layout layout-padding layout-align="center center">
+  <md-card layout-padding style="width:30%;">
+    <form layout="column">
+
+    <md-input-container>
+      <label>{{'COMPANYNAME' | translate}}</label>
+      <input md-autofocus required ng-model="user.companyname" type="text">
+    </md-input-container>
+
+      <md-input-container>
+        <label>{{'COMPANYDESCRIPTION' | translate}}</label>
+        <textarea ng-model="user.companydescription" required> </textarea>
+      </md-input-container>
+
+    <md-input-container>
+      <label>{{'ADRESS' | translate}}</label>
+      <input md-autofocus required ng-model="user.adress" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <label>{{'ZIPCODE' | translate}}</label>
+      <input md-autofocus required ng-model="user.zipcode" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <label>{{'CITY' | translate}}</label>
+      <input md-autofocus required ng-model="user.city" type="text">
+    </md-input-container>
+
+    <md-input-container>
+      <label>{{'EMAIL' | translate}}</label>
+      <input md-autofocus required ng-model="user.email" type="text">
+    </md-input-container>
+
+      <div layout="row" layout-align="start center">
+        <md-button id="myprofile.submit" flex = "50%" ng-click=" " type="submit" class="md-primary">
+          {{'REGISTERBUTTON' | translate}}
+        </md-button>
+
+        <span layout-margin="5%"></span>
+
+        <md-button id="myprofile.cancel" flex = "50%" ng-click="goToHome()" class="md-warn">
+          {{'CANCELRBUTTON' | translate}}
+        </md-button>
+      </div>
+
+
+    </form>
+  </md-card>
+</md-content>
+

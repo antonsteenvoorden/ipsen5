@@ -21,7 +21,8 @@ angular
     'ngMaterial',
     'ui.router',
     'permission',
-    'permission.ui'
+    'permission.ui',
+    'ngDialog',
   ])
   .constant('USER_ROLES', {
     all: '*',
@@ -54,13 +55,17 @@ angular
       .state('register', {
         url: "/register",
         templateUrl: 'views/register.html',
-        controller: 'UserCtrl',
-        data: {
-          permissions: {
-            only: ['isAdmin'],
-            redirectTo: 'login'
-          }
-        }
+        controller: 'UserCtrl'
+      })
+      .state('myprofile', {
+        url: "/myprofile",
+        templateUrl: 'views/myprofile.html',
+        controller: 'UserCtrl'
+      })
+      .state('contact', {
+        url: "/contact",
+        templateUrl: 'views/contact.html',
+        controller: 'UserCtrl'
       })
       .state('dashboard', {
         url: "/dashboard",
@@ -141,7 +146,17 @@ angular
       CONTACT: "Contact",
       CURRENT: "Current",
       TOBE: "To be",
-      QUALITY: "Quality"
+      QUALITY: "Quality",
+      COMPANYNAME:"Company name",
+      COMPANYDESCRIPTION:"Company description",
+      ADRESS:"Adress",
+      ZIPCODE:"Zipcode",
+      CITY:"City",
+      EMAIL:"E-mail",
+      REGISTERBUTTON:"Register",
+      PASSWORDCONFIRM: "Confirm password",
+      CANCELRBUTTON:"Cancel",
+      REGISTERTITLE: "Register"
     });
 
     $translateProvider.translations('nl', {
@@ -166,7 +181,17 @@ angular
       CONTACT: "Contact",
       CURRENT: "Huidige",
       TOBE: "Verbetering",
-      QUALITY: "Kwaliteit"
+      QUALITY: "Kwaliteit",
+      COMPANYNAME:"Bedrijfsnaam",
+      COMPANYDESCRIPTION:"Bedrijfsomschrijving",
+      ADRESS:"Adres",
+      ZIPCODE:"Postcode",
+      CITY:"Woonplaats",
+      EMAIL:"E-mailadres",
+      REGISTERBUTTON:"Registreer",
+      PASSWORDCONFIRM:"Wachtwoord bevestigen",
+      CANCELRBUTTON:"Annuleren",
+      REGISTERTITLE:"Registreren"
     });
 
 

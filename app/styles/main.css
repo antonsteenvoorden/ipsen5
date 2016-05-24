@@ -164,12 +164,63 @@ span.stapnummer {
 
 .processCard {
   width: 300px;
-  /*background-color: #2aabd2;*/
-  background-color: #F6F6FF;
+  background-color: #92e3b5;
   border:1px;
   margin: 30px 50px;
 }
 
 .processCard p {
   float: right;
+}
+
+.md-title {
+  font-size: 24pt;
+}
+/*  Process Dashboard Section.
+    Selector of md-card-* elements is recognized, and working
+    IDE is drunk.*/
+md-card-title {
+  color: #FFFFFF;
+}
+
+md-card-header {
+  margin-bottom: 0px;
+  padding-bottom: 0px !important;
+}
+
+md-card-content {
+  padding-top: 0px !important;
+  margin-top: 0px;
+}
+
+md-card-content ul {
+  list-style-type: none;
+}
+
+md-card-content button {
+  background-color: #f5a948;
+}
+
+div.newCard {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+button.newCard {
+  font-size: 80pt;
+  color: green;
+  background-color: white;
+}
+
+button.newCard:active {
+  color: green;
+}
+
+button.newCard:hover {
+  color: green;
+  text-shadow:
+    -1px -1px 8px #AAff00,
+    1px -1px 8px #AAFF00,
+    -1px 1px 8px #AAff00,
+    1px 1px 8px #AAff00;
 }
