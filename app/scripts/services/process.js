@@ -30,7 +30,7 @@ angular.module('wfpcsFrontApp')
           added = true;
         }
       });
-      if(!added) {
+      if(!added) {  //If no process was updated ad it last.
         processen.push(
           process
         );
@@ -50,7 +50,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.setEditableProcess = function(process) {
-      self.editableProcess = process;
+      self.editableProcess = process.clone();
     }
 
     self.getEditableProcess = function() {
