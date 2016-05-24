@@ -57,13 +57,17 @@ angular
       .state('register', {
         url: "/register",
         templateUrl: 'views/register.html',
-        controller: 'UserCtrl',
-        data: {
-          permissions: {
-            only: ['isAdmin'],
-            redirectTo: 'login'
-          }
-        }
+        controller: 'UserCtrl'
+      })
+      .state('myprofile', {
+        url: "/myprofile",
+        templateUrl: 'views/myprofile.html',
+        controller: 'UserCtrl'
+      })
+      .state('contact', {
+        url: "/contact",
+        templateUrl: 'views/contact.html',
+        controller: 'UserCtrl'
       })
       .state('dashboard', {
         url: "/dashboard",
@@ -128,9 +132,14 @@ angular
       LOGINFAIL: "Log in failed! Make sure you enter the correct credentials",
       USERNAME: "Username",
       PASSWORD: "Password",
-      RECOVER_PASSWORD:"I forgot my password",
       LOGINBUTTON: "Sign in",
       REGISTER: "I don't have an account",
+
+      RECOVER_PASSWORD:"I forgot my password",
+      RECOVER_PASSWORD_INSTRUCTIONS:"Please fill in your emailadress",
+      RECOVER_PASSWORD_INSTRUCTIONS2:"An email will be send with further instructions",
+      RECOVER_PASSWORD_BUTTON:"Send recovery email",
+
       ENGLISH: "English",
       BASE: "Base64",
       MYPROFILE: "My profile",
@@ -140,7 +149,17 @@ angular
       CONTACT: "Contact",
       CURRENT: "Current",
       TOBE: "To be",
-      QUALITY: "Quality"
+      QUALITY: "Quality",
+      COMPANYNAME:"Company name",
+      COMPANYDESCRIPTION:"Company description",
+      ADRESS:"Adress",
+      ZIPCODE:"Zipcode",
+      CITY:"City",
+      EMAIL:"E-mail",
+      REGISTERBUTTON:"Register",
+      PASSWORDCONFIRM: "Confirm password",
+      CANCELRBUTTON:"Cancel",
+      REGISTERTITLE: "Register"
     });
 
     $translateProvider.translations('nl', {
@@ -148,9 +167,14 @@ angular
       LOGINFAIL: "Inloggen niet gelukt! Zorg dat je de goede gegevens invult!",
       USERNAME: "Gebruikersnaam",
       PASSWORD: "Wachtwoord",
-      RECOVER_PASSWORD:"Ik ben mijn wachtwoord vergeten",
       LOGINBUTTON: "Aanmelden",
       REGISTER: "Ik heb nog geen account",
+
+      RECOVER_PASSWORD:"I forgot my password",
+      RECOVER_PASSWORD_INSTRUCTIONS:"Please fill in your emailadress",
+      RECOVER_PASSWORD_INSTRUCTIONS2:"An email will be send with further instructions",
+      RECOVER_PASSWORD_BUTTON:"Send recovery email",
+      
       ENGLISH: "Engels",
       BASE: "Baas",
       MYPROFILE: "Mijn profiel",
@@ -160,7 +184,17 @@ angular
       CONTACT: "Contact",
       CURRENT: "Huidige",
       TOBE: "Verbetering",
-      QUALITY: "Kwaliteit"
+      QUALITY: "Kwaliteit",
+      COMPANYNAME:"Bedrijfsnaam",
+      COMPANYDESCRIPTION:"Bedrijfsomschrijving",
+      ADRESS:"Adres",
+      ZIPCODE:"Postcode",
+      CITY:"Woonplaats",
+      EMAIL:"E-mailadres",
+      REGISTERBUTTON:"Registreer",
+      PASSWORDCONFIRM:"Wachtwoord bevestigen",
+      CANCELRBUTTON:"Annuleren",
+      REGISTERTITLE:"Registreren"
     });
 
 

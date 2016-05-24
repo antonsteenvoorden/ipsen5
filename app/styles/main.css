@@ -173,6 +173,9 @@ span.stapnummer {
   float: right;
 }
 
+.md-title {
+  font-size: 24pt;
+}
 /*  Process Dashboard Section.
     Selector of md-card-* elements is recognized, and working
     IDE is drunk.*/
