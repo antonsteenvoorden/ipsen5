@@ -21,15 +21,15 @@ angular.module('wfpcsFrontApp')
     };
 
     $scope.logOut = function(){
-      userService.logOut();
-    }
+      authenticationService.deleteAuthentication();
+      $state.go('login');
+    };
+    
     $scope.register = function(user){
       userService.register(user);
     }
 
-      authenticationService.deleteAuthentication();
-      $state.go('login');
-    };
+ 
     $scope.isAuthenticated = function () {
       return authenticationService.authenticated;
     };
