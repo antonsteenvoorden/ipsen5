@@ -19,7 +19,10 @@ angular
     'ngSanitize',
     'chart.js',
     'ngMaterial',
-    'ui.router'
+    'ui.router',
+    'permission',
+    'permission.ui',
+    'ngDialog',
   ])
   .constant('USER_ROLES', {
     all: '*',
@@ -28,12 +31,15 @@ angular
     guest: 'guest'
   })
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise(function ($injector) {
+      var $state = $injector.get("$state");
+      $state.go('/');
+    });
     //$urlRouterProvider.html5Mode(true);
     $stateProvider
       .state('/', {
         url: "/",
-        templateUrl: 'views/register.html',
+        templateUrl: 'views/login.html',
         controller: 'UserCtrl'
       })
       .state('login', {
@@ -41,10 +47,21 @@ angular
         templateUrl: 'views/login.html',
         controller: 'UserCtrl'
       })
+        .state('recover', {
+          url: "/recover",
+          templateUrl: 'views/recover.html',
+          controller: 'UserCtrl'
+        })
       .state('register', {
         url: "/register",
         templateUrl: 'views/register.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAdmin'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('myprofile', {
         url: "/myprofile",
@@ -59,7 +76,13 @@ angular
       .state('dashboard', {
         url: "/dashboard",
         templateUrl: 'views/dashboard.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('process', {
         url: "/process",
@@ -87,14 +110,21 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .state('401', {
+        url: "/401",
+        templateUrl: 'views/notAuthorized.html'
+      })
       .state('admin', {
         url: "/admin",
         templateUrl: 'views/test.html',
-        controller: 'NavigationCtrl',
+        controller: 'MainCtrl',
         controllerAs: 'about',
-        //data: {
-        //  authorizedRoles: [USER_ROLES.admin]
-        //}
+        data: {
+          permissions: {
+            only: ['isAdmin'],
+            redirectTo: '401'
+          }
+        }
       });
   })
   //translation config
@@ -102,8 +132,10 @@ angular
 
     $translateProvider.translations('en', {
       LOGIN: "Sign in first",
+      LOGINFAIL: "Log in failed! Make sure you enter the correct credentials",
       USERNAME: "Username",
       PASSWORD: "Password",
+      RECOVER_PASSWORD:"I forgot my password",
       LOGINBUTTON: "Sign in",
       REGISTER: "I don't have an account",
       ENGLISH: "English",
@@ -130,8 +162,10 @@ angular
 
     $translateProvider.translations('nl', {
       LOGIN: "Log eerst in",
+      LOGINFAIL: "Inloggen niet gelukt! Zorg dat je de goede gegevens invult!",
       USERNAME: "Gebruikersnaam",
       PASSWORD: "Wachtwoord",
+      RECOVER_PASSWORD:"Ik ben mijn wachtwoord vergeten",
       LOGINBUTTON: "Aanmelden",
       REGISTER: "Ik heb nog geen account",
       ENGLISH: "Engels",
