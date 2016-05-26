@@ -16,19 +16,19 @@ angular.module('wfpcsFrontApp')
 
 // GETTERS & SETTERS
     self.getAccessId = function () {
-      return accessId;
+      return self.accessId;
     };
 
     self.setAccessId = function (id) {
-      accessId = id;
+      self.accessId = id;
     };
 
     self.getAccessKey = function () {
-      return accessKey;
+      return self.accessKey;
     };
 
     self.setAccessKey = function (key) {
-      accessKey = key;
+      self.accessKey = key;
     };
 
     self.getPermissions = function () {
@@ -51,11 +51,13 @@ angular.module('wfpcsFrontApp')
         $rootScope.authenticator = user;
     };
     self.createAuthorizationString = function () {
-      return 'Basic ' + Base64.encode(accessId + ':' + accessKey);
+      return 'Basic ' + Base64.encode(self.accessId + ':' + self.accessKey);
     };
 
     self.isAuthenticated = function () {
-      restoreAuthentication();
+      if(!self.authenticated) {
+        restoreAuthentication();
+      }
       return self.authenticated;
     };
 

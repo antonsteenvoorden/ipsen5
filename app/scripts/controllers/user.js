@@ -69,29 +69,28 @@ angular.module('wfpcsFrontApp')
     self.authenticate = function(user) {
       authenticationService.setAccessId(user.username);
       authenticationService.setAccessKey(user.password);
-
-      self.requestAuthentication( function(authenticated){
-        console.log(authenticated);
-        if(authenticated) {
+      var succesful = false;
+      return self.requestAuthentication(function(user){
+        console.log(user,"Success");
+        if(user) {
+          authenticationService.authenticated = true;
           authenticationService.setAuthenticator(user);
           //self.setPermissions(user.permissions);
           authenticationService.setPermissions(['ADMIN']);
           authenticationService.storeAuthentication(user);
+          succesful = true;
         }
-        authenticationService.authenticated = authenticated;
+        return succesful;
       });
-      return authenticationService.authenticated;
     };
 
     self.requestAuthentication = function (onSuccess) {
       var uri = '/api/account/auth/me';
+      console.log("authentication called");
       $http.get(uri)
-        .success(function(data){
-          console.log(data);
-          onSuccess(data)
-        })
+        .success(onSuccess)
         .error(function (message, status) {
-          alert('Inloggen mislukt: ' + message);
+          alert('Inloggen mislukt: ' + message, status);
         });
     };
   });
