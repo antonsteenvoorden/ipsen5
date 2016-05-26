@@ -22,7 +22,7 @@ angular
     'ui.router',
     'permission',
     'permission.ui',
-    'ngDialog',
+    'ngDialog'
   ])
   .constant('USER_ROLES', {
     all: '*',
