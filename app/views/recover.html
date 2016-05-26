@@ -1,0 +1,34 @@
+<md-content layout layout-padding layout-align="center center">
+  <md-card layout-padding style="width:30%;">
+    <img class="login-image" src="images/wfpcs.png">
+    <form layout="column">
+      <md-title>
+        <md-card-title-text>
+          <md-headline>
+            <h3>
+            {{'RECOVER_PASSWORD_INSTRUCTIONS' | translate}}
+            </h3>
+            <h4>
+              {{'RECOVER_PASSWORD_INSTRUCTIONS2' | translate }}
+            </h4>
+          </md-headline>
+        </md-card-title-text>
+      </md-title>
+
+      <md-input-container>
+        <md-icon class="material-icons">account_circle</md-icon>
+        <label>{{'EMAIL' | translate}}</label>
+        <input md-autofocus required ng-model="user.email" type="text">
+      </md-input-container>
+      <div layout="row">
+      <md-button id="recover.submit" ng-click="recover(user)" type="submit" class="md-primary">
+        {{'RECOVER_PASSWORD_BUTTON' | translate}}
+      </md-button>
+
+      <md-button id="recover.cancel" class="md-warn" ui-sref="/">
+        {{'CANCEL' | translate}}
+      </md-button>
+      </div>
+    </form>
+  </md-card>
+</md-content>

@@ -380,7 +380,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            '<%= yeoman.dist %>/scripts/{,*/}*.js'
           ]
         }, {
           expand: true,
@@ -476,8 +477,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'newer:jscs',
-    'test',
+    // 'newer:jscs',
+    // 'test',
     'build'
   ]);
 };
