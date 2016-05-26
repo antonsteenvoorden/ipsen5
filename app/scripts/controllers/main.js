@@ -21,8 +21,8 @@ angular.module('wfpcsFrontApp')
       $state.go('process.current');
     };
     $scope.$watch(function () {
-      return authenticationService.authenticated
-    }, function (newVal, oldVal) {
+      return authenticationService.authenticated;
+    }, function (newVal) {
       if (typeof newVal !== 'undefined') {
         $scope.isAuthenticated = authenticationService.authenticated;
       }

@@ -1,6 +1,7 @@
 /**
  * Created by Anton on 18-5-2016.
  */
+'use strict';
 angular
   .module('wfpcsFrontApp')
   .run(['PermissionStore', 'RoleStore', 'authenticationService', function (PermissionStore, RoleStore, authenticationService) {

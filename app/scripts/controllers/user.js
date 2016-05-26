@@ -1,3 +1,4 @@
+// jshint ignore: start
 'use strict';
 
 /**
@@ -8,11 +9,12 @@
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, authenticationService) {
+  .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, $http, authenticationService) {
+    var self = this;
 
     $scope.login = function (user) {
       if (user) {
-        if (authenticationService.authenticate(user)) {
+        if (self.authenticate(user)) {
           $state.go('dashboard');
         } else {
           $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
@@ -63,4 +65,33 @@ angular.module('wfpcsFrontApp')
     //     }
     // };
     //
+
+    self.authenticate = function(user) {
+      authenticationService.setAccessId(user.username);
+      authenticationService.setAccessKey(user.password);
+
+      self.requestAuthentication( function(authenticated){
+        console.log(authenticated);
+        if(authenticated) {
+          authenticationService.setAuthenticator(user);
+          //self.setPermissions(user.permissions);
+          authenticationService.setPermissions(['ADMIN']);
+          authenticationService.storeAuthentication(user);
+        }
+        authenticationService.authenticated = authenticated;
+      });
+      return authenticationService.authenticated;
+    };
+
+    self.requestAuthentication = function (onSuccess) {
+      var uri = '/api/account/auth/me';
+      $http.get(uri)
+        .success(function(data){
+          console.log(data);
+          onSuccess(data)
+        })
+        .error(function (message, status) {
+          alert('Inloggen mislukt: ' + message);
+        });
+    };
   });

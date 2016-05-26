@@ -71,7 +71,8 @@ angular
       .state('dashboard', {
         url: "/dashboard",
         templateUrl: 'views/dashboard.html',
-        controller: 'MainCtrl',
+        controller: 'ProcessCtrl',
+        controllerAs: 'dashboard',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -124,15 +125,19 @@ angular
   })
   //translation config
   .config(function ($translateProvider) {
-
     $translateProvider.translations('en', {
       LOGIN: "Sign in first",
       LOGINFAIL: "Log in failed! Make sure you enter the correct credentials",
       USERNAME: "Username",
       PASSWORD: "Password",
-      RECOVER_PASSWORD:"I forgot my password",
       LOGINBUTTON: "Sign in",
       REGISTER: "I don't have an account",
+
+      RECOVER_PASSWORD:"I forgot my password",
+      RECOVER_PASSWORD_INSTRUCTIONS:"Please fill in your emailadress",
+      RECOVER_PASSWORD_INSTRUCTIONS2:"An email will be send with further instructions",
+      RECOVER_PASSWORD_BUTTON:"Send recovery email",
+
       ENGLISH: "English",
       BASE: "Base64",
       MYPROFILE: "My profile",
@@ -161,9 +166,14 @@ angular
       LOGINFAIL: "Inloggen niet gelukt! Zorg dat je de goede gegevens invult!",
       USERNAME: "Gebruikersnaam",
       PASSWORD: "Wachtwoord",
-      RECOVER_PASSWORD:"Ik ben mijn wachtwoord vergeten",
       LOGINBUTTON: "Aanmelden",
       REGISTER: "Ik heb nog geen account",
+
+      RECOVER_PASSWORD:"I forgot my password",
+      RECOVER_PASSWORD_INSTRUCTIONS:"Please fill in your emailadress",
+      RECOVER_PASSWORD_INSTRUCTIONS2:"An email will be send with further instructions",
+      RECOVER_PASSWORD_BUTTON:"Send recovery email",
+
       ENGLISH: "Engels",
       BASE: "Baas",
       MYPROFILE: "Mijn profiel",
