@@ -109,6 +109,9 @@ angular.module('wfpcsFrontApp')
         //self.setPermissions(authenticator.permissions);
         self.setAuthenticator(authenticator);
         self.authenticated = true;
+      } else {
+        self.setAuthenticator(undefined);
+        self.authenticated = false;
       }
     };
 

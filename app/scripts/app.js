@@ -19,8 +19,6 @@ angular
     'ngSanitize',
     'chart.js',
     'ngMaterial',
-    'ngDialog',
-    'ui.router',
     'ui.router',
     'permission',
     'permission.ui',
@@ -126,7 +124,6 @@ angular
   })
   //translation config
   .config(function ($translateProvider) {
-
     $translateProvider.translations('en', {
       LOGIN: "Sign in first",
       LOGINFAIL: "Log in failed! Make sure you enter the correct credentials",
@@ -174,7 +171,7 @@ angular
       RECOVER_PASSWORD_INSTRUCTIONS:"Please fill in your emailadress",
       RECOVER_PASSWORD_INSTRUCTIONS2:"An email will be send with further instructions",
       RECOVER_PASSWORD_BUTTON:"Send recovery email",
-      
+
       ENGLISH: "Engels",
       BASE: "Baas",
       MYPROFILE: "Mijn profiel",
