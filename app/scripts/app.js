@@ -23,7 +23,6 @@ angular
     'permission',
     'permission.ui',
     'ngDialog',
-    'validation.match'
   ])
   .constant('USER_ROLES', {
     all: '*',
@@ -152,8 +151,7 @@ angular
       REGISTERBUTTON:"Register",
       PASSWORDCONFIRM: "Confirm password",
       CANCELRBUTTON:"Cancel",
-      REGISTERTITLE: "Register",
-      PASSWORDMISSMATCH: "password mismatch!"
+      REGISTERTITLE: "Register"
     });
 
     $translateProvider.translations('nl', {
@@ -183,9 +181,9 @@ angular
       REGISTERBUTTON:"Registreer",
       PASSWORDCONFIRM:"Wachtwoord bevestigen",
       CANCELRBUTTON:"Annuleren",
-      REGISTERTITLE:"Registreren",
-      PASSWORDMISSMATCH: "Foutieve confirmatie!"
+      REGISTERTITLE:"Registreren"
     });
+
 
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.preferredLanguage('en');
