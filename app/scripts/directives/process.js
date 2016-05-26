@@ -8,6 +8,6 @@ angular.module('wfpcsFrontApp').directive("process", function () {
     restrict: 'AE',
     replace: 'true',
     templateUrl: 'views/analyse/processlist.html',
-    controller: 'ProcessCtrl'
+    controller: 'ProcessStepCtrl'
   };
 });

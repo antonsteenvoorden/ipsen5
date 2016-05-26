@@ -4,7 +4,7 @@
  * @ngdoc function
  * @name wfpcsFrontApp.controller:AboutCtrl
  * @description
- * # AboutCtrl
+ * # ProcessCtrl
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', 'ngDialog', 'processService', function($scope, $state, ngDialog, processService) {
@@ -22,7 +22,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     processService.newProcess(process);
     ngDialog.close();
   };
-  
+
   $scope.openAddProcessView = function() {
     processService.clearEditableProcess();
     ngDialog.open({
