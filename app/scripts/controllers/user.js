@@ -13,12 +13,15 @@ angular.module('wfpcsFrontApp')
     var self = this;
 
     $scope.login = function (user) {
-      if (user) {
-        if (self.authenticate(user)) {
-          $state.go('dashboard');
-        } else {
-          $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
-        }
+      // if (user) {
+      //   if (self.authenticate(user)) {
+      //     $state.go('dashboard');
+      //   } else {
+      //     $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
+      //   }
+      // }
+      if(user) {
+        self.authenticate(user);
       }
     };
 
@@ -79,6 +82,9 @@ angular.module('wfpcsFrontApp')
           authenticationService.setPermissions(['ADMIN']);
           authenticationService.storeAuthentication(user);
           succesful = true;
+          $state.go('dashboard');
+        } else {
+          $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
         }
         return succesful;
       });
