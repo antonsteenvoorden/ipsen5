@@ -3,9 +3,12 @@
  */
 angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state', 'processService', 
   function($scope, $state, processService) {
-    
-    $scope.test = function() {
-      alert("Hello World");
-    };
+    /*
+    TODO: fetch the process that's opened.
+    TODO: fetch the processteps for opened process.
+    TODO: display the processteps.
+    TODO: make the add and remove methods.
+    TODO: make the edit processtep method.
+     */
     
 }]);

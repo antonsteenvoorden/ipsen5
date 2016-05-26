@@ -7,7 +7,7 @@
  * # ProcessCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', 'ngDialog', 'processService', function($scope, $state, ngDialog, processService) {
+angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', function($scope, $state, $location, ngDialog, processService) {
   $scope.$state = $state;
   $scope.processen = processService.getProcessen();
 
@@ -35,10 +35,6 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     ngDialog.close();
   };
 
-  $scope.test = function() {
-    return "test";
-  };
-
   /**
    * Delete process with given process id.
    * @param id
@@ -57,7 +53,12 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   $scope.getProcess = function() {
     $scope.newProcess = processService.getEditableProcess();
-  }
+  };
+
+  $scope.open = function(process) {
+    var path = "/process/" + process.id;
+    $location.path(path);
+  };
 
   $scope.add = function() {
     $scope.stappen.push({value: $scope.stappen.length + 1});
