@@ -19,6 +19,8 @@ angular
     'ngSanitize',
     'chart.js',
     'ngMaterial',
+    'ngDialog',
+    'ui.router',
     'ui.router',
     'permission',
     'permission.ui',
@@ -70,7 +72,8 @@ angular
       .state('dashboard', {
         url: "/dashboard",
         templateUrl: 'views/dashboard.html',
-        controller: 'MainCtrl',
+        controller: 'ProcessCtrl',
+        controllerAs: 'dashboard',
         data: {
           permissions: {
             only: ['isAuthenticated'],

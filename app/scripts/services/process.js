@@ -15,10 +15,26 @@ angular.module('wfpcsFrontApp')
       new Process(8, "Dzèta", "18/05/2016", 6, 7, 9000)
     ];
 
+    var editableProcess;
+
+      /**
+       * Add the new or altered process to the local list of processes.
+       * @TODO: this should send the new or altered process to the API.
+       * @param process
+       */
     self.newProcess = function(process) {
-      processen.push(
-       process
-      );
+      var added = false;
+      processen.forEach(function(value, index) {
+        if(value.id == process.id) {
+          processen.splice(index, 1, process);
+          added = true;
+        }
+      });
+      if(!added) {  //If no process was updated ad it last.
+        processen.push(
+          process
+        );
+      }
     };
 
     self.deleteProcess = function(id) {
@@ -32,5 +48,17 @@ angular.module('wfpcsFrontApp')
     self.getProcessen = function() {
       return processen;
     };
+
+    self.setEditableProcess = function(process) {
+      self.editableProcess = process.clone();
+    }
+
+    self.getEditableProcess = function() {
+      return self.editableProcess;
+    }
+
+    self.clearEditableProcess = function() {
+      self.editableProcess = null;
+    }
 
 });
