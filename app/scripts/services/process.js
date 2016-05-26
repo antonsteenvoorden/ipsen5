@@ -1,9 +1,10 @@
+// jshint ignore: start
 /**
  * Created by Roy on 22-5-2016.
  */
-
+'use strict';
 angular.module('wfpcsFrontApp')
-  .service('processService', function($rootScope) {
+  .service('processService', function() {
     var self = this;
 
     var processen = [
@@ -14,8 +15,6 @@ angular.module('wfpcsFrontApp')
       new Process(7, "Epsilon", "04/10/1992", 5, 14, 107),
       new Process(8, "Dzèta", "18/05/2016", 6, 7, 9000)
     ];
-
-    var editableProcess;
 
       /**
        * Add the new or altered process to the local list of processes.
@@ -51,14 +50,14 @@ angular.module('wfpcsFrontApp')
 
     self.setEditableProcess = function(process) {
       self.editableProcess = process.clone();
-    }
+    };
 
     self.getEditableProcess = function() {
       return self.editableProcess;
-    }
+    };
 
     self.clearEditableProcess = function() {
       self.editableProcess = null;
-    }
+    };
 
 });

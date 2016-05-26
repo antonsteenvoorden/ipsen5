@@ -1,3 +1,4 @@
+// jshint ignore: start
 'use strict';
 
 /**
@@ -57,7 +58,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   $scope.getProcess = function() {
     $scope.newProcess = processService.getEditableProcess();
-  }
+  };
 
   $scope.add = function() {
     $scope.stappen.push({value: $scope.stappen.length + 1});
@@ -65,7 +66,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   $scope.insert = function(stap) {
     $scope.stappen.splice(stap + 1, 0, {value: stap + 1});
-  }
+  };
 
   $scope.removeLast = function() {
     $scope.stappen.pop();

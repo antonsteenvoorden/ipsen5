@@ -1,6 +1,8 @@
+// jshint ignore: start
 /**
  * Created by Anton on 17-5-2016.
  */
+'use strict';
 angular.module('wfpcsFrontApp')
   .service('authenticationService', function ($rootScope, $window) {
     var self = this;
@@ -11,32 +13,6 @@ angular.module('wfpcsFrontApp')
     var permissions = [];
     self.authenticated = false;
 
-    self.authenticate = function(user) {
-      self.setAccessId(user.username);
-      self.setAccessKey(user.password);
-
-      self.requestAuthentication( function(authenticated){
-        console.log(authenticated);
-        if(authenticated) {
-          self.setAuthenticator(user);
-          //self.setPermissions(user.permissions);
-          self.setPermissions(['ADMIN']);
-          self.storeAuthentication(user);
-        }
-        self.authenticated = authenticated;
-      });
-      return self.authenticated;
-    };
-
-    self.requestAuthentication = function (onSuccess) {
-      //var uri = '/api/user/' + authString.accessId;
-      //$http.get(uri)
-      //  .success(onSuccess(true))
-      //  .error(function (message, status) {
-      //    alert('Inloggen mislukt: ' + message);
-      //  });
-      onSuccess(true);
-    };
 
 // GETTERS & SETTERS
     self.getAccessId = function () {
