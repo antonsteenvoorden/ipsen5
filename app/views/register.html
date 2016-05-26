@@ -6,40 +6,40 @@
       </md-card-header-text>
     </md-card-header>
 
-    <form layout="column">
+    <form layout="column" name="register">
 
       <md-input-container>
         <label>{{'COMPANYNAME' | translate}}</label>
-        <input md-auto-focus required ng-model="user.companyname" type="text">
+        <input md-auto-focus required ng-model="user.companyname" type="text" maxlength="255">
       </md-input-container>
 
       <md-input-container>
         <label>{{'COMPANYDESCRIPTION' | translate}}</label>
-        <textarea ng-model="user.companydescription"> </textarea>
+        <textarea ng-model="user.companydescription" maxlength="255"> </textarea>
       </md-input-container>
 
       <md-input-container>
         <label>{{'ADRESS' | translate}}</label>
-        <input required ng-model="user.adress" type="text">
+        <input required ng-model="user.adress" type="text" maxlength="255">
       </md-input-container>
 
       <div layout="row" layout-align="start center">
         <md-input-container flex="50">
           <label>{{'ZIPCODE' | translate}}</label>
-          <input required ng-model="user.zipcode" type="text">
+          <input required ng-model="user.zipcode" type="text" maxlength="255">
         </md-input-container>
 
         <span layout-margin="5"></span>
 
-        <md-input-container flex="50">
+        <md-input-container flex="50" layout-align="center center">
           <label>{{'CITY' | translate}}</label>
-          <input required ng-model="user.city" type="text">
+          <input required ng-model="user.city" type="text" maxlength="255">
         </md-input-container>
       </div>
 
       <md-input-container>
         <label>{{'EMAIL' | translate}}</label>
-        <input required ng-model="user.email" type="text">
+        <input required ng-model="user.email" type="email">
       </md-input-container>
 
       <div layout="row" layout-align="start center">
@@ -52,20 +52,21 @@
 
         <md-input-container flex="33">
           <label>{{'PASSWORD' | translate}}</label>
-          <input required ng-model="user.password" ng-model="user.password" type="password">
+          <input name="newPassword" required ng-model="user.password" ng-model="user.password" type="password">
+          <div ng-show="register.confirmPassword.$error.match">{{'PASSWORDMISSMATCH' | translate}}</div>
         </md-input-container>
 
         <span layout-margin="5"></span>
 
         <md-input-container flex="33">
           <label>{{'PASSWORDCONFIRM' | translate}}</label>
-          <input required ng-model="userpassword.passwordconfirm" type="password">
+          <input name="confirmPassword" required ng-model="user.passwordconfirm" type="password" match="user.password">
         </md-input-container>
       </div>
 
       <div layout="row" layout-align="start center">
         <!--ng-click="register(user), checkPassword(userpassword)"-->
-        <md-button id="register.submit" flex="50"  type="submit" class="md-primary">
+        <md-button id="register.submit" flex="50" ng-click="register(user)" type="submit" class="md-primary">
           {{'REGISTERBUTTON' | translate}}
         </md-button>
 
