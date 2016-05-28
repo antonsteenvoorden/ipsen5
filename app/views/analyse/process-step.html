@@ -1,0 +1,45 @@
+<md-list-item>
+    <span flex="5" class="stapnummer">
+      {{stap.value}}
+    </span>
+
+  <md-radio-group ng-model="processstep.type" layout="row" style="padding:0%; margin:0%;">
+    <md-radio-button value="T" style="margin:0%; padding:0%;"></md-radio-button>
+    <md-radio-button value="H" style="margin:0%; padding:0%;"></md-radio-button>
+    <md-radio-button value="C" style="margin:0%; padding:0%;"></md-radio-button>
+  </md-radio-group>
+
+  <md-input-container flex="15">
+    <input ng-mode="processstep.distance" placeholder="travel distance">
+  </md-input-container>
+
+  <md-input-container flex="15">
+    <input ng-mode="processstep.time" placeholder="cycle time">
+  </md-input-container>
+
+  <md-input-container flex="30">
+    <input ng-mode="processstep.name" placeholder="Name">
+  </md-input-container>
+
+  <md-input-container flex="5">
+    <input ng-mode="processstep.cost" placeholder="Cost">
+  </md-input-container>
+
+  <md-input-container flex="15">
+    <input ng-mode="processstep.headcount" placeholder="Head count">
+  </md-input-container>
+
+  <md-input-container flex="15">
+    <input ng-mode="processstep.energy" placeholder="Energy usage">
+  </md-input-container>
+
+  <div layout="row">
+    <md-button class="md-primary" ng-click="insert(stap.value)" aria-label="Insert row">
+      <span class="glyphicon glyphicon-plus"></span>
+    </md-button>
+
+    <md-button class="md-warn" type="button" class="md-warn" ng-click="remove(stap.value)" aria-label="Remove row">
+      <span class="glyphicon glyphicon-trash"></span>
+    </md-button>
+  </div>
+</md-list-item>
