@@ -84,7 +84,7 @@ angular
       .state('process', {
         url: "/process",
         templateUrl: 'views/process.html',
-        controller: 'ProcessCtrl'
+        controller: 'ProcessStepCtrl'
       })
       .state('process.current', {
         url: "/current",
@@ -174,7 +174,7 @@ angular
       RECOVER_PASSWORD_INSTRUCTIONS:"Please fill in your emailadress",
       RECOVER_PASSWORD_INSTRUCTIONS2:"An email will be send with further instructions",
       RECOVER_PASSWORD_BUTTON:"Send recovery email",
-      
+
       ENGLISH: "Engels",
       BASE: "Baas",
       MYPROFILE: "Mijn profiel",

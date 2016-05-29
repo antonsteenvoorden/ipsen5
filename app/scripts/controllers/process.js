@@ -7,7 +7,7 @@
  * # ProcessCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', function($scope, $state, $location, ngDialog, processService) {
+angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $location, ngDialog, processService, processStepService) {
   $scope.$state = $state;
   $scope.processen = processService.getProcessen();
 
@@ -56,7 +56,8 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
   };
 
   $scope.open = function(process) {
-    var path = "/process/" + process.id;
+    var path = "/process";
+    processStepService.open(process);
     $location.path(path);
   };
 
