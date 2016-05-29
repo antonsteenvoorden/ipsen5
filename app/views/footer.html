@@ -1,15 +1,37 @@
 <div class="footer">
 <!--directive-->
-  <div class="container">
-    <form name="colorForm">
-      <md-input-container>
-        <label>Favorite Color</label>
-        <input name="favoriteColor" ng-model="favoriteColor" required>
-        <div ng-messages="userForm.lastName.$error">
-          <div ng-message="required">This is required!</div>
-        </div>
-      </md-input-container>
-    </form>
+  <div>
+    <div class="toggleFooterCSS" layout="column" layout-align=" center center" ng-model="toggleFooter"
+         ng-click="theFooter=!theFooter; toggleIcon = !toggleIcon">
 
+
+      <div ng-show="toggleIcon" layout="column" layout-align="center center">
+        <md-icon class="downIcon">keyboard_arrow_down</md-icon>
+        <label>{{'HIDEFOOTER' | translate}}</label>
+      </div>
+
+      <div ng-show="!toggleIcon" layout="column" layout-align="center center">
+        <md-icon class="upIcon">keyboard_arrow_up</md-icon>
+        <label>{{'SHOWFOOTER' | translate}}</label>
+      </div>
+    </div>
+
+    <div ng-show="theFooter" layout="row" layout-align="">
+      <md-card class="padded" flex="45" md-whiteframe="5" ng-controller="BarCtrl">
+        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+      </md-card>
+
+      <md-card class="padded" flex="45" md-whiteframe="5" ng-controller="BarCtrl">
+        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+      </md-card>
+
+      <md-card class="padded" flex="45" md-whiteframe="5" ng-controller="BarCtrl">
+        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+      </md-card>
+
+
+
+    </div>
   </div>
+
 </div>

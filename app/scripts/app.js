@@ -158,7 +158,10 @@ angular
       PASSWORDCONFIRM: "Confirm password",
       CANCELRBUTTON:"Cancel",
       REGISTERTITLE: "Register",
-      PASSWORDMISSMATCH: "password mismatch!"
+      PASSWORDMISSMATCH: "password mismatch!",
+
+      HIDEFOOTER: "Hide content",
+      SHOWFOOTER: "show content"
     });
 
     $translateProvider.translations('nl', {
@@ -194,7 +197,10 @@ angular
       PASSWORDCONFIRM:"Wachtwoord bevestigen",
       CANCELRBUTTON:"Annuleren",
       REGISTERTITLE:"Registreren",
-      PASSWORDMISSMATCH: "Foutieve confirmatie!"
+      PASSWORDMISSMATCH: "Foutieve confirmatie!",
+
+      HIDEFOOTER: "verberg inhoud",
+      SHOWFOOTER: "toon inhoud"
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');
