@@ -100,7 +100,7 @@ angular
         controller: 'ProcessCtrl'
       })
       .state('process.vendor', {
-        url: '/quality',
+        url: '/vendor',
         templateUrl: 'views/tabs/vendor.html',
         controller: 'ProcessCtrl'
       })
