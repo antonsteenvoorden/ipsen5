@@ -47,11 +47,11 @@ angular
         templateUrl: 'views/login.html',
         controller: 'UserCtrl'
       })
-        .state('recover', {
-          url: '/recover',
-          templateUrl: 'views/recover.html',
-          controller: 'UserCtrl'
-        })
+      .state('recover', {
+        url: '/recover',
+        templateUrl: 'views/recover.html',
+        controller: 'UserCtrl'
+      })
       .state('register', {
         url: '/register',
         templateUrl: 'views/register.html',
@@ -99,6 +99,11 @@ angular
         templateUrl: 'views/tabs/quality.html',
         controller: 'ProcessCtrl'
       })
+      .state('process.vendor', {
+        url: '/quality',
+        templateUrl: 'views/tabs/vendor.html',
+        controller: 'ProcessCtrl'
+      })
       .state('about', {
         url: '/about',
         templateUrl: 'views/about.html',
@@ -132,10 +137,10 @@ angular
       LOGINBUTTON: 'Sign in',
       REGISTER: 'I don\'t have an account',
 
-      RECOVER_PASSWORD:'I forgot my password',
-      RECOVER_PASSWORD_INSTRUCTIONS:'Please fill in your emailadress',
-      RECOVER_PASSWORD_INSTRUCTIONS2:'An email will be send with further instructions',
-      RECOVER_PASSWORD_BUTTON:'Send recovery email',
+      RECOVER_PASSWORD: 'I forgot my password',
+      RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
+      RECOVER_PASSWORD_INSTRUCTIONS2: 'An email will be send with further instructions',
+      RECOVER_PASSWORD_BUTTON: 'Send recovery email',
 
       ENGLISH: 'English',
       BASE: 'Base64',
@@ -147,15 +152,16 @@ angular
       CURRENT: 'Current',
       TOBE: 'To be',
       QUALITY: 'Quality',
-      COMPANYNAME:'Company name',
-      COMPANYDESCRIPTION:'Company description',
-      ADRESS:'Adress',
-      ZIPCODE:'Zipcode',
-      CITY:'City',
-      EMAIL:'E-mail',
-      REGISTERBUTTON:'Register',
+      VENDOR: 'Vendor Rating',
+      COMPANYNAME: 'Company name',
+      COMPANYDESCRIPTION: 'Company description',
+      ADRESS: 'Adress',
+      ZIPCODE: 'Zipcode',
+      CITY: 'City',
+      EMAIL: 'E-mail',
+      REGISTERBUTTON: 'Register',
       PASSWORDCONFIRM: 'Confirm password',
-      CANCELRBUTTON:'Cancel',
+      CANCELRBUTTON: 'Cancel',
       REGISTERTITLE: 'Register'
     });
 
@@ -167,10 +173,10 @@ angular
       LOGINBUTTON: 'Aanmelden',
       REGISTER: 'Ik heb nog geen account',
 
-      RECOVER_PASSWORD:'I forgot my password',
-      RECOVER_PASSWORD_INSTRUCTIONS:'Please fill in your emailadress',
-      RECOVER_PASSWORD_INSTRUCTIONS2:'An email will be send with further instructions',
-      RECOVER_PASSWORD_BUTTON:'Send recovery email',
+      RECOVER_PASSWORD: 'I forgot my password',
+      RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
+      RECOVER_PASSWORD_INSTRUCTIONS2: 'An email will be send with further instructions',
+      RECOVER_PASSWORD_BUTTON: 'Send recovery email',
 
       ENGLISH: 'Engels',
       BASE: 'Baas',
@@ -182,16 +188,17 @@ angular
       CURRENT: 'Huidige',
       TOBE: 'Verbetering',
       QUALITY: 'Kwaliteit',
-      COMPANYNAME:'Bedrijfsnaam',
-      COMPANYDESCRIPTION:'Bedrijfsomschrijving',
-      ADRESS:'Adres',
-      ZIPCODE:'Postcode',
-      CITY:'Woonplaats',
-      EMAIL:'E-mailadres',
-      REGISTERBUTTON:'Registreer',
-      PASSWORDCONFIRM:'Wachtwoord bevestigen',
-      CANCELRBUTTON:'Annuleren',
-      REGISTERTITLE:'Registreren'
+      VENDOR: 'Leveranciers',
+      COMPANYNAME: 'Bedrijfsnaam',
+      COMPANYDESCRIPTION: 'Bedrijfsomschrijving',
+      ADRESS: 'Adres',
+      ZIPCODE: 'Postcode',
+      CITY: 'Woonplaats',
+      EMAIL: 'E-mailadres',
+      REGISTERBUTTON: 'Registreer',
+      PASSWORDCONFIRM: 'Wachtwoord bevestigen',
+      CANCELRBUTTON: 'Annuleren',
+      REGISTERTITLE: 'Registreren'
     });
 
 

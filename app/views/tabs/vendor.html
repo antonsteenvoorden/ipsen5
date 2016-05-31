@@ -1,0 +1,24 @@
+<div flex layout="row">
+  <span flex="50">{{'CURRENT' | translate}}</span>
+  <span flex="50">{{'VENDOR_RATING' | translate}}</span>
+</div>
+<md-content layout="row">
+  <!--directive-->
+  <md-card flex="30" >
+    <md-content>
+      <md-list>
+        <processstep ng-repeat="i in [0,1,2,4,5,6,7,8,9,10]"/>
+        <!--<processstep ng-repeat="stap in stappen.slice().reverse()"></processstep>-->
+      </md-list>
+    </md-content>
+  </md-card>
+
+  <md-card flex>
+    <md-content>
+      <md-list>
+        <vendorrating ng-repeat="i in [0,1,2,4,5,6,7,8,9,10]"/>
+        <!--<tobestep ng-repeat="stap in stappen.slice().reverse()"></tobestep>-->
+      </md-list>
+    </md-content>
+  </md-card>
+</md-content>
