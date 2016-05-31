@@ -81,7 +81,7 @@ angular
       })
       .state('process', {
         url: '/process',
-        templateUrl: 'views/process.html',
+        templateUrl: 'views/tabs/process.html',
         controller: 'ProcessCtrl'
       })
       .state('process.current', {
