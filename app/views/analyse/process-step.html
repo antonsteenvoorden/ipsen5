@@ -15,31 +15,31 @@
     {{processstep.type}}
   </md-input-container>
 
-  <md-input-container flex="15">
-    <input ng-mode="processstep.distance" placeholder="travel distance">
+  <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
+    <input ng-model="processstep.distance" placeholder="travel distance">
   </md-input-container>
 
-  <md-input-container flex="15">
-    <input ng-mode="processstep.time" placeholder="cycle time">
+  <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
+    <input ng-model="processstep.time" placeholder="cycle time">
   </md-input-container>
 
   <md-input-container flex="30">
-    <input ng-mode="processstep.name" placeholder="Name">
+    <input ng-model="processstep.name" placeholder="Name">
   </md-input-container>
 
-  <md-input-container flex="5">
-    <input ng-mode="processstep.cost" placeholder="Cost">
+  <md-input-container flex>
+    <input ng-model="processstep.cost" placeholder="Cost">
   </md-input-container>
 
-  <md-input-container flex="15">
-    <input ng-mode="processstep.headcount" placeholder="Head count">
+  <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
+    <input ng-model="processstep.headcount" placeholder="Head count">
   </md-input-container>
 
-  <md-input-container flex="15">
-    <input ng-mode="processstep.energy" placeholder="Energy usage">
+  <md-input-container flex>
+    <input ng-model="processstep.energy" placeholder="Energy usage">
   </md-input-container>
 
-  <div layout="row" ng-show="$state.current.name == 'process.current'">
+  <div layout="row" flex ng-show="$state.current.name == 'process.current'">
     <md-button ng-click="insert(processtep)" aria-label="Insert row">
       <span class="glyphicon glyphicon-plus"></span>
     </md-button>
