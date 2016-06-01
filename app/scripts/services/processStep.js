@@ -14,9 +14,19 @@ angular.module('wfpcsFrontApp')
       new ProcessStep(5, 4, "T", "Tafelpoot verzenden", false, 2, 5, 3)
     ];
 
-    self.open = function(process) {
+    self.open = function(process, onSuccess) {
       $window.localStorage.setItem('openedProcess', process);
-      self.fetchOpened();
+      // self.fetchOpened();
+      var uri = '/api/process/'+ process.id+'/steps';
+      $http.get(uri)
+        .success(function(result){
+          processSteps = result;
+          console.log(result);
+          onSuccess(processSteps);
+        })
+        .error(function (message, status) {
+          alert('Inloggen mislukt: ' + message, status);
+        });
     };
 
     self.getOpened = function() {

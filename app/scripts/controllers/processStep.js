@@ -12,7 +12,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
      */
     $scope.$state = $state;
     $scope.process;
-    $scope.lijstje = [1,2,3,4,5];
+    $scope.processSteps = processStepService.getProcessSteps();
 
     $scope.openProcess = function() {
       processStepService.fetchOpened();

@@ -91,13 +91,13 @@ angular.module('wfpcsFrontApp')
     };
 
     self.requestAuthentication = function (onSuccess) {
-      //var uri = '/api/account/auth/me';
-      //console.log("authentication called");
-      //$http.get(uri)
-      //  .success(onSuccess)
-      //  .error(function (message, status) {
-      //    alert('Inloggen mislukt: ' + message, status);
-      //  });
+      var uri = '/api/account/auth/me';
+      console.log("authentication called");
+      $http.get(uri)
+       .success(onSuccess)
+       .error(function (message, status) {
+         alert('Inloggen mislukt: ' + message, status);
+       });
     onSuccess(true);
     };
 

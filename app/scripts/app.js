@@ -87,22 +87,22 @@ angular
       .state('process.current', {
         url: '/current',
         templateUrl: 'views/tabs/current.html',
-        controller: 'ProcessCtrl'
+        controller: 'ProcessStepCtrl'
       })
       .state('process.improvement', {
         url: '/improvement',
         templateUrl: 'views/tabs/improvement.html',
-        controller: 'ProcessCtrl'
+        controller: 'ProcessStepCtrl'
       })
       .state('process.quality', {
         url: '/quality',
         templateUrl: 'views/tabs/quality.html',
-        controller: 'ProcessCtrl'
+        controller: 'ProcessStepCtrl'
       })
       .state('process.vendor', {
         url: '/vendor',
         templateUrl: 'views/tabs/vendor.html',
-        controller: 'ProcessCtrl'
+        controller: 'ProcessStepCtrl'
       })
       .state('about', {
         url: '/about',

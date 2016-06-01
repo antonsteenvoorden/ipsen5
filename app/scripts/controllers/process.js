@@ -57,9 +57,10 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
   };
 
   $scope.open = function(process) {
-    var path = "/process";
-    processStepService.open(process);
-    $location.path(path);
+    processStepService.open(process, function(result){
+      $state.go('process.current');
+    });
+
   };
 
   $scope.add = function() {
