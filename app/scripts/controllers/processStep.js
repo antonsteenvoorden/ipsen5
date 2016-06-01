@@ -10,6 +10,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     TODO: make the add and remove methods.
     TODO: make the edit processtep method.
      */
+    $scope.$state = $state;
     $scope.process;
     $scope.lijstje = [1,2,3,4,5];
 
