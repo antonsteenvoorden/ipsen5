@@ -11,9 +11,19 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     TODO: make the edit processtep method.
      */
     $scope.process;
+    $scope.lijstje = [1,2,3,4,5];
 
     $scope.openProcess = function() {
-      $scope.process = processStepService.getOpened();
-      console.log(processStepService.getOpened());
-    }
+      processStepService.fetchOpened();
+      console.log(processStepService.getOpened().name);
+    };
+
+    $scope.test = function() {
+      alert("helllloooo");
+    };
+
+    $scope.loadProcessSteps = function() {
+      $scope.processSteps = processStepService.getProcessSteps();
+    };
+
 }]);
