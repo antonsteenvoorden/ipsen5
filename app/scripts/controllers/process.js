@@ -5,10 +5,10 @@
  * @ngdoc function
  * @name wfpcsFrontApp.controller:AboutCtrl
  * @description
- * # AboutCtrl
+ * # ProcessCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', 'ngDialog', 'processService', function($scope, $state, ngDialog, processService) {
+angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $location, ngDialog, processService, processStepService) {
   $scope.$state = $state;
   $scope.processen = processService.getProcessen();
 
@@ -23,7 +23,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     processService.newProcess(process);
     ngDialog.close();
   };
-  
+
   $scope.openAddProcessView = function() {
     processService.clearEditableProcess();
     ngDialog.open({
@@ -34,10 +34,6 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   $scope.cancel = function() {
     ngDialog.close();
-  };
-
-  $scope.test = function() {
-    return "test";
   };
 
   /**
@@ -58,6 +54,12 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   $scope.getProcess = function() {
     $scope.newProcess = processService.getEditableProcess();
+  };
+
+  $scope.open = function(process) {
+    var path = "/process";
+    processStepService.open(process);
+    $location.path(path);
   };
 
   $scope.add = function() {

@@ -218,8 +218,8 @@ button.newCard:active {
 button.newCard:hover {
   color: green;
   text-shadow:
-    -1px -1px 8px #AAff00,
-    1px -1px 8px #AAFF00,
-    -1px 1px 8px #AAff00,
-    1px 1px 8px #AAff00;
+    -1px -1px 12px #000000,
+    1px -1px 12px #000000,
+    -1px 1px 12px #000000,
+    1px 1px 12px #000000;
 }
