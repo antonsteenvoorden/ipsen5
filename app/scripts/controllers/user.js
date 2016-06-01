@@ -94,11 +94,14 @@ angular.module('wfpcsFrontApp')
       var uri = '/api/account/auth/me';
       console.log("authentication called");
       $http.get(uri)
-       .success(onSuccess)
+       .success(function(result){
+         console.log(result);
+         onSuccess(result);
+       })
        .error(function (message, status) {
          alert('Inloggen mislukt: ' + message, status);
        });
-    onSuccess(true);
+    // onSuccess(true);
     };
 
   });

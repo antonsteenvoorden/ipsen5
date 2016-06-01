@@ -2,7 +2,7 @@
  * Created by Roy on 26-5-2016.
  */
 angular.module('wfpcsFrontApp')
-  .service('processStepService', function($rootScope, $window) {
+  .service('processStepService', function($rootScope, $window, $http) {
 
     var self = this;
     var opened;
@@ -17,7 +17,8 @@ angular.module('wfpcsFrontApp')
     self.open = function(process, onSuccess) {
       $window.localStorage.setItem('openedProcess', process);
       // self.fetchOpened();
-      var uri = '/api/process/'+ process.id+'/steps';
+      // var uri = '/api/process/'+ process.id+'/steps';
+      var uri ='/api/process/1/steps';
       $http.get(uri)
         .success(function(result){
           processSteps = result;
