@@ -12,6 +12,6 @@
     </md-tab>
 </md-tabs>
 <ui-view>
-  <button ng-init="loadProcessSteps()" ng-repeat="i in lijstje" ng-click="test()">a</button>
+  <process-step ng-repeat="step in lijstje"></process-step>
 </ui-view>
 <footer></footer>
