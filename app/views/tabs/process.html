@@ -1,0 +1,19 @@
+<md-tabs md-selected="currentTab" md-autoselect md-border-bottom md-dynamic-height layout-fill>
+  <md-tab id="tab.current" class="heavy" ui-sref="process.current" label="{{'CURRENT' | translate}}"
+          md-active="$state.is('process.current')">
+  </md-tab>
+
+  <md-tab id="tab.improvement" ui-sref="process.improvement" label="{{'TOBE' | translate}}"
+          md-active="$state.is('process.improvement')">
+  </md-tab>
+
+  <md-tab id="tab.quality" ui-sref="process.quality" label="{{'QUALITY' | translate}}"
+          md-active="$state.is('process.quality')">
+  </md-tab>
+
+  <md-tab id="tab.vendor" ui-sref="process.vendor" label="{{'VENDOR' | translate}}"
+          md-active="$state.is('process.vendor')">
+  </md-tab>
+</md-tabs>
+<ui-view></ui-view>
+<footer></footer>
