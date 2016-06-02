@@ -162,7 +162,9 @@ angular
       REGISTERBUTTON: 'Register',
       PASSWORDCONFIRM: 'Confirm password',
       CANCELRBUTTON: 'Cancel',
-      REGISTERTITLE: 'Register'
+      REGISTERTITLE: 'Register',
+      LOW:'Low',
+      HIGH:'High'
     });
 
     $translateProvider.translations('nl', {
@@ -198,7 +200,9 @@ angular
       REGISTERBUTTON: 'Registreer',
       PASSWORDCONFIRM: 'Wachtwoord bevestigen',
       CANCELRBUTTON: 'Annuleren',
-      REGISTERTITLE: 'Registreren'
+      REGISTERTITLE: 'Registreren',
+      LOW:'Laag',
+      HIGH:'Hoog'
     });
 
 

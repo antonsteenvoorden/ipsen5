@@ -79,7 +79,7 @@ angular.module('wfpcsFrontApp')
           authenticationService.authenticated = true;
           authenticationService.setAuthenticator(user);
           //self.setPermissions(user.permissions);
-          authenticationService.setPermissions(['ADMIN']);
+          // authenticationService.setPermissions(['ADMIN']);
           authenticationService.storeAuthentication(user);
           succesful = true;
           $state.go('dashboard');
@@ -95,7 +95,6 @@ angular.module('wfpcsFrontApp')
       console.log("authentication called");
       $http.get(uri)
        .success(function(result){
-         console.log(result);
          onSuccess(result);
        })
        .error(function (message, status) {
