@@ -13,12 +13,15 @@ angular.module('wfpcsFrontApp')
     var self = this;
 
     $scope.login = function (user) {
-      if (user) {
-        if (self.authenticate(user)) {
-          $state.go('dashboard');
-        } else {
-          $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
-        }
+      // if (user) {
+      //   if (self.authenticate(user)) {
+      //     $state.go('dashboard');
+      //   } else {
+      //     $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
+      //   }
+      // }
+      if(user) {
+        self.authenticate(user);
       }
     };
 
@@ -54,29 +57,36 @@ angular.module('wfpcsFrontApp')
     self.authenticate = function(user) {
       authenticationService.setAccessId(user.username);
       authenticationService.setAccessKey(user.password);
-
-      self.requestAuthentication( function(authenticated){
-        console.log(authenticated);
-        if(authenticated) {
+      var succesful = false;
+      return self.requestAuthentication(function(user){
+        console.log(user,"Success");
+        if(user) {
+          authenticationService.authenticated = true;
           authenticationService.setAuthenticator(user);
           //self.setPermissions(user.permissions);
           authenticationService.setPermissions(['ADMIN']);
           authenticationService.storeAuthentication(user);
+          succesful = true;
+          $state.go('dashboard');
+        } else {
+          $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
         }
-        authenticationService.authenticated = authenticated;
+        return succesful;
       });
-      return authenticationService.authenticated;
     };
 
     self.requestAuthentication = function (onSuccess) {
       var uri = '/api/account/auth/me';
+      console.log("authentication called");
       $http.get(uri)
-        .success(function(data){
-          console.log(data);
-          onSuccess(data)
-        })
-        .error(function (message, status) {
-          alert('Inloggen mislukt: ' + message);
-        });
+       .success(function(result){
+         console.log(result);
+         onSuccess(result);
+       })
+       .error(function (message, status) {
+         alert('Inloggen mislukt: ' + message, status);
+       });
+    // onSuccess(true);
     };
+
   });

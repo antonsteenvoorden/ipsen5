@@ -172,7 +172,6 @@ span.stapnummer {
   color:rgba(255,255,255,0.87);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
-
 .processCard {
   width: 300px;
   background-color: #92e3b5;
@@ -230,10 +229,10 @@ button.newCard:active {
 button.newCard:hover {
   color: green;
   text-shadow:
-    -1px -1px 8px #AAff00,
-    1px -1px 8px #AAFF00,
-    -1px 1px 8px #AAff00,
-    1px 1px 8px #AAff00;
+    -1px -1px 12px #000000,
+    1px -1px 12px #000000,
+    -1px 1px 12px #000000,
+    1px 1px 12px #000000;
 }
 
 .cycleBarChartTab{

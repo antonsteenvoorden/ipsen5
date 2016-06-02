@@ -34,9 +34,10 @@ angular.module('wfpcsFrontApp').service('requestService', function ($q, $rootSco
   self.request = function (config) {
     config.headers = config.headers || {};
 
-    if (authenticationService.isAuthenticated()) {
+    // if (authenticationService.isAuthenticated()) {
+    console.log(authenticationService.createAuthorizationString());
       config.headers['Authorization'] = authenticationService.createAuthorizationString(); // jshint ignore:line
-    }
+    // }
 
     requestOpened();
 
