@@ -51,21 +51,6 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    // /*check of de wachtwoorden overeen komen.
-    //  * dient nog aangepast te worden.
-    //  * moet uitgevoerd worden voor het registreren, en bepaalt of het registreren daadwerkelijk gebeurd.
-    //  * */
-    // self.checkPassword = function (user,userPassword){
-    //   var data = {
-    //     password: user.password,
-    //     passwordconfirm: userPassword.passwordconfirm
-    //   };
-    //     if (data.password.equal(data.passwordconfirm)){
-    //
-    //     }
-    // };
-    //
-
     self.authenticate = function(user) {
       authenticationService.setAccessId(user.username);
       authenticationService.setAccessKey(user.password);

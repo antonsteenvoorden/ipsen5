@@ -123,6 +123,15 @@ angular
         }
       });
   })
+
+  /*
+  Allowes to set options for the angular-chart module.
+   */
+  .config(function(ChartJsProvider) {
+
+  })
+
+
   //translation config
   .config(function ($translateProvider) {
     $translateProvider.translations('en', {
@@ -161,7 +170,25 @@ angular
       PASSWORDMISSMATCH: "password mismatch!",
 
       HIDEFOOTER: "Hide content",
-      SHOWFOOTER: "show content"
+      SHOWFOOTER: "Show content",
+      TOTALTRANSPORTTIMEMINUTE:"Total transport time in minutes",
+      TOTALHOLDTIMEMINUTE: "Total hold time in minutes",
+      TOTALCONVERTTIMEMINUTE: "Total convert time in minutes",
+      TOTALTIMEMINUTE: "Total time in minutes",
+      TOTALTRANSPORTTIMEPERCENTAGE: "Total transport time in percentage",
+      TOTALHOLDTIMEPERCENTAGE: "Total hold time in percentage",
+      TOTALCONVERTTIMEPERCENTAGE: "Total convert time in percentage",
+      TOTALTIMEPERCENTAGE: "Total time in percentage",
+      CYCLETIMEINFO: "Show additional information",
+
+      TTTM: "TTTM",
+      THTM: "THTM",
+      TCTM: "TCTM",
+      TTM: "TTM",
+      TTTP: "TTTP",
+      THTP: "THTP",
+      TCTP: "TCTP",
+      TTP: "TTP",
     });
 
     $translateProvider.translations('nl', {
@@ -199,8 +226,26 @@ angular
       REGISTERTITLE:"Registreren",
       PASSWORDMISSMATCH: "Foutieve confirmatie!",
 
-      HIDEFOOTER: "verberg inhoud",
-      SHOWFOOTER: "toon inhoud"
+      HIDEFOOTER: "Verberg inhoud",
+      SHOWFOOTER: "Toon inhoud",
+      TOTALTRANSPORTTIMEMINUTE:"Totale transport tijd in minuten:",
+      TOTALHOLDTIMEMINUTE: "Totale opslag tijd in minuten",
+      TOTALCONVERTTIMEMINUTE: "Totale bewerk tijd in minuten",
+      TOTALTIMEMINUTE: "Totale tijd in minuten",
+      TOTALTRANSPORTTIMEPERCENTAGE: "Totale transport tijd in percentage",
+      TOTALHOLDTIMEPERCENTAGE: "Totale opslag tijd in percentage",
+      TOTALCONVERTTIMEPERCENTAGE: "Totale bewerk tijd in percentage",
+      TOTALTIMEPERCENTAGE: "Totale tijd in percentage",
+      CYCLETIMEINFO: "Toon extra informatie",
+
+      TTTM: "TTTM",
+      THTM: "TOTM",
+      TCTM: "TBTM",
+      TTM: "TTM",
+      TTTP: "TTTP",
+      THTP: "TOTP",
+      TCTP: "TBTP",
+      TTP: "TTP",
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');
@@ -214,5 +259,4 @@ angular
     }
 
   });
-
 
