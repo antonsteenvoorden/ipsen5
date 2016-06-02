@@ -3,10 +3,10 @@
  */
 angular.module('wfpcsFrontApp')
   .service('processStepService', function($rootScope, $window, $http) {
-
+    console.log("Service log");
     var self = this;
     var opened;
-    var processSteps = [
+    self.processSteps = [
       new ProcessStep(1, 1, "C", "Hout plaatsen", false, 2, 5, 3),
       new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
       new ProcessStep(3, 3, "H", "Hout verfen", true, 7, 0, 9),
@@ -21,9 +21,9 @@ angular.module('wfpcsFrontApp')
       var uri ='/api/process/1/steps';
       $http.get(uri)
         .success(function(result){
-          processSteps = result;
-          console.log(result);
-          onSuccess(processSteps);
+          self.processSteps = result;
+          console.log("processteps:",self.processSteps);
+          onSuccess(result);
         })
         .error(function (message, status) {
           alert('Inloggen mislukt: ' + message, status);
@@ -42,6 +42,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.getProcessSteps = function() {
+      console.log("get steps called", self.processSteps);
       return self.processSteps;
     };
 });

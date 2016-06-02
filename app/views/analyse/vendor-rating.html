@@ -1,66 +1,66 @@
 <md-list-item>
     <span flex="5" class="stapnummer">
-      {{processstep.index}}
+      {{processStep.index}}
     </span>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.capacity" placeholder="capacity">
+    <md-select ng-model="processStep.vendor.capacity" placeholder="capacity">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.quality" placeholder="Quality">
+    <md-select ng-model="processStep.vendor.quality" placeholder="Quality">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.certified" placeholder="Certified">
+    <md-select ng-model="processStep.vendor.certified" placeholder="Certified">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.cost" placeholder="Cost">
+    <md-select ng-model="processStep.vendor.cost" placeholder="Cost">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.clock" placeholder="Clock">
+    <md-select ng-model="processStep.vendor.clock" placeholder="Clock">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.complaints" placeholder="Complaints">
+    <md-select ng-model="processStep.vendor.complaints" placeholder="Complaints">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.csr" placeholder="CSR">
+    <md-select ng-model="processStep.vendor.csr" placeholder="CSR">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.cash" placeholder="Cash">
+    <md-select ng-model="processStep.vendor.cash" placeholder="Cash">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
   </md-input-container>
 
   <md-input-container flex="10">
-    <md-select ng-model="processstep.vendor.culture" placeholder="Culture">
+    <md-select ng-model="processStep.vendor.culture" placeholder="Culture">
       <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
       <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
     </md-select>
@@ -69,5 +69,5 @@
   <md-button>
     <md-icon class="material-icons">edit</md-icon>
   </md-button>
-  <md-button ng-controller="VendorCtrl" ng-click="save(processstep.vendor)">Save</md-button>
+  <md-button ng-controller="VendorCtrl" ng-click="save(processStep.vendor)">Save</md-button>
 </md-list-item>

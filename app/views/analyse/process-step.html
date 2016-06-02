@@ -1,9 +1,9 @@
 <md-list-item>
     <span flex="5" class="stapnummer">
-      {{processstep.index}}
+      {{processStep.index}}
     </span>
 
-  <md-radio-group ng-model="processstep.type" layout="row" style="padding:0%; margin:0%;"
+  <md-radio-group ng-model="processStep.type" layout="row" style="padding:0%; margin:0%;"
                   ng-show="$state.current.name == 'process.current'">
     <md-radio-button value="T" style="margin:0%; padding:0%;"></md-radio-button>
     <md-radio-button value="H" style="margin:0%; padding:0%;"></md-radio-button>
@@ -12,31 +12,31 @@
 
   <md-input-container flex="5" class="stapnummer" ng-show="$state.current.name !== 'process.current'">
     1
-    {{processstep.type}}
+    {{processStep.type}}
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processstep.distance" placeholder="travel distance">
+    <input ng-model="processStep.distance" placeholder="travel distance">
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processstep.time" placeholder="cycle time">
+    <input ng-model="processStep.time" placeholder="cycle time">
   </md-input-container>
 
   <md-input-container flex="30">
-    <input ng-model="processstep.name" placeholder="Name">
+    <input ng-model="processStep.name" placeholder="Name">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processstep.cost" placeholder="Cost">
+    <input ng-model="processStep.cost" placeholder="Cost">
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processstep.headcount" placeholder="Head count">
+    <input ng-model="processStep.headcount" placeholder="Head count">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processstep.energy" placeholder="Energy usage">
+    <input ng-model="processStep.energy" placeholder="Energy usage">
   </md-input-container>
 
   <div layout="row" flex ng-show="$state.current.name == 'process.current'">
