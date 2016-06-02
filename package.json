@@ -40,7 +40,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "postinstall": "bower install; ./node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
+    "postinstall": "bower install; node ./node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
   "dependencies": {
     "angular": "^1.5.3",
