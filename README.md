@@ -3,6 +3,11 @@ Deze branch wordt gedeployed
 
 Zie develop readme voor setup
 
+Voer altijd deze commands uit
+
+bower install
+npm install
+
 Voer deze command uit:
 ./node_modules/grunt-protractor-runner/scripts/webdriver-manager-update
  

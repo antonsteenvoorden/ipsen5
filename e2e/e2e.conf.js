@@ -4,7 +4,7 @@
 exports.config = {
   //test will run in order noted as below
   specs: [
-    'sets/login/login-spec.js'
+    'specs/login/login-spec.js'
   ],
   // seleniumAddress: 'http://localhost:4444/wd/hub',
   baseUrl: 'http://0.0.0.0:8086/',
