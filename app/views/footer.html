@@ -1,15 +1,101 @@
 <div class="footer">
 <!--directive-->
-  <div class="container">
-    <form name="colorForm">
-      <md-input-container>
-        <label>Favorite Color</label>
-        <input name="favoriteColor" ng-model="favoriteColor" required>
-        <div ng-messages="userForm.lastName.$error">
-          <div ng-message="required">This is required!</div>
-        </div>
-      </md-input-container>
-    </form>
+  <div>
+    <div class="TopAndBottomBorder" layout="column" layout-align=" center center"
+         ng-click="theFooter=!theFooter; toggleIcon = !toggleIcon">
 
+      <div ng-show="toggleIcon" layout="column" layout-align="center center">
+        <md-icon class="downIcon">keyboard_arrow_down</md-icon>
+        <label>{{'HIDEFOOTER' | translate}}</label>
+      </div>
+
+      <div ng-show="!toggleIcon" layout="column" layout-align="center center">
+        <md-icon class="upIcon">keyboard_arrow_up</md-icon>
+        <label>{{'SHOWFOOTER' | translate}}</label>
+      </div>
+    </div>
+
+    <div ng-show="theFooter" layout="row" ng-if="$state.current.name == 'contact'">
+
+        <md-card flex="30" ng-controller="BatchCycleBar">
+          <canvas  class="chart chart-bar" chart-data="data" chart-labels="labels"
+                   chart-series="series" chart-colours="colours">
+          </canvas>
+
+          <div class="TopAndBottomBorder" layout="row" layout-align="center center" ng-click="toggleCycleInfo()">
+            <span>{{'CYCLETIMEINFO' | translate}}</span>
+          </div>
+          <div ng-show="CycleInfoIsVisible">
+            <div layout="column">
+              <div layout="row">
+                <div flex="25" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TTTM' | translate}} {{getTransportTimeMinute}}</span>
+                    <md-tooltip md-direction="top">
+                      {{'TOTALTRANSPORTTIMEMINUTE' | translate}}
+                    </md-tooltip>
+                </div>
+
+                <div flex="25" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'THTM' | translate}} {{getHoldTimeMinute}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALHOLDTIMEMINUTE' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="25" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TCTM' | translate}} {{getConvertTimeMinute}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALCONVERTTIMEMINUTE' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="25" layout="column" layout="column" layout-align="center center">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TTM' | translate}} {{getTotalTime}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALTIMEMINUTE' | translate}}
+                  </md-tooltip>
+                </div>
+              </div>
+            </div>
+
+            <div layout="column">
+              <div layout="row">
+                <div flex="25" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TTTP' | translate}} {{getTransportTimePercentage}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALTRANSPORTTIMEPERCENTAGE' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="25" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'THTP' | translate}} {{getHoldTimePercentage}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALHOLDTIMEPERCENTAGE' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="25" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TCTP' | translate}} {{getConvertTimePercentage}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALCONVERTTIMEPERCENTAGE' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="25" layout="column" layout="column" layout-align="center center">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TTP' | translate}} 100%</span>
+                  <md-tooltip md-direction="top">
+                    {{'TOTALTIMEPERCENTAGE' | translate}}
+                  </md-tooltip>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </md-card>
+
+    </div>
   </div>
 </div>
+
+
+
