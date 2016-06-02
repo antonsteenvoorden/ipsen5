@@ -40,7 +40,9 @@
   },
   "scripts": {
     "test": "grunt test",
-    "postinstall": "bower install; node ./node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
+    "selenium":"node ./node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager start",
+    "postinstall": "bower install; node ./node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update",
+    "e2e-test":"node ./node_modules/grunt-protractor-runner/node_modules/protractor/bin/protractor e2e/e2e.conf.js "
   },
   "dependencies": {
     "angular": "^1.5.3",
