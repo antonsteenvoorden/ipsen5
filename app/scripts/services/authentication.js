@@ -74,16 +74,13 @@ angular.module('wfpcsFrontApp')
     };
 
     var restoreAuthentication = function () {
-      var authenticator = $window.sessionStorage.getItem('authenticator');
+      var authenticator = $window.localStorage.getItem('authenticator');
 
-      if (authenticator === null) {
-        authenticator = $window.localStorage.getItem('authenticator');
-      }
       if (authenticator !== null) {
         authenticator = JSON.parse(authenticator);
 
-        self.setAccessId(authenticator.accessId);
-        self.setAccessKey(authenticator.accessKey);
+        self.setAccessId(authenticator.username);
+        self.setAccessKey(authenticator.password);
         //self.setPermissions(authenticator.permissions);
         self.setAuthenticator(authenticator);
         self.authenticated = true;

@@ -78,12 +78,11 @@ angular.module('wfpcsFrontApp')
         if(user) {
           authenticationService.authenticated = true;
           authenticationService.setAuthenticator(user);
-          //self.setPermissions(user.permissions);
-          // authenticationService.setPermissions(['ADMIN']);
           authenticationService.storeAuthentication(user);
           succesful = true;
           $state.go('dashboard');
         } else {
+          authenticationService.authenticated = false;
           $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
         }
         return succesful;
