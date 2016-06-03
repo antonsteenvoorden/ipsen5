@@ -196,7 +196,9 @@ angular
       TCTP: "TCTP",
       TTP: "TTP",
       LOW:'Low',
-      HIGH:'High'
+      HIGH:'High',
+      EDIT:'Edit',
+      REMOVE:'Remove'
     });
 
     $translateProvider.translations('nl', {
@@ -234,9 +236,6 @@ angular
       CANCELRBUTTON: 'Annuleren',
       REGISTERTITLE: 'Registreren',
       PASSWORDMISSMATCH: "Foutieve confirmatie!",
-      REGISTERTITLE: 'Registreren',
-      LOW:'Laag',
-      HIGH:'Hoog'
 
       HIDEFOOTER: "Verberg inhoud",
       SHOWFOOTER: "Toon inhoud",
@@ -258,6 +257,10 @@ angular
       THTP: "TOTP",
       TCTP: "TBTP",
       TTP: "TTP",
+      LOW:'Laag',
+      HIGH:'Hoog'
+      EDIT:'Edit',
+      REMOVE:'Remove'
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');
