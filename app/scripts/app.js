@@ -172,7 +172,7 @@ angular
       REGISTERBUTTON: 'Register',
       PASSWORDCONFIRM: 'Confirm password',
       CANCELRBUTTON: 'Cancel',
-      REGISTERTITLE: 'Register'
+      REGISTERTITLE: 'Register',
       PASSWORDMISSMATCH: "password mismatch!",
 
       HIDEFOOTER: "Hide content",
