@@ -258,7 +258,7 @@ angular
       TCTP: "TBTP",
       TTP: "TTP",
       LOW:'Laag',
-      HIGH:'Hoog'
+      HIGH:'Hoog',
       EDIT:'Edit',
       REMOVE:'Remove'
     });
