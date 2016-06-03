@@ -10,33 +10,33 @@
     <md-radio-button value="C"></md-radio-button>
   </md-radio-group>
 
-  <md-input-container flex="5" class="stapnummer" ng-show="$state.current.name !== 'process.current'">
+  <md-input-container flex="5" class="stapnummer" ng-show="$state.current.name !== 'process.current'" aria-label="">
     1
     {{processStep.type}}
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.distance" placeholder="travel distance">
+    <input ng-model="processStep.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label="">
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.time" placeholder="cycle time">
+    <input ng-model="processStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="">
   </md-input-container>
 
   <md-input-container flex="30">
-    <input ng-model="processStep.name" placeholder="Name">
+    <input ng-model="processStep.name" placeholder="{{'NAME' | translate}}" aria-label="">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processStep.cost" placeholder="Cost">
+    <input ng-model="processStep.cost" placeholder="{{'COST' | translate}}" aria-label="">
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.headcount" placeholder="Head count">
+    <input ng-model="processStep.headcount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processStep.energy" placeholder="Energy usage">
+    <input ng-model="processStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="">
   </md-input-container>
 
   <div layout="row" flex ng-show="$state.current.name == 'process.current'">
@@ -44,12 +44,12 @@
       <span class="glyphicon glyphicon-plus"></span>
     </md-button>
 
-    <md-button ng-click="edit(processtep)">
+    <md-button ng-click="edit(processtep)" aria-label="edit unlock">
       <md-icon class="material-icons">edit</md-icon>
     </md-button>
 
     <!--<md-button class="md-warn" type="button" class="md-warn" ng-click="remove(processtep)" aria-label="Remove row">-->
-      <!--<span class="glyphicon glyphicon-trash"></span>-->
+    <!--<span class="glyphicon glyphicon-trash"></span>-->
     <!--</md-button>-->
   </div>
 </md-list-item>

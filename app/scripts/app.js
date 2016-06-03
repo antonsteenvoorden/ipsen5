@@ -153,7 +153,7 @@ angular
       RECOVER_PASSWORD_BUTTON: 'Send recovery email',
 
       ENGLISH: 'English',
-      BASE: 'Base64',
+      BASE: 'Dutch',
       MYPROFILE: 'My profile',
       SIGNOUT: 'Sign out',
       HOME: 'Dashboard',
@@ -175,17 +175,17 @@ angular
       REGISTERTITLE: 'Register',
       PASSWORDMISSMATCH: "password mismatch!",
 
-      HIDE_FOOTER: "Hide content",
-      SHOW_FOOTER: "Show content",
-      TOTAL_TRANSPORT_TIME_MINUTE:"Total transport time in minutes",
-      TOTAL_HOLD_TIME_MINUTE: "Total hold time in minutes",
-      TOTAL_CONVERT_TIME_MINUTE: "Total convert time in minutes",
-      TOTAL_TIME_MINUTE: "Total time in minutes",
-      TOTAL_TRANSPORT_TIME_PERCENTAGE: "Total transport time in percentage",
-      TOTAL_HOLD_TIME_PERCENTAGE: "Total hold time in percentage",
-      TOTAL_CONVERT_TIME_PERCENTAGE: "Total convert time in percentage",
-      TOTAL_TIME_PERCENTAGE: "Total time in percentage",
-      CYCLE_TIME_INFO: "Show additional information",
+      HIDEFOOTER: "Hide content",
+      SHOWFOOTER: "Show content",
+      TOTALTRANSPORTTIMEMINUTE:"Total transport time in minutes",
+      TOTALHOLDTIMEMINUTE: "Total hold time in minutes",
+      TOTALCONVERTTIMEMINUTE: "Total convert time in minutes",
+      TOTALTIMEMINUTE: "Total time in minutes",
+      TOTALTRANSPORTTIMEPERCENTAGE: "Total transport time in percentage",
+      TOTALHOLDTIMEPERCENTAGE: "Total hold time in percentage",
+      TOTALCONVERTTIMEPERCENTAGE: "Total convert time in percentage",
+      TOTALTIMEPERCENTAGE: "Total time in percentage",
+      CYCLETIMEINFO: "Show additional information",
 
       TTTM: "TTTM",
       THTM: "THTM",
@@ -198,7 +198,22 @@ angular
       LOW:'Low',
       HIGH:'High',
       EDIT:'Edit',
-      REMOVE:'Remove'
+      REMOVE:'Remove',
+
+      TRAVEL_DISTANCE:'Travel distance',
+      CYCLE_TIME:'Cycle time',
+      NAME:'Name',
+      COST:'Cost',
+      HEAD_COUNT:'Head count',
+      ENERGY_USAGE:'Energy usage',
+
+      CAPACITY:'Capacity',
+      CERTIFIED:'Certified',
+      CLOCK:'Clock',
+      COMPLAINTS:'Complaints',
+      CSR:'CSR',
+      CASH:'Cash',
+      CULTURE:'Culture'
     });
 
     $translateProvider.translations('nl', {
@@ -215,7 +230,7 @@ angular
       RECOVER_PASSWORD_BUTTON: 'Send recovery email',
 
       ENGLISH: 'Engels',
-      BASE: 'Baas',
+      BASE: 'Nederlands',
       MYPROFILE: 'Mijn profiel',
       SIGNOUT: 'Uitloggen',
       HOME: 'Dashboard',
@@ -260,7 +275,22 @@ angular
       LOW:'Laag',
       HIGH:'Hoog',
       EDIT:'Edit',
-      REMOVE:'Remove'
+      REMOVE:'Remove',
+
+      TRAVEL_DISTANCE:'Travel distance',
+      CYCLE_TIME:'Cycle time',
+      NAME:'Name',
+      COST:'Cost',
+      HEAD_COUNT:'Head count',
+      ENERGY_USAGE:'Energy usage',
+
+      CAPACITY:'Capaciteit',
+      CERTIFIED:'Certified',
+      CLOCK:'Tijd',
+      COMPLAINTS:'Klachten',
+      CSR:'CSR',
+      CASH:'Geld',
+      CULTURE:'Cultuur'
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');
