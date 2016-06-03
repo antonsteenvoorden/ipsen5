@@ -1,13 +1,13 @@
-<md-list-item>
+<md-list-item class="list-item-height">
     <span flex="5" class="stapnummer">
       {{processStep.index}}
     </span>
 
-  <md-radio-group ng-model="processStep.type" layout="row" style="padding:0%; margin:0%;"
+  <md-radio-group ng-model="processStep.type" layout="row"
                   ng-show="$state.current.name == 'process.current'">
-    <md-radio-button value="T" style="margin:0%; padding:0%;"></md-radio-button>
-    <md-radio-button value="H" style="margin:0%; padding:0%;"></md-radio-button>
-    <md-radio-button value="C" style="margin:0%; padding:0%;"></md-radio-button>
+    <md-radio-button value="T"></md-radio-button>
+    <md-radio-button value="H"></md-radio-button>
+    <md-radio-button value="C"></md-radio-button>
   </md-radio-group>
 
   <md-input-container flex="5" class="stapnummer" ng-show="$state.current.name !== 'process.current'">

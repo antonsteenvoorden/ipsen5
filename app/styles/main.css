@@ -243,3 +243,13 @@ button.newCard:hover {
   border-right: 1px solid rgb(00,00,00);
   width: 100%;
 }
+
+.list-item-height {
+  height:70px !important;
+  border-bottom:1px;
+  align-items:flex-start !important;
+}
+.list-item-height md-radio-group {
+  padding:0 !important;
+  margin:auto 1% auto 0 !important;
+}

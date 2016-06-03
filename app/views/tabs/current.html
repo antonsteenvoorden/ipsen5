@@ -1,16 +1,15 @@
 <md-content layout-fill>
-  <md-list>
-    <md-list-item flex>
+  <md-card layout flex class="list-item-height">
     <!--<div layout="column">-->
     <!--<span flex="5">Activity Nr.</span>-->
     <!--</div>-->
 
-    <div layout="column" flex="15">
+    <div layout="column" class="list-item-height">
       <!--<span >Activity Type</span>-->
-      <md-radio-group ng-modell="processStep.type" layout="row" style="padding=0%; margin=0%;">
-        <md-radio-button value="T" style="padding:0%;">T</md-radio-button>
-        <md-radio-button value="H" style="padding:0%;">H</md-radio-button>
-        <md-radio-button value="C" style="padding:0%;">C</md-radio-button>
+      <md-radio-group ng-model="processStep.type" layout="row">
+        <md-radio-button value="T">T</md-radio-button>
+        <md-radio-button value="H">H</md-radio-button>
+        <md-radio-button value="C">C</md-radio-button>
       </md-radio-group>
       <!--<md-select ng-modell="someModel" placeholder="Select a state">-->
       <!--<md-option ng-click="menuItemClick($index)">Transport</md-option>-->
@@ -18,49 +17,49 @@
       <!--<md-option ng-click="menuItemClick($index)">Convert</md-option>-->
       <!--</md-select>-->
     </div>
-    <div layout="column" flex="15">
+    <div layout="column" flex>
       <!--<span flex="15">Activity Travel Distance</span>-->
       <md-input-container>
         <input ng-model="processStep.distance" placeholder="travel distance">
       </md-input-container>
     </div>
 
-    <div layout="column" flex="15">
+    <div layout="column" flex>
       <!--<span flex="15">Activity Cycle Time</span>-->
       <md-input-container>
         <input ng-model="processStep.time" placeholder="cycle time">
       </md-input-container>
     </div>
 
-    <div layout="column" flex="30">
+    <div layout="column" flex>
       <!--<span flex="30">Activity Name</span>-->
       <md-input-container>
         <input ng-model="processStep.name" placeholder="Name">
       </md-input-container>
     </div>
 
-    <div layout="column" flex="5">
+    <div layout="column" flex>
       <!--<span flex="5">Activity Cost</span>-->
       <md-input-container>
         <input ng-model="processStep.cost" placeholder="Cost">
       </md-input-container>
     </div>
 
-    <div layout="column" flex="15">
+    <div layout="column" flex>
       <!--<span flex="15">Activity Head Count</span>-->
       <md-input-container>
         <input ng-model="processStep.headcount" placeholder="Head count">
       </md-input-container>
     </div>
 
-    <div layout="column" flex="15">
+    <div layout="column" flex>
       <!--<span flex="15">Activity Energy Usage</span>-->
       <md-input-container>
         <input ng-model="processStep.energy" placeholder="Energy usage">
       </md-input-container>
     </div>
 
-    <div layout="column">
+    <div layout="column" flex>
       <md-button class="md-primary" ng-click="insert(stap.value)" aria-label="Insert row">
         <span class="glyphicon glyphicon-plus"></span>
       </md-button>
@@ -68,19 +67,16 @@
     <md-button class="md-warn" type="button" class="md-warn" ng-click="remove(stap.value)" aria-label="Remove row">
       <span class="glyphicon glyphicon-trash"></span>
     </md-button>
-    </md-list-item>
-  </md-list>
+  </md-card>
 
   <!--tab content-->
 
-  <md-card layout="row">
-    <md-content layout="row">
-      <md-list>
+  <md-card flex layout="row">
+    <md-content flex layout="row">
+      <md-list flex>
         <process-step ng-repeat="processStep in processSteps"></process-step>
         <!--<processStep ng-repeat="stap in stappen.slice().reverse()"></processStep>-->
       </md-list>
     </md-content>
   </md-card>
-
-  <bar></bar>
 </md-content>

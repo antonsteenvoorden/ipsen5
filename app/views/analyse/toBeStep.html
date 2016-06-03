@@ -1,32 +1,31 @@
-<md-list-item>
+<md-list-item class="list-item-height">
     <span flex="5" class="stapnummer">
       {{processStep.tobe.index}}
     </span>
 
-  <md-input-container flex="15">
+  <md-input-container flex>
     <input ng-model="processStep.tobe.distance" placeholder="travel distance">
   </md-input-container>
 
-  <md-input-container flex="15">
+  <md-input-container flex>
     <input ng-model="processStep.tobe.time" placeholder="cycle time">
   </md-input-container>
 
-  <md-input-container flex="30">
+  <md-input-container flex>
     <input ng-model="processStep.tobe.name" placeholder="Name">
   </md-input-container>
 
-  <md-input-container flex="10">
+  <md-input-container flex>
     <input ng-model="processStep.tobe.cost" placeholder="Cost">
   </md-input-container>
 
-  <md-input-container flex="15">
+  <md-input-container flex>
     <input ng-model="processStep.tobe.headcount" placeholder="Head count">
   </md-input-container>
 
   <md-input-container flex>
     <input ng-model="processStep.tobe.energy" placeholder="Energy usage">
   </md-input-container>
-
   <md-button>
     <md-icon class="material-icons">edit</md-icon>
   </md-button>
