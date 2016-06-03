@@ -253,3 +253,16 @@ button.newCard:hover {
   padding:0 !important;
   margin:auto 1% auto 0 !important;
 }
+
+:-webkit-input-placeholder {
+  opacity:0;
+}
+:-moz-placeholder {
+  opacity:0;
+}
+::-moz-placeholder {
+  opacity:0;
+}
+:-ms-input-placeholder {
+  opacity:0;
+}
