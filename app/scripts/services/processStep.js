@@ -45,4 +45,25 @@ angular.module('wfpcsFrontApp')
       console.log("get steps called", self.processSteps);
       return self.processSteps;
     };
+    self.saveVendorRating = function(vendorRating){
+      console.log(self.replaceProcessStep(vendorRating));
+    };
+
+    self.findProcessStep = function(processStepToFind) {
+      for(var i=0; i< self.processSteps.length; i++){
+        if(self.processSteps[i].index = processStepToFind.index) {
+          return self.processSteps[i];
+        }
+      }
+    };
+
+    self.replaceProcessStep = function(processStepToFind) {
+      for(var i=0; i< self.processSteps.length; i++){
+        if(self.processSteps[i].index = processStepToFind.index) {
+          self.processSteps[i] = processStepToFind;
+          return processSteps[i];
+        }
+      }
+    };
+
 });
