@@ -9,7 +9,7 @@
  * Controller of the wfpcsFrontApp
  */
 angular.module('wfpcsFrontApp')
-  .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, $http, authenticationService) {
+  .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, $http, authenticationService, userService) {
     var self = this;
 
     $scope.login = function (user) {
@@ -34,24 +34,33 @@ angular.module('wfpcsFrontApp')
       return authenticationService.authenticated;
     };
 
-    $scope.register = function (user) {
-      var uri = 'api/klanten/';
-      var data = {
+    $scope.salutation = [
+      { id: 1, salutation: $translate.instant('HEER') },
+      { id: 2, salutation: $translate.instant('MEVROUW') }
+    ];
+
+    $scope.registeruser = function (user) {
+      var account = {
         username: user.username,
         password: user.password,
-        companyname: user.companyname,
-        companydescription: user.companydescription,
-        adress: user.adress,
-        zipcode: user.zipcode,
-        city: user.city,
-        email: user.email
+        customer: {
+          businessname: user.companyname,
+          description: user.companydescription,
+          adress: user.adress,
+          zipcode: user.zipcode,
+          city: user.city,
+          emailaddress: user.emailadress,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          salutation: user.salutation,
+        }
       };
 
-      $http.post(uri, data)
-        .success(onCreated)
-        .error(function (message) {
-          alert('Aanmaken mislukt: ' + message);
-        });
+        userService.register(account);
+    };
+
+    $scope.cancelregister = function(){
+      $state.go('login');
     };
 
     self.authenticate = function(user) {
@@ -74,7 +83,7 @@ angular.module('wfpcsFrontApp')
         return succesful;
       });
     };
-
+    // TODO moet dit niet naar een service????
     self.requestAuthentication = function (onSuccess) {
       var uri = '/api/account/auth/me';
       console.log("authentication called");
