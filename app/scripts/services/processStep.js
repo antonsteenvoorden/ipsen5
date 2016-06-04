@@ -2,7 +2,7 @@
  * Created by Roy on 26-5-2016.
  */
 angular.module('wfpcsFrontApp')
-  .service('processStepService', function($rootScope, $window, $http) {
+  .service('processStepService', function ($rootScope, $window, $http) {
     console.log("Service log");
     var self = this;
     var opened;
@@ -14,15 +14,15 @@ angular.module('wfpcsFrontApp')
       new ProcessStep(5, 4, "T", "Tafelpoot verzenden", false, 2, 5, 3)
     ];
 
-    self.open = function(process, onSuccess) {
+    self.open = function (process, onSuccess) {
       $window.localStorage.setItem('openedProcess', process);
       // self.fetchOpened();
       // var uri = '/api/process/'+ process.id+'/steps';
-      var uri ='/api/process/1/steps';
+      var uri = '/api/process/1/steps';
       $http.get(uri)
-        .success(function(result){
+        .success(function (result) {
           self.processSteps = result;
-          console.log("processteps:",self.processSteps);
+          console.log("processteps:", self.processSteps);
           onSuccess(result);
         })
         .error(function (message, status) {
@@ -30,40 +30,61 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    self.getOpened = function() {
+    self.getOpened = function () {
       return self.opened;
     };
 
-    self.fetchOpened = function() {
+    self.fetchOpened = function () {
       self.opened = $window.localStorage.getItem('openedProcess');
-      for(var property in $window.localStorage.getItem('openedProcess')) {
+      for (var property in $window.localStorage.getItem('openedProcess')) {
         console.log($window.localStorage.getItem('openedProcess').property);
       }
     };
 
-    self.getProcessSteps = function() {
+    self.getProcessSteps = function () {
       console.log("get steps called", self.processSteps);
       return self.processSteps;
     };
-    self.saveVendorRating = function(vendorRating){
+    self.saveVendorRating = function (vendorRating) {
       console.log(self.replaceProcessStep(vendorRating));
     };
 
-    self.findProcessStep = function(processStepToFind) {
-      for(var i=0; i< self.processSteps.length; i++){
-        if(self.processSteps[i].index = processStepToFind.index) {
+    self.findProcessStep = function (processStepToFind) {
+      for (var i = 0; i < self.processSteps.length; i++) {
+        if (self.processSteps[i].index = processStepToFind.index) {
           return self.processSteps[i];
         }
       }
     };
 
-    self.replaceProcessStep = function(processStepToFind) {
-      for(var i=0; i< self.processSteps.length; i++){
-        if(self.processSteps[i].index = processStepToFind.index) {
+    self.replaceProcessStep = function (processStepToFind) {
+      for (var i = 0; i < self.processSteps.length; i++) {
+        if (self.processSteps[i].index = processStepToFind.index) {
           self.processSteps[i] = processStepToFind;
-          return processSteps[i];
+          return self.processSteps[i];
         }
       }
     };
 
-});
+    self.getVendorRatingData = function (processStep) {
+      var tmpStep = self.findProcessStep(processStep).vendor;
+      var calc = 1;
+      calc = calc * tmpStep.capacity;
+      calc = calc * tmpStep.cash;
+      calc = calc * tmpStep.certified;
+      calc = calc * tmpStep.clock;
+      calc = calc * tmpStep.complaints;
+      calc = calc * tmpStep.cost;
+      calc = calc * tmpStep.csr;
+      calc = calc * tmpStep.culture;
+      calc = calc * tmpStep.quality;
+      return calc;
+    };
+    self.getAllVendorRatingData = function () {
+      var tmpList = [];
+      for (var i = 0; i < self.processSteps.length; i++) {
+        tmpList.add(self.getVendorRatingData(self.processSteps[i]));
+      }
+      return tmpList;
+    };
+  });
