@@ -46,7 +46,9 @@ angular.module('wfpcsFrontApp')
       return self.processSteps;
     };
     self.saveVendorRating = function (vendorRating) {
+      vendorRating.vendor.rating = self.getVendorRatingData(vendorRating);
       console.log(self.replaceProcessStep(vendorRating));
+
     };
 
     self.findProcessStep = function (processStepToFind) {
@@ -80,10 +82,11 @@ angular.module('wfpcsFrontApp')
       calc = calc * tmpStep.quality;
       return calc;
     };
+
     self.getAllVendorRatingData = function () {
       var tmpList = [];
       for (var i = 0; i < self.processSteps.length; i++) {
-        tmpList.add(self.getVendorRatingData(self.processSteps[i]));
+        tmpList.add(self.processSteps[i].rating);
       }
       return tmpList;
     };
