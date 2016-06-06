@@ -257,6 +257,9 @@ button.newCard:hover {
 :-webkit-input-placeholder {
   opacity:0;
 }
+::-webkit-input-placeholder {
+  opacity:0;
+}
 :-moz-placeholder {
   opacity:0;
 }
