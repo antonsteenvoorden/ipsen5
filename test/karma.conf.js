@@ -45,6 +45,7 @@ module.exports = function(config) {
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/ngstorage/ngStorage.js',
       'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
+      'bower_components/ngScrollable/min/ng-scrollable.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

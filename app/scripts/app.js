@@ -23,7 +23,8 @@ angular
     'permission',
     'permission.ui',
     'ngDialog',
-    'validation.match'
+    'validation.match',
+    'ngScrollable'
   ])
   .constant('USER_ROLES', {
     all: '*',

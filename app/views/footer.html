@@ -15,9 +15,11 @@
       </div>
     </div>
 
-    <div ng-show="theFooter" layout="row" ng-if="$state.current.name == 'contact'">
+    <div ng-show="theFooter" layout="row" ng-if="$state.current.name == 'contact'"
+      ng-scrollable="{scrollX:'bottom',scrollY:'right'}" flex="200">
 
-        <md-card flex="30" ng-controller="BatchCycleBar">
+      <div layout="row" layout-align="start start">
+        <md-card class="barChartSize" ng-controller="BatchCycleBar">
           <canvas  class="chart chart-bar" chart-data="data" chart-labels="labels"
                    chart-series="series" chart-colours="colours">
           </canvas>
@@ -25,7 +27,7 @@
           <div class="TopAndBottomBorder" layout="row" layout-align="center center" ng-click="toggleCycleInfo()">
             <span>{{'CYCLETIMEINFO' | translate}}</span>
           </div>
-          <div ng-show="CycleInfoIsVisible">
+          <div ng-show="CycleInfoIsVisible" layout="column">
             <div layout="column">
               <div layout="row">
                 <div flex="25" layout="column">
@@ -93,9 +95,156 @@
           </div>
         </md-card>
 
+        <md-card class="barChartSize" ng-controller="BatchCycleBottleneckBar">
+          <canvas  class="chart chart-bar" chart-data="data" chart-labels="labels"
+                   chart-series="series" chart-colours="colours">
+          </canvas>
+
+          <div class="TopAndBottomBorder" layout="row" layout-align="center center" ng-click="toggleCycleInfo()">
+            <span>{{'CYCLETIMEINFO' | translate}}</span>
+          </div>
+
+          <div ng-show="CycleInfoIsVisible">
+
+            <span> extra inf van deze tabel</span>
+          </div>
+        </md-card>
+
+        <md-card class="barChartSize" ng-controller="VendorPrioritiesBar">
+          <canvas  class="chart chart-bar" chart-data="data" chart-labels="labels"
+                   chart-series="series" chart-colours="colours">
+          </canvas>
+
+          <div class="TopAndBottomBorder" layout="row" layout-align="center center" ng-click="toggleCycleInfo()">
+            <span>{{'CYCLETIMEINFO' | translate}}</span>
+          </div>
+
+          <div ng-show="CycleInfoIsVisible">
+            <span> extra inf van deze tabel</span>
+          </div>
+        </md-card>
+
+        <md-card class="barChartSize" ng-controller="DisturbanceBar">
+          <canvas  class="chart chart-bar" chart-data="data" chart-labels="labels"
+                   chart-series="series" chart-colours="colours">
+          </canvas>
+
+          <div class="TopAndBottomBorder" layout="row" layout-align="center center" ng-click="toggleCycleInfo()">
+            <span>{{'CYCLETIMEINFO' | translate}}</span>
+          </div>
+
+          <div ng-show="CycleInfoIsVisible" layout="column">
+            <div layout="column">
+              <div layout="row">
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MACHINE' | translate}} {{getMachine}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MATERIAL' | translate}} {{getMaterial}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'METHODE' | translate}} {{getMethode}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column" layout="column" layout-align="center center">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MAN' | translate}} {{getMan}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MANAGEMENT' | translate}} {{getManagement}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TOTAlDISTURBANCE' | translate}} {{getTotalAmountDisturbances}}</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+              </div>
+            </div>
+
+            <div layout="column">
+              <div layout="row">
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MACHINEPERCENTAGE' | translate}} {{getMachinePercentage}}%</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MATERIALPERCENTAGE' | translate}} {{getMaterialPercentage}}%</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'METHODEPERCENTAGE' | translate}} {{getMethodePercentage}}%</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column" layout="column" layout-align="center center">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MANPERCENTAGE' | translate}} {{getManPercentage}}%</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'MANAGEMENTPERCENTAGE' | translate}} {{getManagementPercentage}}%</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+
+                <div flex="17" layout="column">
+                  <span class="cycleBarChartTab" layout="column" layout-align="center center">{{'TOTAlDISTURBANCEPERCENTAGE' | translate}} 100%</span>
+                  <md-tooltip md-direction="top">
+                    {{'MISSING' | translate}}
+                  </md-tooltip>
+                </div>
+              </div>
+            </div>
+          </div>
+        </md-card>
+
+        <md-card class="barChartSize" ng-controller="DisturbancePrioritiesBar">
+          <canvas  class="chart chart-bar" chart-data="data" chart-labels="labels"
+                   chart-series="series" chart-colours="colours">
+          </canvas>
+
+          <div class="TopAndBottomBorder" layout="row" layout-align="center center" ng-click="toggleCycleInfo()">
+            <span>{{'CYCLETIMEINFO' | translate}}</span>
+          </div>
+
+          <div ng-show="CycleInfoIsVisible" layout="column">
+            <span> extra info over de tabel</span>
+          </div>
+        </md-card>
+      </div>
+
     </div>
   </div>
 </div>
-
 
 
