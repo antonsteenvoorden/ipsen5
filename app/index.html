@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width">
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
-  <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css" />
-  <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css"/>
+  <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css"/>
+  <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -19,20 +19,17 @@
   <!--endbuild-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body ng-app="wfpcsFrontApp" layout="column" ng-controller="MainCtrl">
+<body ng-app="wfpcsFrontApp" ng-controller="MainCtrl">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
 <header>
-<navigation></navigation>
+  <navigation></navigation>
 </header>
 <md-content>
-  <div ui-view></div>
+  <ui-view></ui-view>
 </md-content>
-
-
-
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
   !function (A, n, g, u, l, a, r) {

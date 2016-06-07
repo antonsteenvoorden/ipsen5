@@ -2,24 +2,21 @@
   <span flex="50">{{'CURRENT' | translate}}</span>
   <span flex="50">{{'TOBE' | translate}}</span>
 </div>
-<md-content layout="row">
-  <!--directive-->
-  <md-card flex="50" >
-    <md-content>
+<div flex layout="row">
+  <md-content layout="row" flex>
+    <!--directive-->
+    <div flex="50" style="border-right:1px solid black;">
       <md-list>
-        <process-step ng-repeat="i in [0,1,2,4,5,6,7,8,9,10]"/>
+        <process-step ng-repeat="processStep in processSteps"/>
         <!--<processstep ng-repeat="stap in stappen.slice().reverse()"></processstep>-->
       </md-list>
-    </md-content>
-  </md-card>
-
-  <md-card flex>
-    <md-content>
+    </div>
+    <div flex>
       <md-list>
-        <to-be-step ng-repeat="i in [0,1,2,4,5,6,7,8,9,10]"/>
+        <to-be-step ng-repeat="processStep in processSteps"/>
         <!--<tobestep ng-repeat="stap in stappen.slice().reverse()"></tobestep>-->
       </md-list>
-    </md-content>
-  </md-card>
-</md-content>
+    </div>
+  </md-content>
+</div>
 

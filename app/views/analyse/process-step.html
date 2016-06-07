@@ -5,13 +5,12 @@
 
   <md-radio-group ng-model="processStep.type" layout="row"
                   ng-show="$state.current.name == 'process.current'">
-    <md-radio-button value="T"></md-radio-button>
-    <md-radio-button value="H"></md-radio-button>
-    <md-radio-button value="C"></md-radio-button>
+    <md-radio-button aria-label="1" value="T"></md-radio-button>
+    <md-radio-button aria-label="2" value="H"></md-radio-button>
+    <md-radio-button aria-label="3" value="C"></md-radio-button>
   </md-radio-group>
 
-  <md-input-container flex="5" class="stapnummer" ng-show="$state.current.name !== 'process.current'" aria-label="">
-    1
+  <md-input-container flex="10" class="stapnummer" ng-show="$state.current.name !== 'process.current'" aria-label="">
     {{processStep.type}}
   </md-input-container>
 
@@ -23,7 +22,7 @@
     <input ng-model="processStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="">
   </md-input-container>
 
-  <md-input-container flex="30">
+  <md-input-container flex>
     <input ng-model="processStep.name" placeholder="{{'NAME' | translate}}" aria-label="">
   </md-input-container>
 
@@ -32,7 +31,7 @@
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.headcount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="">
+    <input ng-model="processStep.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="">
   </md-input-container>
 
   <md-input-container flex>

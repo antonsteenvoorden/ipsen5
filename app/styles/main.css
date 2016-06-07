@@ -255,17 +255,21 @@ button.newCard:hover {
 }
 
 :-webkit-input-placeholder {
-  opacity:0;
+  opacity:0 !important;
 }
 ::-webkit-input-placeholder {
-  opacity:0;
+  opacity:0 !important;
 }
 :-moz-placeholder {
-  opacity:0;
+  opacity:0 !important;
 }
 ::-moz-placeholder {
-  opacity:0;
+  opacity:0 !important;
 }
 :-ms-input-placeholder {
-  opacity:0;
+  opacity:0 !important;
 }
+.label {
+  text-align:center;
+}
+
