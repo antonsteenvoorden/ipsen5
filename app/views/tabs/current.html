@@ -1,4 +1,3 @@
-<md-content>
 <md-card layout flex class="list-item-height">
   <!--<div layout="column">-->
   <!--<span flex="5">Activity Nr.</span>-->
@@ -70,11 +69,11 @@
 
 <!--tab content-->
 
-<md-content flex layout="row">
-  <md-list flex>
-    <process-step ng-repeat="processStep in processSteps"></process-step>
-    <!--<processStep ng-repeat="stap in stappen.slice().reverse()"></processStep>-->
-  </md-list>
-</md-content>
+  <md-content flex layout="row">
+    <md-list flex>
+      <md-content>
+      <process-step ng-repeat="processStep in processSteps"></process-step>
+      </md-content>
+    </md-list>
 
 </md-content>
