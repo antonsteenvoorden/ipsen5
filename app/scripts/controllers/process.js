@@ -10,7 +10,12 @@
  */
 angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $location, ngDialog, processService, processStepService) {
   $scope.$state = $state;
-  $scope.processen = processService.loadProcesses();
+  processService.loadProcesses();
+  $scope.processen = processService.getProcessen();
+
+  $scope.test = function() {
+    //console.log(processService.getProcessen());
+  };
 
   $scope.addProcess = function() {
     var process = new Process();

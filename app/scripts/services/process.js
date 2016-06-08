@@ -8,14 +8,6 @@ angular.module('wfpcsFrontApp')
     var self = this;
 
     var processen;
-    /*var processen = [
-      new Process(1, "Alfa", "01/01/1999", 1, 1, 3),
-      new Process(2, "Beta", "18/05/2016", 2,  7, 14),
-      new Process(3, "Gamma", "18/05/2016", 3, 1337, 14),
-      new Process(5, "Delta", "18/05/2016", 4, 7, 14),
-      new Process(7, "Epsilon", "04/10/1992", 5, 14, 107),
-      new Process(8, "Dzèta", "18/05/2016", 6, 7, 9000)
-    ];*/
 
       /**
        * Fecth the processes from the API.
@@ -24,8 +16,8 @@ angular.module('wfpcsFrontApp')
       var uri = '/api/process/';
       $http.get(uri).success(function (result) {
         processen = result;
-        console.log(result);
-        return result;
+        console.log("De process service roept het onderstaande:");
+        console.log(result[0]);
       }).error(function (message, status) {
         console.log("Processen ophalen mislukt: " + message, status);
       });
