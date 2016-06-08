@@ -54,13 +54,14 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    self.authenticate = function(user) {
-      authenticationService.setAccessId(user.username);
-      authenticationService.setAccessKey(user.password);
+    self.authenticate = function(authenticator) {
+      authenticationService.setAccessId(authenticator.username);
+      authenticationService.setAccessKey(authenticator.password);
       var succesful = false;
       return self.requestAuthentication(function(user){
         console.log(user,"Success");
         if(user) {
+          user.password = authenticator.password;
           authenticationService.authenticated = true;
           authenticationService.setAuthenticator(user);
           authenticationService.storeAuthentication(user);
