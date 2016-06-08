@@ -10,5 +10,5 @@ var ProcessStep = function(id, number, type, name, bottleneck, duration, distanc
   this.duration = duration;
   this.distance = distance;
   this.cost = cost;
-  //TODO: check what attributes should be in ProcessStep.
+  //TODO: check what attributes should be in ProcessStep. headCount
 };

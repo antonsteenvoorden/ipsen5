@@ -11,7 +11,17 @@ angular.module('wfpcsFrontApp')
       new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
       new ProcessStep(3, 3, "H", "Hout verfen", true, 7, 0, 9),
       new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(5, 4, "T", "Tafelpoot verzenden", false, 2, 5, 3)
+      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(5, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(6, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(7, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(8, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(9, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(10, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(11, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(12, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(13, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
+      new ProcessStep(14, 4, "T", "Tafelpoot verzenden", false, 2, 5, 3)
     ];
 
     self.open = function (process, onSuccess) {
