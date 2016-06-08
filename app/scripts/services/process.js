@@ -6,21 +6,56 @@
 angular.module('wfpcsFrontApp')
   .service('processService', function($rootScope, $http) {
     var self = this;
-
+    var uri = '/api/process/';
     var processen;
 
       /**
        * Fecth the processes from the API.
        */
-    self.loadProcesses = function() {
-      var uri = '/api/process/';
+    self.loadProcesses = function(onSuccess) {
+      console.log('loadprocesses called');
       $http.get(uri).success(function (result) {
         processen = result;
-        console.log("De process service roept het onderstaande:");
-        console.log(result[0]);
+        onSuccess(result);
       }).error(function (message, status) {
         console.log("Processen ophalen mislukt: " + message, status);
       });
+    };
+
+      /**
+       * Send the call to delete the process from the database.
+       * @param process
+       */
+    self.httpDelete = function(process) {
+      $http.delete(uri + process.id)
+      .success(function() {
+        alert('Motherfucker deleted.');
+      }).error(function(message, status) {
+        console.log('Deleting process failed: ' + status, message);
+      });
+    };
+
+      /**
+       * Send the call to create the process to the API.
+       * @param process
+       */
+    self.httpPost = function(process) {
+      console.log(JSON.stringify(process));
+      $http.post(uri, process)
+      .error(function(message, status) {
+        console.log('Creating new process failed: ' + status, message);
+      });
+    };
+
+      /**
+       * Send the call to update the process to the API.
+       * @param process
+       */
+    self.httpPut = function(process) {
+      $http.post(uri, process)
+        .error(function(message, status) {
+          console.log('Updating process failed: ' + status, message);
+        });
     };
 
       /**
@@ -33,6 +68,7 @@ angular.module('wfpcsFrontApp')
       processen.forEach(function(value, index) {
         if(value.id == process.id) {
           processen.splice(index, 1, process);
+          self.httpPut(process);
           added = true;
         }
       });
@@ -40,12 +76,15 @@ angular.module('wfpcsFrontApp')
         processen.push(
           process
         );
+        self.httpPost(process);
       }
     };
 
     self.deleteProcess = function(id) {
       processen.forEach(function(value, index) {
         if(value.id == id) {
+          self.httpDelete(processen[index]);
+          alert(processen[index]);
           processen.splice(index, 1);//Remove one.
         }
       });
