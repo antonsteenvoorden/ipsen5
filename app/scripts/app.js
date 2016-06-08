@@ -142,6 +142,7 @@ angular
     $translateProvider.translations('en', {
       LOGIN: 'Sign in first',
       LOGINFAIL: 'Log in failed! Make sure you enter the correct credentials',
+      REGISTERSUCCESS:'An email has been sent',
       USERNAME: 'Username',
       PASSWORD: 'Password',
       LOGINBUTTON: 'Sign in',
@@ -165,7 +166,7 @@ angular
       VENDOR: 'Vendor Rating',
       COMPANYNAME: 'Company name',
       COMPANYDESCRIPTION: 'Company description',
-      ADRESS: 'Adress',
+      ADDRESS: 'Address',
       ZIPCODE: 'Zipcode',
       CITY: 'City',
       EMAIL: 'E-mail',
@@ -174,6 +175,9 @@ angular
       CANCELRBUTTON: 'Cancel',
       REGISTERTITLE: 'Register',
       PASSWORDMISSMATCH: "password mismatch!",
+      FIRSTNAME:'First name',
+      LASTNAME:'Last name',
+      SALUTATION:'Salutation',
 
       HIDEFOOTER: "Hide content",
       SHOWFOOTER: "Show content",
@@ -219,6 +223,7 @@ angular
     $translateProvider.translations('nl', {
       LOGIN: 'Log eerst in',
       LOGINFAIL: 'Inloggen niet gelukt! Zorg dat je de goede gegevens invult!',
+      REGISTERSUCCESS:'Er is een mail verstuurd',
       USERNAME: 'Gebruikersnaam',
       PASSWORD: 'Wachtwoord',
       LOGINBUTTON: 'Aanmelden',
@@ -242,7 +247,7 @@ angular
       VENDOR: 'Leveranciers',
       COMPANYNAME: 'Bedrijfsnaam',
       COMPANYDESCRIPTION: 'Bedrijfsomschrijving',
-      ADRESS: 'Adres',
+      ADDRESS: 'Adres',
       ZIPCODE: 'Postcode',
       CITY: 'Woonplaats',
       EMAIL: 'E-mailadres',
@@ -251,6 +256,9 @@ angular
       CANCELRBUTTON: 'Annuleren',
       REGISTERTITLE: 'Registreren',
       PASSWORDMISSMATCH: "Foutieve confirmatie!",
+      FIRSTNAME:'Voornaam',
+      LASTNAME:'Achternaam',
+      SALUTATION:'Aanhef',
 
       HIDEFOOTER: "Verberg inhoud",
       SHOWFOOTER: "Toon inhoud",
