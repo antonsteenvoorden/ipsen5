@@ -82,7 +82,7 @@
 
       <div layout="row" layout-align="start center">
         <!--ng-click="register(user), checkPassword(userpassword)"-->
-        <md-button id="register.submit" flex="50" ng-click="callRegister(user)" type="submit" class="md-primary">
+        <md-button id="register.submit" flex="50" ng-disabled="register.confirmPassword.$error.match" ng-click="callRegister(user)" type="submit" class="md-primary">
           {{'REGISTERBUTTON' | translate}}
         </md-button>
 
