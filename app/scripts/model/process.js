@@ -10,8 +10,8 @@ var Process = function(id, name, date, batchSize, hoursDay, piecesDay, stepAmoun
   this.batchSize = batchSize;
   this.hoursPerDay = hoursDay;
   this.piecesPerDay = piecesDay;
-  this.stepAmount = stepAmount | this.getStepAmount();
-  this.position = position | NaN; //@TODO: position should get fetched from database.
+  //this.stepAmount = stepAmount | this.getStepAmount();
+  //this.position = position | NaN; //@TODO: position should get fetched from database.
 };
 
 Process.prototype.test = function() {
