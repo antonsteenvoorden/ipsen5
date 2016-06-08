@@ -19,7 +19,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     process.date = $scope.newProcess.date;
     process.batchSize = $scope.newProcess.batchSize;
     process.hoursDay = $scope.newProcess.hoursDay;
-    process.piecesDay = $scope.newProcess.piecesDay;
+    process.piecesPerDay = $scope.newProcess.piecesDay;
     processService.newProcess(process);
     ngDialog.close();
   };
