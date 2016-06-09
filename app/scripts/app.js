@@ -154,7 +154,7 @@ angular
       RECOVER_PASSWORD_BUTTON: 'Send recovery email',
 
       ENGLISH: 'English',
-      BASE: 'Base64',
+      BASE: 'Dutch',
       MYPROFILE: 'My profile',
       SIGNOUT: 'Sign out',
       HOME: 'Dashboard',
@@ -188,14 +188,33 @@ angular
       TOTALTIMEPERCENTAGE: 'Total time in percentage',
       CYCLETIMEINFO: 'Show additional information',
 
-      TTTM: 'TTTM',
-      THTM: 'THTM',
-      TCTM: 'TCTM',
-      TTM: 'TTM',
-      TTTP: 'TTTP',
-      THTP: 'THTP',
-      TCTP: 'TCTP',
-      TTP: 'TTP'
+      TTTM: "TTTM",
+      THTM: "THTM",
+      TCTM: "TCTM",
+      TTM: "TTM",
+      TTTP: "TTTP",
+      THTP: "THTP",
+      TCTP: "TCTP",
+      TTP: "TTP",
+      LOW:'Low',
+      HIGH:'High',
+      EDIT:'Edit',
+      REMOVE:'Remove',
+
+      TRAVEL_DISTANCE:'Travel distance',
+      CYCLE_TIME:'Cycle time',
+      NAME:'Name',
+      COST:'Cost',
+      HEAD_COUNT:'Head count',
+      ENERGY_USAGE:'Energy usage',
+
+      CAPACITY:'Capacity',
+      CERTIFIED:'Certified',
+      CLOCK:'Clock',
+      COMPLAINTS:'Complaints',
+      CSR:'CSR',
+      CASH:'Cash',
+      CULTURE:'Culture'
     });
 
     $translateProvider.translations('nl', {
@@ -212,7 +231,7 @@ angular
       RECOVER_PASSWORD_BUTTON: 'Send recovery email',
 
       ENGLISH: 'Engels',
-      BASE: 'Baas',
+      BASE: 'Nederlands',
       MYPROFILE: 'Mijn profiel',
       SIGNOUT: 'Uitloggen',
       HOME: 'Dashboard',
@@ -246,14 +265,33 @@ angular
       TOTALTIMEPERCENTAGE: 'Totale tijd in percentage',
       CYCLETIMEINFO: 'Toon extra informatie',
 
-      TTTM: 'TTTM',
-      THTM: 'TOTM',
-      TCTM: 'TBTM',
-      TTM: 'TTM',
-      TTTP: 'TTTP',
-      THTP: 'TOTP',
-      TCTP: 'TBTP',
-      TTP: 'TTP'
+      TTTM: "TTTM",
+      THTM: "TOTM",
+      TCTM: "TBTM",
+      TTM: "TTM",
+      TTTP: "TTTP",
+      THTP: "TOTP",
+      TCTP: "TBTP",
+      TTP: "TTP",
+      LOW:'Laag',
+      HIGH:'Hoog',
+      EDIT:'Edit',
+      REMOVE:'Remove',
+
+      TRAVEL_DISTANCE:'Travel distance',
+      CYCLE_TIME:'Cycle time',
+      NAME:'Name',
+      COST:'Cost',
+      HEAD_COUNT:'Head count',
+      ENERGY_USAGE:'Energy usage',
+
+      CAPACITY:'Capaciteit',
+      CERTIFIED:'Certified',
+      CLOCK:'Tijd',
+      COMPLAINTS:'Klachten',
+      CSR:'CSR',
+      CASH:'Geld',
+      CULTURE:'Cultuur'
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');

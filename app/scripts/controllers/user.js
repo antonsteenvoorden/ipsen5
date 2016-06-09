@@ -63,21 +63,21 @@ angular.module('wfpcsFrontApp')
       $state.go('login');
     };
 
-    self.authenticate = function(user) {
-      authenticationService.setAccessId(user.username);
-      authenticationService.setAccessKey(user.password);
+    self.authenticate = function(authenticator) {
+      authenticationService.setAccessId(authenticator.username);
+      authenticationService.setAccessKey(authenticator.password);
       var succesful = false;
       return self.requestAuthentication(function(user){
         console.log(user,"Success");
         if(user) {
+          user.password = authenticator.password;
           authenticationService.authenticated = true;
           authenticationService.setAuthenticator(user);
-          //self.setPermissions(user.permissions);
-          authenticationService.setPermissions(['ADMIN']);
           authenticationService.storeAuthentication(user);
           succesful = true;
           $state.go('dashboard');
         } else {
+          authenticationService.authenticated = false;
           $mdToast.show($mdToast.simple().textContent($translate.instant('LOGINFAIL')));
         }
         return succesful;
@@ -89,7 +89,6 @@ angular.module('wfpcsFrontApp')
       console.log("authentication called");
       $http.get(uri)
        .success(function(result){
-         console.log(result);
          onSuccess(result);
        })
        .error(function (message, status) {

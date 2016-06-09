@@ -244,6 +244,36 @@ button.newCard:hover {
   width: 100%;
 }
 
+.list-item-height {
+  height:70px !important;
+  border-bottom:1px;
+  align-items:flex-start !important;
+}
+.list-item-height md-radio-group {
+  padding:0 !important;
+  margin:auto 1% auto 0 !important;
+}
+
+:-webkit-input-placeholder {
+  opacity:0 !important;
+}
+::-webkit-input-placeholder {
+  opacity:0 !important;
+}
+:-moz-placeholder {
+  opacity:0 !important;
+}
+::-moz-placeholder {
+  opacity:0 !important;
+}
+:-ms-input-placeholder {
+  opacity:0 !important;
+}
+.label {
+  text-align:center;
+}
+
+
 .barChartSize{
   min-width: 30%;
 }

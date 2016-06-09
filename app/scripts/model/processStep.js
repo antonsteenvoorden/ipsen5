@@ -9,6 +9,15 @@ var ProcessStep = function(id, number, type, name, bottleneck, duration, distanc
   this.bottleneck = bottleneck;
   this.duration = duration;
   this.distance = distance;
-  this.const = cost;
-  //TODO: check what attributes should be in ProcessStep.
+  this.cost = cost;
+  //TODO: check what attributes should be in ProcessStep. headCount
+};
+
+/**
+ * To clone the ProcessStep object without the prototype hassle.
+ * @returns {ProcessStep}
+ */
+ProcessStep.prototype.clone = function() {
+  return new ProcessStep(this.id, this.number, this.type, this.name,
+    this.bottleneck, this.duration, this.distance, this.cost);
 };

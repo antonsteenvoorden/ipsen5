@@ -2,46 +2,104 @@
  * Created by Roy on 26-5-2016.
  */
 angular.module('wfpcsFrontApp')
-  .service('processStepService', function($rootScope, $window, $http) {
-
+  .service('processStepService', function ($rootScope, $window, $http) {
+    console.log("Service log");
     var self = this;
     var opened;
-    var processSteps = [
+    self.processSteps = [
       new ProcessStep(1, 1, "C", "Hout plaatsen", false, 2, 5, 3),
       new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
       new ProcessStep(3, 3, "H", "Hout verfen", true, 7, 0, 9),
-      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(5, 4, "T", "Tafelpoot verzenden", false, 2, 5, 3)
+      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3)
     ];
 
-    self.open = function(process, onSuccess) {
+      /**
+       * Load the processteps and open te processteps tab.
+       * @param process
+       * @param onSuccess
+       */
+    self.open = function (process, onSuccess) {
       $window.localStorage.setItem('openedProcess', process);
       // self.fetchOpened();
-      // var uri = '/api/process/'+ process.id+'/steps';
-      var uri ='/api/process/1/steps';
+      var uri = '/api/process/'+ process.id +'/steps';
       $http.get(uri)
-        .success(function(result){
-          processSteps = result;
-          console.log(result);
-          onSuccess(processSteps);
+        .success(function (result) {
+          self.processSteps = result;
+          onSuccess(result);
         })
         .error(function (message, status) {
-          alert('Inloggen mislukt: ' + message, status);
+          alert('Fetching processteps failed : ' + message, status);
         });
     };
 
-    self.getOpened = function() {
+    self.getOpened = function () {
       return self.opened;
     };
 
-    self.fetchOpened = function() {
+    self.fetchOpened = function () {
       self.opened = $window.localStorage.getItem('openedProcess');
-      for(var property in $window.localStorage.getItem('openedProcess')) {
+      for (var property in $window.localStorage.getItem('openedProcess')) {
         console.log($window.localStorage.getItem('openedProcess').property);
       }
     };
 
-    self.getProcessSteps = function() {
+    self.getProcessSteps = function () {
+      console.log("get steps called", self.processSteps);
       return self.processSteps;
     };
-});
+    self.saveVendorRating = function (vendorRating) {
+      vendorRating.vendor.rating = self.getVendorRatingData(vendorRating);
+      console.log(self.replaceProcessStep(vendorRating));
+
+    };
+
+    self.findProcessStep = function (processStepToFind) {
+      for (var i = 0; i < self.processSteps.length; i++) {
+        if (self.processSteps[i].index = processStepToFind.index) {
+          return self.processSteps[i];
+        }
+      }
+    };
+
+    self.replaceProcessStep = function (processStepToFind) {
+      for (var i = 0; i < self.processSteps.length; i++) {
+        if (self.processSteps[i].index = processStepToFind.index) {
+          self.processSteps[i] = processStepToFind;
+          return self.processSteps[i];
+        }
+      }
+    };
+
+    self.getVendorRatingData = function (processStep) {
+      var tmpStep = self.findProcessStep(processStep).vendor;
+      var calc = 1;
+      calc = calc * tmpStep.capacity;
+      calc = calc * tmpStep.cash;
+      calc = calc * tmpStep.certified;
+      calc = calc * tmpStep.clock;
+      calc = calc * tmpStep.complaints;
+      calc = calc * tmpStep.cost;
+      calc = calc * tmpStep.csr;
+      calc = calc * tmpStep.culture;
+      calc = calc * tmpStep.quality;
+      return calc;
+    };
+
+    self.getAllVendorRatingData = function () {
+      var tmpList = [];
+      for (var i = 0; i < self.processSteps.length; i++) {
+        tmpList.add(self.processSteps[i].rating);
+      }
+      return tmpList;
+    };
+
+      /**
+       * Append the processSteps list with new processStep.
+       * Make the call to the API to save the processStep in the database.
+       */
+      self.addProcessStep = function(processStep) {
+        //the new processStep gets the number of the last element plus one.
+        processStep.number = self.processSteps[self.processSteps.length -1].number + 1;
+        self.processSteps.push(processStep);
+      };
+  });
