@@ -14,14 +14,40 @@ angular.module('wfpcsFrontApp')
     ];
   })
 
-.controller('BatchCycleBar', function ($scope) {
+.controller('BatchCycleBar', function ($scope ,processStepService) {
   var self = this;
 
-  
+  // var processStepArray = [processStepService.getProcessSteps];
 
-  var Transport = 10;
-  var Hold = 20.5;
-  var Convert = 10;
+  var Transport = 0;
+  var Hold = 0;
+  var Convert = 0;
+
+  /*
+  for (var counter = 0; processStepArray.length > counter; counter++){
+    switch(processStep[counter].type)
+    case(type = 'T'):
+      Transport = Transport + processStep.duration;
+    case(type = 'C') :
+      Convert = 
+    case(type = 'H') :
+      Hold++
+    
+    if (processStepArray[counter] == 'T'){
+      Transport = Transport+processStepArray[counter].indexOf(4);
+    }
+
+    if(processStepArray[counter] == 'H'){
+      Hold = Hold+processStepArray[counter].indexOf(4);
+    }
+
+    if(processStepArray[counter] == 'C'){
+      Convert = Convert+processStepArray[counter].indexOf(4);
+    }
+  }
+*/
+  console.log(processStepArray + "de array van proccess stappen")
+
   var CycleSum = Transport + Hold + Convert;
 
   var TransportPercentage = (Transport/CycleSum)*100;
