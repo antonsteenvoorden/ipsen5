@@ -19,9 +19,9 @@ angular.module('wfpcsFrontApp')
     };
 
     self.callRegister = function (account, resolved, rejected) {
-      var uri = 'api/account/';
       var data = JSON.stringify(account);
       console.log(data);
+      var uri = 'api/account/';
       $http.post(uri, data)
         .success(resolved)
         .error(function (err) {
@@ -30,8 +30,16 @@ angular.module('wfpcsFrontApp')
         })
     };
 
+    self.callEdit = function(account, resolved, rejected) {
+      var uri = 'api/account/'+account.id;
+      var data = angular.toJson(account);
+      $http.put(uri, data)
+        .success(resolved)
+        .error(rejected)
+    };
+
     self.requestAuthentication = function (onSuccess) {
-      var uri = '/api/account/auth/me';
+      var uri = 'api/account/auth/me';
       $http.get(uri)
         .success(function (result) {
           onSuccess(result);

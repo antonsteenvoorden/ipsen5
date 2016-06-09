@@ -14,6 +14,7 @@ angular.module('wfpcsFrontApp')
 
     if($state.current.name === 'myprofile') {
       userService.getMyProfile(authenticationService.getAuthenticator().id, function (account) {
+        console.log(account);
         $scope.user = account;
       });
     }
@@ -29,6 +30,14 @@ angular.module('wfpcsFrontApp')
       $state.go('login');
     };
 
+
+    $scope.edit = function(user){
+      userService.callEdit(user, function(){
+        $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERSUCCESS')));
+      }, function(){
+        $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERFAIL')));
+      });
+    };
 
     $scope.isAuthenticated = function () {
       return authenticationService.authenticated;
