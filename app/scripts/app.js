@@ -61,7 +61,13 @@ angular
       .state('myprofile', {
         url: '/myprofile',
         templateUrl: 'views/myprofile.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('contact', {
         url: '/contact',
