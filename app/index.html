@@ -19,7 +19,7 @@
   <!--endbuild-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body ng-app="wfpcsFrontApp" ng-controller="MainCtrl">
+<body ng-app="wfpcsFrontApp" flex ng-controller="MainCtrl">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -27,9 +27,8 @@
 <header>
   <navigation></navigation>
 </header>
-<md-content>
-  <ui-view></ui-view>
-</md-content>
+<ui-view></ui-view>
+
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
   !function (A, n, g, u, l, a, r) {
@@ -106,6 +105,7 @@
 <script src="scripts/services/permissions.js"></script>
 <script src="scripts/services/process.js"></script>
 <script src="scripts/services/processStep.js"></script>
+<script src="scripts/services/user.js"></script>
 
 <!-- endbuild -->
 </body>

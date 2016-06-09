@@ -4,51 +4,57 @@
     </span>
 
   <md-radio-group ng-model="processStep.type" layout="row"
-                  ng-show="$state.current.name == 'process.current'">
-    <md-radio-button aria-label="1" value="T"></md-radio-button>
-    <md-radio-button aria-label="2" value="H"></md-radio-button>
-    <md-radio-button aria-label="3" value="C"></md-radio-button>
+                  ng-show="$state.current.name == 'process.current'" ng-disabled="!locked">
+    <md-radio-button aria-label="1" value="T" ng-disabled="!locked"></md-radio-button>
+    <md-radio-button aria-label="2" value="H" ng-disabled="!locked"></md-radio-button>
+    <md-radio-button aria-label="3" value="C" ng-disabled="!locked"></md-radio-button>
   </md-radio-group>
 
-  <md-input-container flex="10" class="stapnummer" ng-show="$state.current.name !== 'process.current'" aria-label="">
+  <md-input-container flex="10" class="stapnummer" ng-show="$state.current.name !== 'process.current'" aria-label=""
+                      ng-disabled="!locked">
     {{processStep.type}}
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label="">
+    <input ng-model="processStep.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label=""
+           ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="">
+    <input ng-model="processStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processStep.name" placeholder="{{'NAME' | translate}}" aria-label="">
+    <input ng-model="processStep.name" placeholder="{{'NAME' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processStep.cost" placeholder="{{'COST' | translate}}" aria-label="">
+    <input ng-model="processStep.cost" placeholder="{{'COST' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex ng-hide="$state.current.name == 'process.vendor'">
-    <input ng-model="processStep.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="">
+    <input ng-model="processStep.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label=""
+           ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="processStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="">
+    <input ng-model="processStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label=""
+           ng-disabled="!locked">
   </md-input-container>
 
   <div layout="row" flex ng-show="$state.current.name == 'process.current'">
-    <md-button ng-click="insert(processtep)" aria-label="Insert row">
+    <md-button ng-show="!locked" ng-click="insert(processtep)" aria-label="Insert row">
       <span class="glyphicon glyphicon-plus"></span>
     </md-button>
 
-    <md-button ng-click="edit(processtep)" aria-label="edit unlock">
-      <md-icon class="material-icons">edit</md-icon>
-    </md-button>
-
-    <!--<md-button class="md-warn" type="button" class="md-warn" ng-click="remove(processtep)" aria-label="Remove row">-->
-    <!--<span class="glyphicon glyphicon-trash"></span>-->
-    <!--</md-button>-->
+      <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="edit unlock">
+        <md-icon class="material-icons">edit</md-icon>
+      </md-button>
+      <md-button ng-show="locked" ng-click="locked = !locked" aria-label="remove">
+        <md-icon class="material-icons">delete</md-icon>
+      </md-button>
+      <md-button ng-show="locked" aria-label="" ng-click="locked = !locked; save(processStep)">
+        <md-icon class="material-icons">save</md-icon>
+      </md-button>
   </div>
 </md-list-item>

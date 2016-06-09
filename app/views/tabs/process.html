@@ -15,6 +15,7 @@
           md-active="$state.is('process.vendor')">
   </md-tab>
 </md-tabs>
-<ui-view></ui-view>
-<button ng-click="saveList()">Opslaan</button>
-<footer></footer>
+<md-content layout="column" style="overflow:hidden;">
+  <ui-view></ui-view>
+  <footer></footer>
+</md-content>
