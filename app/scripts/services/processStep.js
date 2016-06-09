@@ -5,7 +5,6 @@ angular.module('wfpcsFrontApp')
   .service('processStepService', function ($rootScope, $window, $http) {
     console.log("Service log");
     var self = this;
-    var opened;
     self.processSteps = [
       new ProcessStep(1, 1, "C", "Hout plaatsen", false, 2, 5, 3),
       new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
@@ -19,8 +18,8 @@ angular.module('wfpcsFrontApp')
        * @param onSuccess
        */
     self.open = function (process, onSuccess) {
-      $window.localStorage.setItem('openedProcess', process);
-      // self.fetchOpened();
+      sessionStorage.setItem('opened', process.id);
+      console.log(process.id);
       var uri = '/api/process/'+ process.id +'/steps';
       $http.get(uri)
         .success(function (result) {
@@ -93,13 +92,31 @@ angular.module('wfpcsFrontApp')
       return tmpList;
     };
 
-      /**
-       * Append the processSteps list with new processStep.
-       * Make the call to the API to save the processStep in the database.
-       */
-      self.addProcessStep = function(processStep) {
-        //the new processStep gets the number of the last element plus one.
+    /**
+     * Append the processSteps list with new processStep.
+     * Also make the call to the API to save it.
+     */
+    self.addProcessStep = function(processStep) {
+      //the new processStep gets the number of the last element plus one.
+      if(self.processSteps.length > 0)
         processStep.number = self.processSteps[self.processSteps.length -1].number + 1;
-        self.processSteps.push(processStep);
-      };
+      else
+        processStep.number = 1;
+      self.processSteps.push(processStep);
+      alert(sessionStorage.getItem('opened').id);
+      var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+      $http.post(uri, processStep)
+        .success(function() {
+          alert('processstep call made');
+        });
+    };
+
+    /**
+     * Delete the processtep.
+     * Also make the call to the API to remove it.
+     */
+    self.deleteProcessStep = function(processStep) {
+      alert("Hellel shel");
+    };
+
   });
