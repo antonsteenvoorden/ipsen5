@@ -5,15 +5,16 @@
 angular.module('wfpcsFrontApp')
   .service('userService', function ($http) {
     var self = this;
-    self.callRegister = function(account, resolved) {
+    self.callRegister = function (account, resolved, rejected) {
       var uri = 'api/account/';
       var data = JSON.stringify(account);
       console.log(data);
       $http.post(uri, data)
         .success(resolved)
-        .error(function(err){
-        console.log(err);
-      })
+        .error(function (err) {
+          rejected();
+          console.log(err);
+        })
 
     }
   });
