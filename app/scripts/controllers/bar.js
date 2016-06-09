@@ -16,12 +16,8 @@ angular.module('wfpcsFrontApp')
 
 .controller('BatchCycleBar', function ($scope) {
   var self = this;
-  /*
-  TODO:
-  - filter op hoogste waarde links krijgen.
-  - transport,hold,convert waardes van de database krijgen
-  - mits in de call gedaan: alle waardes optellen.
-   */
+
+  
 
   var Transport = 10;
   var Hold = 20.5;
