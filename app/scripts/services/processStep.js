@@ -10,33 +10,25 @@ angular.module('wfpcsFrontApp')
       new ProcessStep(1, 1, "C", "Hout plaatsen", false, 2, 5, 3),
       new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
       new ProcessStep(3, 3, "H", "Hout verfen", true, 7, 0, 9),
-      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(5, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(6, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(7, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(8, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(9, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(10, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(11, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(12, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(13, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3),
-      new ProcessStep(14, 4, "T", "Tafelpoot verzenden", false, 2, 5, 3)
+      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3)
     ];
 
+      /**
+       * Load the processteps and open te processteps tab.
+       * @param process
+       * @param onSuccess
+       */
     self.open = function (process, onSuccess) {
       $window.localStorage.setItem('openedProcess', process);
       // self.fetchOpened();
-      // var uri = '/api/process/'+ process.id+'/steps';
-      var uri = '/api/process/1/steps';
+      var uri = '/api/process/'+ process.id +'/steps';
       $http.get(uri)
         .success(function (result) {
           self.processSteps = result;
-          console.log("processteps:", self.processSteps);
           onSuccess(result);
         })
         .error(function (message, status) {
-          alert('Inloggen mislukt: ' + message, status);
+          alert('Fetching processteps failed : ' + message, status);
         });
     };
 
@@ -100,4 +92,14 @@ angular.module('wfpcsFrontApp')
       }
       return tmpList;
     };
+
+      /**
+       * Append the processSteps list with new processStep.
+       * Make the call to the API to save the processStep in the database.
+       */
+      self.addProcessStep = function(processStep) {
+        //the new processStep gets the number of the last element plus one.
+        processStep.number = self.processSteps[self.processSteps.length -1].number + 1;
+        self.processSteps.push(processStep);
+      };
   });
