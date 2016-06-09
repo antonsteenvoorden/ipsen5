@@ -12,6 +12,12 @@ angular.module('wfpcsFrontApp')
   .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, $http, authenticationService, userService) {
     var self = this;
 
+    if($state.current.name === 'myprofile') {
+      userService.getMyProfile(authenticationService.getAuthenticator().id, function (account) {
+        $scope.user = account;
+      });
+    }
+
     $scope.login = function (user) {
       if(user) {
         self.authenticate(user);
@@ -22,6 +28,7 @@ angular.module('wfpcsFrontApp')
       authenticationService.deleteAuthentication();
       $state.go('login');
     };
+
 
     $scope.isAuthenticated = function () {
       return authenticationService.authenticated;
@@ -39,7 +46,7 @@ angular.module('wfpcsFrontApp')
       authenticationService.setAccessId(authenticator.username);
       authenticationService.setAccessKey(authenticator.password);
       var succesful = false;
-      return self.requestAuthentication(function(user){
+      return userService.requestAuthentication(function(user){
         console.log(user,"Success");
         if(user) {
           user.password = authenticator.password;
@@ -55,19 +62,4 @@ angular.module('wfpcsFrontApp')
         return succesful;
       });
     };
-
-    self.requestAuthentication = function (onSuccess) {
-      var uri = '/api/account/auth/me';
-      console.log("authentication called");
-      $http.get(uri)
-       .success(function(result){
-         onSuccess(result);
-       })
-       .error(function (message, status) {
-         alert('Inloggen mislukt: ' + message, status);
-       });
-    // onSuccess(true);
-    };
-
-
   });

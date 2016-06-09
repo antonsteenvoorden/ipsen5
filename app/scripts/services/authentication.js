@@ -50,6 +50,11 @@ angular.module('wfpcsFrontApp')
     self.setAuthenticator = function (user) {
       $rootScope.authenticator = user;
     };
+
+    self.getAuthenticator = function(){
+      return $rootScope.authenticator;
+    };
+
     self.createAuthorizationString = function () {
       return 'Basic ' + Base64.encode(self.accessId + ':' + self.accessKey);
     };
@@ -68,7 +73,6 @@ angular.module('wfpcsFrontApp')
 
     self.storeAuthentication = function (user) {
       var authenticator = angular.toJson(user);
-      // var storage = (user.remember === true) ? $window.localStorage : $window.sessionStorage;
       var storage = $window.localStorage;
       storage.setItem('authenticator', authenticator);
     };
