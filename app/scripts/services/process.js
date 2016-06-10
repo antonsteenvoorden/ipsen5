@@ -95,7 +95,14 @@ angular.module('wfpcsFrontApp')
     };
 
     self.setEditableProcess = function(process) {
-      self.editableProcess = process.clone();
+      var tmpProcess = new Process();
+      tmpProcess.id = process.id;
+      tmpProcess.name = process.name;
+      tmpProcess.date = process.date;
+      tmpProcess.batchSize = process.batchSize;
+      tmpProcess.hoursPerDay = process.hoursPerDay;
+      tmpProcess.piecesPerDay = process.piecesPerDay;
+      self.editableProcess = tmpProcess;
     };
 
     self.getEditableProcess = function() {

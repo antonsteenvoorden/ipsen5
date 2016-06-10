@@ -13,8 +13,8 @@
             <md-icon class="material-icons">more_verti</md-icon>
           </a>
           <md-menu-content>
-            <md-menu-item><md-button ng-click="editProcess(process)"><md-icon class="material-icons">edit</md-icon> {{'EDIT' | translate}}</md-button></md-menu-item>
-            <md-menu-item><md-button ng-click="deleteProcess(process.id)"><md-icon class="material-icons">delete</md-icon>{{'REMOVE' | translate}}</md-button></md-menu-item>
+            <md-menu-item><md-button ng-click="editProcess(process); edit=!edit;"><md-icon class="material-icons">edit</md-icon> {{'EDIT' | translate}}</md-button></md-menu-item>
+            <md-menu-item><md-button ng-click="deleteProcess(process.id);"><md-icon class="material-icons">delete</md-icon>{{'REMOVE' | translate}}</md-button></md-menu-item>
           </md-menu-content>
         </md-menu>
       </md-card-subtitle>

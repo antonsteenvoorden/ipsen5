@@ -26,7 +26,8 @@
         <input ng-model="newProcess.version"/>
       </md-input-container>
       <md-button ng-click="cancel()">Annuleren</md-button>
-      <md-button ng-click="addProcess()">Opslaan</md-button>
+      <md-button ng-hide="edit" ng-click="addProcess()">Opslaan</md-button>
+      <md-button ng-hide="!edit" ng-click="editProcess()">Bijwerken</md-button>
     </div>
   </md-content>
 </div>
