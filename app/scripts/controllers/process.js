@@ -10,12 +10,27 @@
  */
 angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $location, ngDialog, processService, processStepService) {
   $scope.$state = $state;
-  $scope.edit = false;
+
+  $scope.getEdit = function() {
+    return processService.getEdit();
+  };
+
+  $scope.setEdit = function(boolean) {
+    if(boolean)
+      processService.setEdit();
+    else
+      processService.setNew();
+  };
 
   processService.loadProcesses(function(result){
     $scope.processen = result;
   });
 
+  /**
+   * TODO: Vind deze oplossing toch niet zo chill Anton,
+   * TODO: Twee methoden die maar een regel verschillen.
+   */
+  //Add a new process
   $scope.addProcess = function() {
     var process = new Process();
     process.id = $scope.newProcess.id;
@@ -24,7 +39,23 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     process.batchSize = $scope.newProcess.batchSize;
     process.hoursPerDay = $scope.newProcess.hoursPerDay;
     process.piecesPerDay = $scope.newProcess.piecesPerDay;
-    processService.newProcess(process);
+    processService.newProcess(process, function() {
+      location.reload();
+    });
+    ngDialog.close();
+  };
+
+  $scope.updateProcess = function() {
+    var process = new Process();
+    process.id = $scope.newProcess.id;
+    process.name = $scope.newProcess.name;
+    process.date = $scope.newProcess.date;
+    process.batchSize = $scope.newProcess.batchSize;
+    process.hoursPerDay = $scope.newProcess.hoursPerDay;
+    process.piecesPerDay = $scope.newProcess.piecesPerDay;
+    processService.updateProcess(process, function() {
+      location.reload();
+    });
     ngDialog.close();
   };
 

@@ -8,6 +8,7 @@ angular.module('wfpcsFrontApp')
     var self = this;
     var uri = '/api/process/';
     var processen;
+    var edit = false;
 
       /**
        * Fecth the processes from the API.
@@ -63,21 +64,22 @@ angular.module('wfpcsFrontApp')
        * @TODO: this should send the new or altered process to the API.
        * @param process
        */
-    self.newProcess = function(process) {
-      var added = false;
+    self.newProcess = function(process, callback) {
+      processen.push(
+        process
+      );
+      self.httpPost(process);
+      callback();
+    };
+
+    self.updateProcess = function(process, callback) {
       processen.forEach(function(value, index) {
         if(value.id == process.id) {
           processen.splice(index, 1, process);
           self.httpPut(process);
-          added = true;
         }
       });
-      if(!added) {  //If no process was updated ad it last.
-        processen.push(
-          process
-        );
-        self.httpPost(process);
-      }
+      callback();
     };
 
     self.deleteProcess = function(id) {
@@ -111,6 +113,18 @@ angular.module('wfpcsFrontApp')
 
     self.clearEditableProcess = function() {
       self.editableProcess = null;
+    };
+
+    self.getEdit = function() {
+      return edit;
+    };
+
+    self.setEdit = function() {
+      edit = true;
+    };
+
+    self.setNew = function() {
+      edit = false;
     };
 
 });
