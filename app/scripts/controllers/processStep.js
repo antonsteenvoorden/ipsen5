@@ -14,7 +14,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     $scope.process;
     $scope.processSteps = processStepService.getProcessSteps();
     $scope.locked = false;
-    
+
     $scope.openProcess = function() {
       processStepService.fetchOpened();
       console.log(processStepService.getOpened().name);
@@ -39,6 +39,10 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
 
     $scope.loadProcessSteps = function() {
       $scope.processSteps = processStepService.getProcessSteps();
+    };
+
+    $scope.deleteStep = function(processStep) {
+      processStepservice.deleteStep(processStep);
     };
 
 }]);

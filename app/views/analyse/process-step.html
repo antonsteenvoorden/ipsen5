@@ -50,7 +50,7 @@
       <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="edit unlock">
         <md-icon class="material-icons">edit</md-icon>
       </md-button>
-      <md-button ng-show="locked" ng-click="locked = !locked" aria-label="remove">
+      <md-button ng-show="locked" ng-click="locked = !locked; deleteStep(processStep)" aria-label="remove">
         <md-icon class="material-icons">delete</md-icon>
       </md-button>
       <md-button ng-show="locked" aria-label="" ng-click="locked = !locked; save(processStep)">
