@@ -13,11 +13,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
   processService.loadProcesses(function(result){
     $scope.processen = result;
   });
-
-  $scope.test = function() {
-    //console.log(processService.getProcessen());
-  };
-
+  
   $scope.addProcess = function() {
     var process = new Process();
     process.id = $scope.newProcess.id;

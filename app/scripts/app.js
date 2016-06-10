@@ -61,7 +61,13 @@ angular
       .state('myprofile', {
         url: '/myprofile',
         templateUrl: 'views/myprofile.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('contact', {
         url: '/contact',
@@ -142,10 +148,14 @@ angular
     $translateProvider.translations('en', {
       LOGIN: 'Sign in first',
       LOGINFAIL: 'Log in failed! Make sure you enter the correct credentials',
+      REGISTERSUCCESS:'An email has been sent',
+      REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       USERNAME: 'Username',
       PASSWORD: 'Password',
       LOGINBUTTON: 'Sign in',
       REGISTER: 'I don\'t have an account',
+      CHANGEPASSWORDBUTTON: 'Change password',
+      SAVECHANGEBUTTON: 'Submit change',
 
       RECOVER_PASSWORD: 'I forgot my password',
       RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
@@ -159,21 +169,24 @@ angular
       HOME: 'Dashboard',
       PURCHASE: 'Purchase',
       CONTACT: 'Contact',
-      CURRENT: 'Current',
-      TOBE: 'To be',
-      QUALITY: 'Quality',
+      CURRENT: 'As-is',
+      TOBE: 'To-be',
+      QUALITY: 'Test',
       VENDOR: 'Vendor Rating',
       COMPANYNAME: 'Company name',
       COMPANYDESCRIPTION: 'Company description',
-      ADRESS: 'Adress',
+      ADDRESS: 'Address',
       ZIPCODE: 'Zipcode',
       CITY: 'City',
-      EMAIL: 'E-mail',
+      EMAIL: 'E-mail address',
       REGISTERBUTTON: 'Register',
       PASSWORDCONFIRM: 'Confirm password',
       CANCELRBUTTON: 'Cancel',
       REGISTERTITLE: 'Register',
       PASSWORDMISSMATCH: "password mismatch!",
+      FIRSTNAME:'First name',
+      LASTNAME:'Last name',
+      SALUTATION:'Salutation',
 
       HIDEFOOTER: "Hide content",
       SHOWFOOTER: "Show content",
@@ -219,10 +232,14 @@ angular
     $translateProvider.translations('nl', {
       LOGIN: 'Log eerst in',
       LOGINFAIL: 'Inloggen niet gelukt! Zorg dat je de goede gegevens invult!',
+      REGISTERSUCCESS:'Er is een mail verstuurd',
+      REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       USERNAME: 'Gebruikersnaam',
       PASSWORD: 'Wachtwoord',
       LOGINBUTTON: 'Aanmelden',
       REGISTER: 'Ik heb nog geen account',
+      CHANGEPASSWORDBUTTON: 'Wijzig wachtwoord',
+      SAVECHANGEBUTTON: 'Wijzig',
 
       RECOVER_PASSWORD: 'I forgot my password',
       RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
@@ -236,13 +253,13 @@ angular
       HOME: 'Dashboard',
       PURCHASE: 'Aankopen',
       CONTACT: 'Contact',
-      CURRENT: 'Huidige',
-      TOBE: 'Verbetering',
+      CURRENT: 'Huidig',
+      TOBE: 'Gewenst',
       QUALITY: 'Kwaliteit',
       VENDOR: 'Leveranciers',
       COMPANYNAME: 'Bedrijfsnaam',
       COMPANYDESCRIPTION: 'Bedrijfsomschrijving',
-      ADRESS: 'Adres',
+      ADDRESS: 'Adres',
       ZIPCODE: 'Postcode',
       CITY: 'Woonplaats',
       EMAIL: 'E-mailadres',
@@ -251,6 +268,9 @@ angular
       CANCELRBUTTON: 'Annuleren',
       REGISTERTITLE: 'Registreren',
       PASSWORDMISSMATCH: "Foutieve confirmatie!",
+      FIRSTNAME:'Voornaam',
+      LASTNAME:'Achternaam',
+      SALUTATION:'Aanhef',
 
       HIDEFOOTER: "Verberg inhoud",
       SHOWFOOTER: "Toon inhoud",

@@ -10,8 +10,8 @@ var Process = function(id, name, date, batchSize, hoursDay, piecesDay, stepAmoun
   this.batchSize = batchSize;
   this.hoursPerDay = hoursDay;
   this.piecesPerDay = piecesDay;
-  //this.stepAmount = stepAmount | this.getStepAmount();
-  //this.position = position | NaN; //@TODO: position should get fetched from database.
+  // this.stepAmount = stepAmount | this.getStepAmount();
+  // this.position = position | NaN; //@TODO: position should get fetched from database.
 };
 
 Process.prototype.test = function() {
@@ -32,5 +32,6 @@ Process.prototype.getStepAmount = function() {
  */
 Process.prototype.clone = function() {
   return new Process(this.id, this.name, this.date, this.batchSize,
-    this.hoursPerDay, this.piecesPerDay, this.stepAmount, this.position);
+    this.hoursPerDay, this.piecesPerDay);
+    // , this.stepAmount, this.position);
 };
