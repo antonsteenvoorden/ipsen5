@@ -29,9 +29,7 @@ angular.module('wfpcsFrontApp')
        */
     self.httpDelete = function(process) {
       $http.delete(uri + process.id)
-      .success(function() {
-        alert('Motherfucker deleted.');
-      }).error(function(message, status) {
+    .error(function(message, status) {
         console.log('Deleting process failed: ' + status, message);
       });
     };
