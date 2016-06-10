@@ -61,7 +61,13 @@ angular
       .state('myprofile', {
         url: '/myprofile',
         templateUrl: 'views/myprofile.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('contact', {
         url: '/contact',
@@ -148,6 +154,8 @@ angular
       PASSWORD: 'Password',
       LOGINBUTTON: 'Sign in',
       REGISTER: 'I don\'t have an account',
+      CHANGEPASSWORDBUTTON: 'Change password',
+      SAVECHANGEBUTTON: 'Submit change',
 
       RECOVER_PASSWORD: 'I forgot my password',
       RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
@@ -230,6 +238,8 @@ angular
       PASSWORD: 'Wachtwoord',
       LOGINBUTTON: 'Aanmelden',
       REGISTER: 'Ik heb nog geen account',
+      CHANGEPASSWORDBUTTON: 'Wijzig wachtwoord',
+      SAVECHANGEBUTTON: 'Wijzig',
 
       RECOVER_PASSWORD: 'I forgot my password',
       RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
