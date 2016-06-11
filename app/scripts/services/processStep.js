@@ -103,11 +103,11 @@ angular.module('wfpcsFrontApp')
       else
         processStep.number = 1;
       self.processSteps.push(processStep);
-      alert(sessionStorage.getItem('opened').id);
+      console.log("adding step to process:",sessionStorage.getItem('opened'));
       var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
       $http.post(uri, processStep)
         .success(function() {
-          alert('processstep call made');
+          console.log('processstep call made');
         });
     };
 
@@ -116,7 +116,7 @@ angular.module('wfpcsFrontApp')
      * Also make the call to the API to remove it.
      */
     self.deleteProcessStep = function(processStep) {
-      alert("Hellel shel");
+      alert('Verwijderen werkt nog niet');
     };
 
   });

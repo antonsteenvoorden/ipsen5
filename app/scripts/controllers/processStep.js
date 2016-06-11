@@ -27,9 +27,12 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
         processStep.type,
         processStep.name,
         processStep.bottleneck,
-        processStep.duration,
+        processStep.time,
         processStep.distance,
-        processStep.cost );
+        processStep.cost,
+        processStep.energy,
+        processStep.headCount
+      );
       processStepService.addProcessStep(processStepO);
     };
 
@@ -42,7 +45,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     };
 
     $scope.deleteStep = function(processStep) {
-      processStepservice.deleteStep(processStep);
+      processStepService.deleteStep(processStep);
     };
 
 }]);

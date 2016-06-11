@@ -89,27 +89,57 @@ angular
       .state('process', {
         url: '/process',
         templateUrl: 'views/tabs/process.html',
-        controller: 'ProcessStepCtrl'
+        controller: 'ProcessStepCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('process.current', {
         url: '/current',
         templateUrl: 'views/tabs/current.html',
-        controller: 'ProcessStepCtrl'
+        controller: 'ProcessStepCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('process.improvement', {
         url: '/improvement',
         templateUrl: 'views/tabs/improvement.html',
-        controller: 'ProcessStepCtrl'
+        controller: 'ProcessStepCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('process.quality', {
         url: '/quality',
         templateUrl: 'views/tabs/quality.html',
-        controller: 'ProcessStepCtrl'
+        controller: 'ProcessStepCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('process.vendor', {
         url: '/vendor',
         templateUrl: 'views/tabs/vendor.html',
-        controller: 'ProcessStepCtrl'
+        controller: 'ProcessStepCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
       })
       .state('about', {
         url: '/about',
@@ -148,7 +178,7 @@ angular
     $translateProvider.translations('en', {
       LOGIN: 'Sign in first',
       LOGINFAIL: 'Log in failed! Make sure you enter the correct credentials',
-      REGISTERSUCCESS:'An email has been sent',
+      REGISTERSUCCESS:'An email has been sent (Fake message)',
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       USERNAME: 'Username',
       PASSWORD: 'Password',
@@ -232,7 +262,7 @@ angular
     $translateProvider.translations('nl', {
       LOGIN: 'Log eerst in',
       LOGINFAIL: 'Inloggen niet gelukt! Zorg dat je de goede gegevens invult!',
-      REGISTERSUCCESS:'Er is een mail verstuurd',
+      REGISTERSUCCESS:'Er is een mail verstuurd (Nep)',
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       USERNAME: 'Gebruikersnaam',
       PASSWORD: 'Wachtwoord',

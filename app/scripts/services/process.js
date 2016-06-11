@@ -29,7 +29,9 @@ angular.module('wfpcsFrontApp')
        */
     self.httpDelete = function(process) {
       $http.delete(uri + process.id)
-    .error(function(message, status) {
+      .success(function() {
+        alert('Process deleted.');
+      }).error(function(message, status) {
         console.log('Deleting process failed: ' + status, message);
       });
     };
@@ -51,7 +53,7 @@ angular.module('wfpcsFrontApp')
        * @param process
        */
     self.httpPut = function(process) {
-      $http.post(uri, process)
+      $http.put(uri, process)
         .error(function(message, status) {
           console.log('Updating process failed: ' + status, message);
         });
@@ -80,14 +82,14 @@ angular.module('wfpcsFrontApp')
       callback();
     };
 
-    self.deleteProcess = function(id) {
+    self.deleteProcess = function(id, callback) {
       processen.forEach(function(value, index) {
         if(value.id == id) {
           self.httpDelete(processen[index]);
-          alert(processen[index]);
           processen.splice(index, 1);//Remove one.
         }
       });
+      callback();
     };
 
     self.getProcessen = function() {

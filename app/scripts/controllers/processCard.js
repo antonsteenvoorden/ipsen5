@@ -1,4 +1,7 @@
 // jshint ignore: start
+/**
+ * Created by Anton on 11-6-2016.
+ */
 'use strict';
 
 /**
@@ -8,7 +11,7 @@
  * # ProcessCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $location, ngDialog, processService, processStepService) {
+angular.module('wfpcsFrontApp').controller('ProcessCardCtrl', ['$scope', '$state', '$window', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $window, ngDialog, processService, processStepService) {
   $scope.$state = $state;
 
   $scope.getEdit = function() {
@@ -22,17 +25,10 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
       processService.setNew();
   };
 
-  //TODO: DIT WORDT IN IEDERE CONTROLLER OPGEHAALD, DAAROM HEB IK PROCESSCARD CONTROLLER GEMAAKT, KUNNEN DE REST VAN DEZE FUNCTIES WEG?
-  processService.loadProcesses(function(result){
-    $scope.processen = result;
-  });
-
-
   /**
    * TODO: Vind deze oplossing toch niet zo chill Anton,
    * TODO: Twee methoden die maar een regel verschillen.
    */
-  //Add a new process
   $scope.addProcess = function() {
     //var process = new Process();
     //process.id = $scope.newProcess.id;
@@ -44,15 +40,14 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     var process = self.prepareProcess();
     processService.newProcess(process, function(){
       ngDialog.close();
-      $location.reload();
+      $window.location.reload();
     });
   };
 
-  $scope.updateProcess = function() {
-    var process = self.prepareProcess();
+  $scope.updateProcess = function(process) {
     processService.updateProcess(process, function() {
       ngDialog.close();
-      $location.reload();
+      $window.location.reload();
     });
 
   };
@@ -84,8 +79,9 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
   /**
    * Delete process with given process id.
    * @param id
-     */
+   */
   $scope.deleteProcess = function(id) {
+    processService.deleteProcess(id);
     processService.deleteProcess(id, function(){
       $window.location.reload();
     });
@@ -127,3 +123,4 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
   };
 
 }]);
+

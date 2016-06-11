@@ -46,6 +46,7 @@ angular.module('wfpcsFrontApp')
     $scope.callRegister = function (user) {
       userService.callRegister(user, function(){
         $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERSUCCESS')));
+        $state.go('login');
       }, function(){
         $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERFAIL')));
       });

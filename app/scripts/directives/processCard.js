@@ -7,6 +7,6 @@ angular.module('wfpcsFrontApp').directive("processCard", function () {
     restrict: 'AE',
     replace: 'true',
     templateUrl: 'views/dashboard/processCard.html',
-    controller: 'ProcessCtrl'
+    controller: 'ProcessCardCtrl'
   };
 });
