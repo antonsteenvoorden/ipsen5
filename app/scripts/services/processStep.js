@@ -116,7 +116,7 @@ angular.module('wfpcsFrontApp')
      * Also make the call to the API to remove it.
      */
     self.deleteProcessStep = function(processStep) {
-      alert("Hellel shel");
+      alert('Verwijderen werkt nog niet');
     };
 
   });
