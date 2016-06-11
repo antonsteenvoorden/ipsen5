@@ -1,4 +1,4 @@
-  <md-card class="processCard" ng-click="goToProcess()" md-whiteframe="12">
+  <md-card class="processCard" ng-click="open(process)" md-whiteframe="12">
     <md-card-header>
       <md-card-avatar>
         {{process.date}}<br />
@@ -13,8 +13,8 @@
             <md-icon class="material-icons">more_verti</md-icon>
           </a>
           <md-menu-content>
-            <md-menu-item><md-button ng-click="editProcess(process)"><md-icon class="material-icons">edit</md-icon></md-button></md-menu-item>
-            <md-menu-item><md-button ng-click="deleteProcess(process.id)"><md-icon class="material-icons">delete</md-icon></md-button></md-menu-item>
+            <md-menu-item><md-button ng-click="setEdit(true); editProcess(process);"><md-icon class="material-icons">edit</md-icon> {{'EDIT' | translate}}</md-button></md-menu-item>
+            <md-menu-item><md-button ng-click="deleteProcess(process.id);"><md-icon class="material-icons">delete</md-icon>{{'REMOVE' | translate}}</md-button></md-menu-item>
           </md-menu-content>
         </md-menu>
       </md-card-subtitle>
@@ -22,9 +22,9 @@
     <md-card-content>
       <ul>
         <li>Batch Size: {{process.batchSize}}</li>
-        <li>Hours per day: {{process.hoursDay}}</li>
-        <li>Pieces per day: {{process.piecesDay}}</li>
-        <li>Processs steps: {{process.stepAmount}}</li>
+        <li>Hours per day: {{process.hoursPerDay}}</li>
+        <li>Pieces per day: {{process.piecesPerDay}}</li>
+        <!--<li>Processs steps: {{process.stepAmount}}</li>-->
       </ul>
     </md-card-content>
   </md-card>

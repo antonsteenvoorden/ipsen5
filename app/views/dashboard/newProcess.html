@@ -5,28 +5,29 @@
         <label>Processname</label>
         <input ng-model="newProcess.name" />
       </md-input-container>
-      <md-input-container>
-        <label>Date</label>
-        <input ng-model="newProcess.date" />
-      </md-input-container>
+      <!--<md-input-container>-->
+        <!--<label>Date</label>-->
+        <!--<input ng-model="newProcess.date" />-->
+      <!--</md-input-container>-->
       <md-input-container>
         <label>Batch Size</label>
         <input ng-model="newProcess.batchSize" />
       </md-input-container>
       <md-input-container>
         <label>Hours per Day</label>
-        <input ng-model="newProcess.hoursDay" />
+        <input ng-model="newProcess.hoursPerDay" />
       </md-input-container>
       <md-input-container>
         <label>Pieces per Day</label>
-        <input ng-model="newProcess.piecesDay" />
+        <input ng-model="newProcess.piecesPerDay" />
       </md-input-container>
       <md-input-container>
         <label>Version</label>
         <input ng-model="newProcess.version"/>
       </md-input-container>
       <md-button ng-click="cancel()">Annuleren</md-button>
-      <md-button ng-click="addProcess()">Opslaan</md-button>
+      <md-button ng-hide="getEdit()" ng-click="addProcess()">Opslaan</md-button>
+      <md-button ng-hide="!getEdit()" ng-click="updateProcess(newProcess)">Bijwerken</md-button>
     </div>
   </md-content>
 </div>

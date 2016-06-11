@@ -6,6 +6,6 @@ angular.module('wfpcsFrontApp').directive("bar", function () {
   return {
     restrict: 'AE',
     replace: 'true',
-    templateUrl: 'views/barchart.html'
+    templateUrl: 'views/analyse/barchart.html'
   };
 });

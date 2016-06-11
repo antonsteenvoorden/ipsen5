@@ -1,0 +1,32 @@
+<md-list-item class="list-item-height">
+    <span flex="5" class="stapnummer">
+      {{processStep.tobe.number}}
+    </span>
+
+  <md-input-container flex>
+    <input ng-model="processStep.tobe.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label="">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="processStep.tobe.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="processStep.tobe.name" placeholder="{{'NAME' | translate}}" aria-label="">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="processStep.tobe.cost" placeholder="{{'COST' | translate}}" aria-label="">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="processStep.tobe.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="processStep.tobe.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="">
+  </md-input-container>
+  <md-button aria-label="Unlock edit">
+    <md-icon class="material-icons">edit</md-icon>
+  </md-button>
+</md-list-item>

@@ -32,7 +32,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.getPermissions = function () {
-      if($rootScope.authenticator) {
+      if ($rootScope.authenticator) {
         if ($rootScope.authenticator.permissions) {
           return $rootScope.authenticator.permissions;
         }
@@ -48,14 +48,19 @@ angular.module('wfpcsFrontApp')
       }
     };
     self.setAuthenticator = function (user) {
-        $rootScope.authenticator = user;
+      $rootScope.authenticator = user;
     };
+
+    self.getAuthenticator = function(){
+      return $rootScope.authenticator;
+    };
+
     self.createAuthorizationString = function () {
       return 'Basic ' + Base64.encode(self.accessId + ':' + self.accessKey);
     };
 
     self.isAuthenticated = function () {
-      if(!self.authenticated) {
+      if (!self.authenticated) {
         restoreAuthentication();
       }
       return self.authenticated;
@@ -68,22 +73,18 @@ angular.module('wfpcsFrontApp')
 
     self.storeAuthentication = function (user) {
       var authenticator = angular.toJson(user);
-      // var storage = (user.remember === true) ? $window.localStorage : $window.sessionStorage;
       var storage = $window.localStorage;
       storage.setItem('authenticator', authenticator);
     };
 
     var restoreAuthentication = function () {
-      var authenticator = $window.sessionStorage.getItem('authenticator');
+      var authenticator = $window.localStorage.getItem('authenticator');
 
-      if (authenticator === null) {
-        authenticator = $window.localStorage.getItem('authenticator');
-      }
-      if(authenticator !== null) {
+      if (authenticator !== null) {
         authenticator = JSON.parse(authenticator);
 
-        self.setAccessId(authenticator.accessId);
-        self.setAccessKey(authenticator.accessKey);
+        self.setAccessId(authenticator.username);
+        self.setAccessKey(authenticator.password);
         //self.setPermissions(authenticator.permissions);
         self.setAuthenticator(authenticator);
         self.authenticated = true;
@@ -108,9 +109,9 @@ angular.module('wfpcsFrontApp')
       keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 
       encode: function (input) {
-        var output = "";
-        var chr1, chr2, chr3 = "";
-        var enc1, enc2, enc3, enc4 = "";
+        var output = '';
+        var chr1, chr2, chr3 = '';
+        var enc1, enc2, enc3, enc4 = '';
         var i = 0;
 
         do {
@@ -134,27 +135,27 @@ angular.module('wfpcsFrontApp')
             this.keyStr.charAt(enc2) +
             this.keyStr.charAt(enc3) +
             this.keyStr.charAt(enc4);
-          chr1 = chr2 = chr3 = "";
-          enc1 = enc2 = enc3 = enc4 = "";
+          chr1 = chr2 = chr3 = '';
+          enc1 = enc2 = enc3 = enc4 = '';
         } while (i < input.length);
 
         return output;
       },
 
       decode: function (input) {
-        var output = "";
-        var chr1, chr2, chr3 = "";
-        var enc1, enc2, enc3, enc4 = "";
+        var output = '';
+        var chr1, chr2, chr3 = '';
+        var enc1, enc2, enc3, enc4 = '';
         var i = 0;
 
         // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
         var base64test = /[^A-Za-z0-9\+\/\=]/g;
         if (base64test.exec(input)) {
-          window.alert("There were invalid base64 characters in the input text.\n" +
-            "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
-            "Expect errors in decoding.");
+          window.alert('There were invalid base64 characters in the input text.\n' +
+            'Valid base64 characters are A-Z, a-z, 0-9, \'+\', \'/\',and \'=\'\n' +
+            'Expect errors in decoding.');
         }
-        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
 
         do {
           enc1 = this.keyStr.indexOf(input.charAt(i++));
@@ -175,8 +176,8 @@ angular.module('wfpcsFrontApp')
             output = output + String.fromCharCode(chr3);
           }
 
-          chr1 = chr2 = chr3 = "";
-          enc1 = enc2 = enc3 = enc4 = "";
+          chr1 = chr2 = chr3 = '';
+          enc1 = enc2 = enc3 = enc4 = '';
 
         } while (i < input.length);
 

@@ -1,22 +1,23 @@
-<div flex layout="row">
+<div flex layout="row" layout-align="center">
   <span flex="50">{{'CURRENT' | translate}}</span>
-  <span flex="50">{{'TOBE' | translate}}</span>
+  <span flex="50">{{'VENDOR' | translate}}</span>
 </div>
 <div flex layout="row">
-  <md-content layout="row" flex>
+  <md-content flex layout="row">
     <!--directive-->
-    <div flex="50" style="border-right:1px solid black;">
+    <div flex="30">
       <md-list>
         <process-step ng-repeat="processStep in processSteps"/>
         <!--<processstep ng-repeat="stap in stappen.slice().reverse()"></processstep>-->
       </md-list>
     </div>
+
     <div flex>
       <md-list>
-        <to-be-step ng-repeat="processStep in processSteps"/>
+        <vendor-rating ng-repeat="processStep in processSteps"/>
         <!--<tobestep ng-repeat="stap in stappen.slice().reverse()"></tobestep>-->
       </md-list>
     </div>
+
   </md-content>
 </div>
-

@@ -42,6 +42,9 @@ module.exports = function(config) {
       'bower_components/angular-permission/dist/angular-permission.js',
       'bower_components/angular-permission/dist/angular-permission-ui.js',
       'bower_components/angular-permission/dist/angular-permission-ng.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'bower_components/ngstorage/ngStorage.js',
+      'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
