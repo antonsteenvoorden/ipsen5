@@ -5,7 +5,6 @@
 'use strict';
 angular.module('wfpcsFrontApp').directive("processStep", function () {
   return {
-    templateUrl: 'views/analyse/process-step.html',
-    controller:'ProcessCtrl'
+    templateUrl: 'views/analyse/process-step.html'
   };
 });

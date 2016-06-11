@@ -14,10 +14,23 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     $scope.process;
     $scope.processSteps = processStepService.getProcessSteps();
     $scope.locked = false;
-    
+
     $scope.openProcess = function() {
       processStepService.fetchOpened();
       console.log(processStepService.getOpened().name);
+    };
+
+    $scope.appendProcessStep = function(processStep) {
+      var processStepO = new ProcessStep(
+        processStep.id,
+        processStep.number,
+        processStep.type,
+        processStep.name,
+        processStep.bottleneck,
+        processStep.duration,
+        processStep.distance,
+        processStep.cost );
+      processStepService.addProcessStep(processStepO);
     };
 
     $scope.test = function() {
@@ -26,6 +39,10 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
 
     $scope.loadProcessSteps = function() {
       $scope.processSteps = processStepService.getProcessSteps();
+    };
+
+    $scope.deleteStep = function(processStep) {
+      processStepservice.deleteStep(processStep);
     };
 
 }]);

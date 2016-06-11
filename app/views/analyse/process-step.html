@@ -1,6 +1,6 @@
 <md-list-item class="list-item-height">
     <span flex="5" class="stapnummer">
-      {{processStep.index}}
+      {{processStep.number}}
     </span>
 
   <md-radio-group ng-model="processStep.type" layout="row"
@@ -50,7 +50,7 @@
       <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="edit unlock">
         <md-icon class="material-icons">edit</md-icon>
       </md-button>
-      <md-button ng-show="locked" ng-click="locked = !locked" aria-label="remove">
+      <md-button ng-show="locked" ng-click="locked = !locked; deleteStep(processStep)" aria-label="remove">
         <md-icon class="material-icons">delete</md-icon>
       </md-button>
       <md-button ng-show="locked" aria-label="" ng-click="locked = !locked; save(processStep)">

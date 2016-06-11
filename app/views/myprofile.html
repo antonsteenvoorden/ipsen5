@@ -3,58 +3,71 @@
     <form layout="column">
 
       <md-input-container>
+        <label>{{'FIRSTNAME' | translate}}</label>
+        <input md-auto-focus required ng-model="user.firstName" type="text" maxlength="255">
+      </md-input-container>
+
+
+      <md-input-container>
+        <label>{{'LASTNAME' | translate}}</label>
+        <input md-auto-focus required ng-model="user.lastName" type="text" maxlength="255">
+      </md-input-container>
+
+      <md-input-container>
+        <label>{{'SALUTATION' | translate}}</label>
+        <input md-auto-focus required ng-model="user.salutation" type="text" maxlength="255">
+      </md-input-container>
+
+      <md-input-container>
         <label>{{'COMPANYNAME' | translate}}</label>
-        <input required ng-model="user.companyname" type="text">
+        <input md-auto-focus required ng-model="user.customer.companyName" type="text" maxlength="255">
       </md-input-container>
 
       <md-input-container>
         <label>{{'COMPANYDESCRIPTION' | translate}}</label>
-        <textarea ng-model="user.companydescription"> </textarea>
+        <textarea ng-model="user.customer.description" maxlength="255"> </textarea>
       </md-input-container>
 
-    <md-input-container>
-      <label>{{'ADRESS' | translate}}</label>
-      <input md-autofocus required ng-model="user.adress" type="text">
-    </md-input-container>
+      <md-input-container>
+        <label>{{'ADDRESS' | translate}}</label>
+        <input required ng-model="user.customer.address" type="text" maxlength="255">
+      </md-input-container>
 
       <div layout="row" layout-align="start center">
         <md-input-container flex="50">
           <label>{{'ZIPCODE' | translate}}</label>
-          <input required ng-model="user.zipcode" type="text">
+          <input required ng-model="user.customer.zipcode" type="text" maxlength="255">
         </md-input-container>
 
         <span layout-margin="5"></span>
 
-        <md-input-container flex="50">
+        <md-input-container flex="50" layout-align="center center">
           <label>{{'CITY' | translate}}</label>
-          <input required ng-model="user.city" type="text">
+          <input required ng-model="user.customer.city" type="text" maxlength="255">
         </md-input-container>
       </div>
 
-    <md-input-container>
-      <label>{{'EMAIL' | translate}}</label>
-      <input required ng-model="user.email" type="text">
-    </md-input-container>
+      <md-input-container>
+        <label>{{'EMAIL' | translate}}</label>
+        <input required ng-model="user.emailAddress" type="email">
+      </md-input-container>
 
       <div layout="row" layout-align="start center">
         <md-input-container flex="50">
-          <label>{{'PASSWORD' | translate}}</label>
-          <input required ng-model="user.password" ng-model="user.password" type="password">
+          <label>{{'USERNAME' | translate}}</label>
+          <input required ng-model="user.username" type="text" ng-disabled="true">
         </md-input-container>
 
         <span layout-margin="5"></span>
 
-        <md-input-container flex="50">
-          <label>{{'PASSWORDCONFIRM' | translate}}</label>
-          <input required ng-model="userpassword.passwordconfirm" type="password">
-        </md-input-container>
+        <md-button id="nav.account.resetpassword" ui-sref="changepassword" flex = "50%" ng-click=" " class="md-primary">
+          {{'CHANGEPASSWORDBUTTON' | translate}}
+        </md-button>
       </div>
 
 
-
-
       <div layout="row" layout-align="start center">
-        <md-button id="myprofile.submit" flex = "50%" ng-click=" " type="submit" class="md-primary">
+        <md-button id="myprofile.submit" flex = "50%" ng-click="edit(user)" type="submit" class="md-primary">
           {{'SAVECHANGEBUTTON' | translate}}
         </md-button>
 
