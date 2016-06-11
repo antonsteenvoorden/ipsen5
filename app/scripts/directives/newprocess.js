@@ -9,7 +9,7 @@ angular.module('wfpcsFrontApp').directive("newprocess", function() {
     restrict: 'AE',
     replace: 'true',
     templateUrl: 'views/dashboard/newProcess.html',
-    controller: 'ProcessCtrl',
+    controller: 'ProcessCardCtrl',
     controllerAs: 'new',
     scope: { editableProcess: '=editableProcess'}
   };
