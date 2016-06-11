@@ -60,6 +60,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCardCtrl', ['$scope', '$state
     process.batchSize = $scope.newProcess.batchSize;
     process.hoursPerDay = $scope.newProcess.hoursPerDay;
     process.piecesPerDay = $scope.newProcess.piecesPerDay;
+    process.version = $scope.newProcess.version;
     return process;
   };
 

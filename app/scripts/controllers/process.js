@@ -65,6 +65,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     process.batchSize = $scope.newProcess.batchSize;
     process.hoursPerDay = $scope.newProcess.hoursPerDay;
     process.piecesPerDay = $scope.newProcess.piecesPerDay;
+    process.version = $scope.newProcess.version;
     return process;
   };
 
