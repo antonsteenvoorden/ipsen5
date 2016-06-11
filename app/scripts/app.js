@@ -142,7 +142,7 @@ angular
     $translateProvider.translations('en', {
       LOGIN: 'Sign in first',
       LOGINFAIL: 'Log in failed! Make sure you enter the correct credentials',
-      REGISTERSUCCESS:'An email has been sent',
+      REGISTERSUCCESS:'An email has been sent (Fake message)',
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       USERNAME: 'Username',
       PASSWORD: 'Password',
@@ -224,7 +224,7 @@ angular
     $translateProvider.translations('nl', {
       LOGIN: 'Log eerst in',
       LOGINFAIL: 'Inloggen niet gelukt! Zorg dat je de goede gegevens invult!',
-      REGISTERSUCCESS:'Er is een mail verstuurd',
+      REGISTERSUCCESS:'Er is een mail verstuurd (Nep)',
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       USERNAME: 'Gebruikersnaam',
       PASSWORD: 'Wachtwoord',

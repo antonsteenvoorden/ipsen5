@@ -13,11 +13,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
   processService.loadProcesses(function(result){
     $scope.processen = result;
   });
-
-  $scope.test = function() {
-    //console.log(processService.getProcessen());
-  };
-
+  
   $scope.addProcess = function() {
     var process = new Process();
     process.id = $scope.newProcess.id;
@@ -28,6 +24,7 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     process.piecesPerDay = $scope.newProcess.piecesPerDay;
     processService.newProcess(process);
     ngDialog.close();
+    $scope.apply();
   };
 
   $scope.openAddProcessView = function() {

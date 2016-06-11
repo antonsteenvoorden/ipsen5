@@ -29,7 +29,7 @@ angular.module('wfpcsFrontApp')
     self.httpDelete = function(process) {
       $http.delete(uri + process.id)
       .success(function() {
-        alert('Motherfucker deleted.');
+        alert('Process deleted.');
       }).error(function(message, status) {
         console.log('Deleting process failed: ' + status, message);
       });
@@ -84,7 +84,6 @@ angular.module('wfpcsFrontApp')
       processen.forEach(function(value, index) {
         if(value.id == id) {
           self.httpDelete(processen[index]);
-          alert(processen[index]);
           processen.splice(index, 1);//Remove one.
         }
       });
