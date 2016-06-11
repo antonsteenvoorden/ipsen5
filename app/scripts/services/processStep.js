@@ -115,8 +115,13 @@ angular.module('wfpcsFrontApp')
      * Delete the processtep.
      * Also make the call to the API to remove it.
      */
-    self.deleteProcessStep = function(processStep) {
+    self.deleteStep = function(processStep) {
       alert('Verwijderen werkt nog niet');
     };
 
+    self.editStep = function(processStep, callback) {
+      var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+      $http.put(uri, processStep)
+        .success(callback);
+    };
   });

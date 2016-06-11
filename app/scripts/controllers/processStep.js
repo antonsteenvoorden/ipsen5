@@ -48,4 +48,9 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
       processStepService.deleteStep(processStep);
     };
 
+    $scope.editStep = function(processStep){
+      processStepService.editStep(processStep, function(){
+        alert('stap succesvol gewijzigd');
+      });
+    };
 }]);
