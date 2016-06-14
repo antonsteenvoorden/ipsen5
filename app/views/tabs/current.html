@@ -48,11 +48,11 @@
   </md-button>
 
 </md-card>
-<div style="height: 65% !important; overflow:scroll !important;">
+<div style="height: 65% !important; overflow-y:scroll !important;">
   <!--tab content-->
   <md-list>
     <!--<md-content>    -->
-    <process-step ng-repeat="processStep in processSteps"></process-step>
+    <process-step ng-repeat="processStep in processSteps | filter:searchQuery"></process-step>
     <!--</md-content>-->
   </md-list>
 </div>
