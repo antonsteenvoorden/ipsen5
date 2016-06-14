@@ -72,7 +72,7 @@ angular.module('wfpcsFrontApp')
 
     self.isAuthenticated = function () {
       if (!self.authenticated) {
-        restoreAuthentication();
+        self.restoreAuthentication();
       }
       return self.authenticated;
     };
@@ -86,10 +86,6 @@ angular.module('wfpcsFrontApp')
       var authenticator = angular.toJson(user);
       var storage = $window.localStorage;
       storage.setItem('authenticator', authenticator);
-      console.log("STROGE")
-      $window.localStorage.getItem('authenticator');
-      authenticator = JSON.parse(authenticator);
-      console.log('user,',authenticator)
     };
 
     self.restoreAuthentication = function () {
@@ -97,7 +93,6 @@ angular.module('wfpcsFrontApp')
 
       if (authenticator !== null) {
         authenticator = JSON.parse(authenticator);
-
         self.setAccessId(authenticator.username);
         self.setAccessKey(authenticator.password);
         //self.setPermissions(authenticator.permissions);
