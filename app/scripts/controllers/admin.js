@@ -7,7 +7,14 @@ angular.module('wfpcsFrontApp')
 
     adminService.getCustomers(function(result){
       $scope.customers = result;
+      $scope.customers[0].roles=["TEST"];
+      $scope.currentCustomer = $scope.customers[0] || undefined;
     });
+
+    $scope.openCustomer = function(customer) {
+      console.log('customer selected:', customer);
+      $scope.currentCustomer = customer;
+    };
 
 
 
