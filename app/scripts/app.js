@@ -155,12 +155,12 @@ angular
         url: '/admin',
         templateUrl: 'views/adminpanel.html',
         controller: 'AdminCtrl'
-        //data: {
-        //  permissions: {
-        //    only: ['isAdmin'],
-        //    redirectTo: '401'
-        //  }
-        //}
+        ////data: {
+        ////  permissions: {
+        ////    only: ['isAdmin'],
+        ////    redirectTo: '401'
+        ////  }
+        ////}
       });
   })
 

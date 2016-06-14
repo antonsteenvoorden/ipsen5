@@ -77,7 +77,7 @@ angular.module('wfpcsFrontApp')
       storage.setItem('authenticator', authenticator);
     };
 
-    var restoreAuthentication = function () {
+    self.restoreAuthentication = function () {
       var authenticator = $window.localStorage.getItem('authenticator');
 
       if (authenticator !== null) {

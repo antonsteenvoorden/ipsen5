@@ -12,6 +12,7 @@ angular
       });
     PermissionStore
       .definePermission('isAdmin', function () {
+        authenticationService.restoreAuthentication();
         var permissions = authenticationService.getPermissions();
         return permissions.indexOf('ADMIN') > -1;
       });
