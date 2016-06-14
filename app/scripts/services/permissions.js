@@ -12,6 +12,7 @@ angular
       });
     PermissionStore
       .definePermission('isAdmin', function () {
-        return authenticationService.getPermissions().indexOf('ADMIN') > -1;
+        var permissions = authenticationService.getPermissions();
+        return permissions.indexOf('ADMIN') > -1;
       });
   }]);
