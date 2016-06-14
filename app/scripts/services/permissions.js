@@ -13,7 +13,8 @@ angular
     PermissionStore
       .definePermission('isAdmin', function () {
         authenticationService.restoreAuthentication();
-        var permissions = authenticationService.getPermissions();
+        var permissions = authenticationService.getRoles();
+        console.log(permissions.indexOf('ADMIN'));
         return permissions.indexOf('ADMIN') > -1;
       });
   }]);
