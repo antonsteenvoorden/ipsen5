@@ -33,9 +33,9 @@ angular.module('wfpcsFrontApp')
 
     $scope.edit = function(user){
       userService.callEdit(user, function(){
-        $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERSUCCESS')));
+        $mdToast.show($mdToast.simple().textContent($translate.instant('CUSTOMEREDITSUCCESS')));
       }, function(){
-        $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERFAIL')));
+        $mdToast.show($mdToast.simple().textContent($translate.instant('CUSTOMEREDITFAIL')));
       });
     };
 
