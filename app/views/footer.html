@@ -1,20 +1,22 @@
 <div class="footer">
 <!--directive-->
+  <label>Search processlist</label>
+  <input ng-model="searchQuery">
   <div>
-    <div class="TopAndBottomBorder" layout="column" layout-align=" center center"
+    <div class="TopAndBottomBorder" layout ="row" layout-align="space-around"
          ng-click="theFooter=!theFooter; toggleIcon = !toggleIcon">
 
-      <div ng-show="toggleIcon" layout="column" layout-align="center center">
-        <md-icon class="downIcon">keyboard_arrow_down</md-icon>
+      <div ng-show="toggleIcon">
         <label>{{'HIDEFOOTER' | translate}}</label>
+        <md-icon class="downIcon">keyboard_arrow_down</md-icon>
       </div>
 
-      <div ng-show="!toggleIcon" layout="column" layout-align="center center">
-        <md-icon class="upIcon">keyboard_arrow_up</md-icon>
+      <div ng-show="!toggleIcon">
         <label>{{'SHOWFOOTER' | translate}}</label>
+        <md-icon class="upIcon">keyboard_arrow_up</md-icon>
       </div>
-    </div>
 
+    </div>
     <div ng-show="theFooter" layout="row" ng-if="$state.current.name == 'contact'">
 
         <md-card flex="30" ng-controller="BatchCycleBar">
