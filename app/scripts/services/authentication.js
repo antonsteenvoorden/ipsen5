@@ -31,6 +31,17 @@ angular.module('wfpcsFrontApp')
       self.accessKey = key;
     };
 
+    self.setRoles = function () {
+
+    };
+    self.getRoles = function () {
+      if ($rootScope.authenticator.roles) {
+        return $rootScope.authenticator.roles;
+      } else {
+        return [];
+      }
+    };
+
     self.getPermissions = function () {
       if ($rootScope.authenticator) {
         if ($rootScope.authenticator.permissions) {
@@ -51,7 +62,7 @@ angular.module('wfpcsFrontApp')
       $rootScope.authenticator = user;
     };
 
-    self.getAuthenticator = function(){
+    self.getAuthenticator = function () {
       return $rootScope.authenticator;
     };
 
@@ -61,7 +72,7 @@ angular.module('wfpcsFrontApp')
 
     self.isAuthenticated = function () {
       if (!self.authenticated) {
-        restoreAuthentication();
+        self.restoreAuthentication();
       }
       return self.authenticated;
     };
@@ -77,12 +88,11 @@ angular.module('wfpcsFrontApp')
       storage.setItem('authenticator', authenticator);
     };
 
-    var restoreAuthentication = function () {
+    self.restoreAuthentication = function () {
       var authenticator = $window.localStorage.getItem('authenticator');
 
       if (authenticator !== null) {
         authenticator = JSON.parse(authenticator);
-
         self.setAccessId(authenticator.username);
         self.setAccessKey(authenticator.password);
         //self.setPermissions(authenticator.permissions);

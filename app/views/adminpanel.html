@@ -1,0 +1,31 @@
+<md-list layout="column">
+  <md-list-item>
+    <md-input-container flex>
+      <label flex>Search for customer</label>
+      <input flex ng-model="searchQuery">
+    </md-input-container>
+  </md-list-item>
+</md-list>
+
+<md-card class="md-padding" layout="column" style="max-height:80% !important; overflow-y:scroll !important;">
+  <md-list flex="50">
+    <md-list-item layout="row" ng-repeat="customer in customers | filter:searchQuery | orderBy:'customer.companyName'"
+                  ng-click="openCustomer(customer); ">
+      <center>
+        <md-icon class="material-icons">account_circle</md-icon>
+        {{customer.firstName}}
+        {{customer.lastName}}
+        {{customer.customer.companyName}}
+      </center>
+      <span ng-repeat="roles"
+    </md-list-item>
+
+  </md-list>
+  <md-card flex>
+    {{currentCustomer.firstName}}
+    {{currentCustomer.lastName}}
+    <md-chip ng-repeat="role in currentCustomer.roles">
+      {{role}}
+    </md-chip>
+  </md-card>
+</md-card>

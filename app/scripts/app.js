@@ -60,7 +60,7 @@ angular
       })
       .state('myprofile', {
         url: '/myprofile',
-        templateUrl: 'views/myprofile.html',
+        templateUrl: 'views/profile.html',
         controller: 'UserCtrl',
         data: {
           permissions: {
@@ -153,15 +153,14 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'views/test.html',
-        controller: 'MainCtrl',
-        controllerAs: 'about',
-        data: {
-          permissions: {
-            only: ['isAdmin'],
-            redirectTo: '401'
-          }
-        }
+        templateUrl: 'views/adminpanel.html',
+        controller: 'AdminCtrl'
+        ////data: {
+        ////  permissions: {
+        ////    only: ['isAdmin'],
+        ////    redirectTo: '401'
+        ////  }
+        ////}
       });
   })
 
@@ -199,6 +198,7 @@ angular
       HOME: 'Dashboard',
       PURCHASE: 'Purchase',
       CONTACT: 'Contact',
+      ADMIN:'Admin Dashboard',
       CURRENT: 'As-is',
       TOBE: 'To-be',
       QUALITY: 'Test',
@@ -283,6 +283,7 @@ angular
       HOME: 'Dashboard',
       PURCHASE: 'Aankopen',
       CONTACT: 'Contact',
+      ADMIN:'Admin Dashboard',
       CURRENT: 'Huidig',
       TOBE: 'Gewenst',
       QUALITY: 'Kwaliteit',
