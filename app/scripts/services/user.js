@@ -63,7 +63,7 @@ angular.module('wfpcsFrontApp')
         });
     };
     self.recoverPassword = function(user, resolved, rejected) {
-      var uri ='api/account/reset';
+      var uri ='api/account/recoverpassword';
       var data = {
         emailAddress:user.email
       };
