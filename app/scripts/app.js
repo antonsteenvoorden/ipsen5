@@ -69,6 +69,17 @@ angular
           }
         }
       })
+      .state('changepassword', {
+        url: '/changepassword',
+        templateUrl: 'views/changepassword.html',
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
+      })
       .state('contact', {
         url: '/contact',
         templateUrl: 'views/contact.html',
@@ -181,6 +192,7 @@ angular
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       CUSTOMEREDITSUCCESS:'Account has been updated',
       CUSTOMEREDITFAIL:'Account update failed',
+      PASSWORDEDITSUCCESS:'Password updated successfully',
       USERNAME: 'Username',
       PASSWORD: 'Password',
       LOGINBUTTON: 'Sign in',
@@ -268,6 +280,7 @@ angular
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
       CUSTOMEREDITSUCCESS:'Account is bijgewerkt',
       CUSTOMEREDITFAIL:'Account bijwerken niet geslaagd',
+      PASSWORDEDITSUCCESS:'Wachtwoord succesvol gewijzigd',
       USERNAME: 'Gebruikersnaam',
       PASSWORD: 'Wachtwoord',
       LOGINBUTTON: 'Aanmelden',

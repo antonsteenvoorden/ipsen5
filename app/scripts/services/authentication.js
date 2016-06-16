@@ -84,6 +84,7 @@ angular.module('wfpcsFrontApp')
 
     self.storeAuthentication = function (user) {
       var authenticator = angular.toJson(user);
+      user.password = self.getAccessId();
       var storage = $window.localStorage;
       storage.setItem('authenticator', authenticator);
     };

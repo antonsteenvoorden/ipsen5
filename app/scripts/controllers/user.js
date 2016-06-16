@@ -12,6 +12,7 @@ angular.module('wfpcsFrontApp')
   .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, $http, authenticationService, userService) {
     var self = this;
 
+
     if($state.current.name === 'myprofile') {
       userService.getMyProfile(authenticationService.getAuthenticator().id, function (account) {
         console.log(account);
@@ -36,6 +37,15 @@ angular.module('wfpcsFrontApp')
         $mdToast.show($mdToast.simple().textContent($translate.instant('CUSTOMEREDITSUCCESS')));
       }, function(){
         $mdToast.show($mdToast.simple().textContent($translate.instant('CUSTOMEREDITFAIL')));
+      });
+    };
+
+    $scope.editPassword = function(password) {
+      console.log('password:', password);
+      userService.editPassword(password, function() {
+        authenticationService.deleteAuthentication();
+        $mdToast.show($mdToast.simple().textContent($translate.instant('PASSWORDEDITSUCCESS')));
+        $state.go('login');
       });
     };
 
