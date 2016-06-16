@@ -30,8 +30,8 @@ angular.module('wfpcsFrontApp')
         })
     };
 
-    self.callEdit = function(account, resolved, rejected) {
-      var uri = 'api/account/'+account.id;
+    self.callEdit = function (account, resolved, rejected) {
+      var uri = 'api/account/' + account.id;
       var data = angular.toJson(account);
       $http.put(uri, data)
         .success(resolved)
@@ -50,4 +50,16 @@ angular.module('wfpcsFrontApp')
       // onSuccess(true);
     };
 
+    self.editPassword = function (password, callback) {
+      var uri = 'api/account/password';
+      var data = {
+        password: password
+      };
+      console.log("password to send", data);
+      $http.put(uri, data)
+        .success(callback)
+        .error(function (message, status) {
+          alert('Inloggen mislukt: ' + message, status);
+        });
+    };
   });
