@@ -62,4 +62,13 @@ angular.module('wfpcsFrontApp')
           alert('Inloggen mislukt: ' + message, status);
         });
     };
+    self.recoverPassword = function(user, resolved, rejected) {
+      var uri ='api/account/reset';
+      var data = {
+        emailAddress:user.email
+      };
+      $http.get(uri, data)
+        .success(resolved)
+        .error(rejected);
+    }
   });

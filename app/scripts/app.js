@@ -204,7 +204,8 @@ angular
       RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
       RECOVER_PASSWORD_INSTRUCTIONS2: 'An email will be send with further instructions',
       RECOVER_PASSWORD_BUTTON: 'Send recovery email',
-
+      MAILSUCCES:'An email has been sent',
+      MAILFAIL:'Something went wrong.. Is this email the correct one?',
       ENGLISH: 'English',
       BASE: 'Dutch',
       MYPROFILE: 'My profile',
@@ -289,10 +290,11 @@ angular
       SAVECHANGEBUTTON: 'Wijzig',
 
       RECOVER_PASSWORD: 'I forgot my password',
-      RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
-      RECOVER_PASSWORD_INSTRUCTIONS2: 'An email will be send with further instructions',
-      RECOVER_PASSWORD_BUTTON: 'Send recovery email',
-
+      RECOVER_PASSWORD_INSTRUCTIONS: 'Voer je emailadres in',
+      RECOVER_PASSWORD_INSTRUCTIONS2: 'Er wordt een email verstuurd met verdere instructies',
+      RECOVER_PASSWORD_BUTTON: 'Verstuur',
+      MAILSUCCES:'Een email is verstuurd',
+      MAILFAIL:'Er is iets mis gegaan.. Is dit het correcte emailadres?',
       ENGLISH: 'Engels',
       BASE: 'Nederlands',
       MYPROFILE: 'Mijn profiel',

@@ -82,4 +82,13 @@ angular.module('wfpcsFrontApp')
         return succesful;
       });
     };
+    
+    $scope.recover = function(user) {
+      userService.recoverPassword(user, function(){
+        $mdToast.show($mdToast.simple().textContent($translate.instant('MAILSUCCESS')));
+        $state.go('login');
+      }, function(){
+        $mdToast.show($mdToast.simple().textContent($translate.instant('MAILFAIL')));
+      });
+    };
   });
