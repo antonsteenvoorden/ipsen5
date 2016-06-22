@@ -11,12 +11,13 @@ angular.module('wfpcsFrontApp')
     adminService.getPermissions(function (result) {
       $scope.allRoles = result.roles;
       $scope.allPermissions = result.permissions;
+      adminService.getCustomers(function (result) {
+        $scope.customers = result;
+        $scope.customers[0].roles = ["TEST"];
+        $scope.currentCustomer = $scope.customers[0] || undefined;
+      });
     });
-    adminService.getCustomers(function (result) {
-      $scope.customers = result;
-      $scope.customers[0].roles = ["TEST"];
-      $scope.currentCustomer = $scope.customers[0] || undefined;
-    });
+    
 
     $scope.openCustomer = function (customer) {
       $scope.currentCustomer = customer;
