@@ -23,3 +23,7 @@ ProcessStep.prototype.clone = function() {
   return new ProcessStep(this.id, this.number, this.type, this.name,
    this.time, this.distance, this.cost, this.energy, this.headCount);
 };
+
+ProcessStep.prototype.setPosition = function(position) {
+  this.number = position;
+};

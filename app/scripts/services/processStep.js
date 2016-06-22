@@ -116,7 +116,14 @@ angular.module('wfpcsFrontApp')
      * Also make the call to the API to remove it.
      */
     self.deleteStep = function(processStep) {
-      alert('Verwijderen werkt nog niet');
+      var uri = '/api/process/'+ processStep.id +'/steps'
+      $http.delete(uri, processStep);
+      for(var i = 0; i < self.processSteps.length; i++) {
+        if(self.processSteps[i].id == processStep.id) {
+          self.processSteps.splice(i, 1);
+          return;
+        }
+      }
     };
 
     self.editStep = function(processStep, callback) {
@@ -124,4 +131,25 @@ angular.module('wfpcsFrontApp')
       $http.put(uri, processStep)
         .success(callback);
     };
+
+      /**
+       * Insert a empty processStep in the list,
+       * update positions accordingly.
+       * @param processStep
+       */
+    self.insertProcessStep = function(position) {
+      for(var i = 0; i < self.processSteps.length; i++) {
+        if(self.processSteps[i].number == position) {
+          var tmp = new ProcessStep();
+          tmp.setPosition(position);
+          self.processSteps.splice(i, 0, tmp);
+          i++;
+        }
+        if(self.processSteps[i].number >= position) {
+          self.processSteps[i].number++;
+        }
+      }
+      console.log("Service finished.");
+    };
+
   });
