@@ -48,11 +48,13 @@
   </md-button>
 
 </div>
-<div style="height: 65% !important; overflow-y:scroll !important;">
-  <!--tab content-->
+<!--<div style="height:75%; overflow-y:scroll !important;">-->
+<!--tab content-->
+<md-content layout="column" style=" height:70%; padding-bottom:10px;">
+
   <md-list>
-    <!--<md-content>    -->
+
     <process-step ng-repeat="processStep in processSteps | filter:searchQuery"></process-step>
-    <!--</md-content>-->
   </md-list>
-</div>
+
+  <!--</div>-->

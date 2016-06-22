@@ -1,4 +1,5 @@
-<md-tabs md-selected="currentTab" md-autoselect md-border-bottom md-dynamic-height >
+
+<md-tabs md-selected="currentTab" md-autoselect md-border-bottom md-dynamic-height>
   <md-tab id="tab.current" class="heavy" ui-sref="process.current" label="{{'CURRENT' | translate}}"
           md-active="$state.is('process.current')">
   </md-tab>
@@ -15,7 +16,11 @@
           md-active="$state.is('process.vendor')">
   </md-tab>
 </md-tabs>
-<md-content layout="column" style="overflow:hidden;">
-  <ui-view></ui-view>
-</md-content>
+<div class="searchbar">
+  <label>Search processlist</label>
+  <input ng-model="searchQuery">
+  </md-fab-actions>
+  </md-toolbar>
+</div>
+<ui-view></ui-view>
 <footer></footer>

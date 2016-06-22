@@ -10,6 +10,12 @@ body {
 
 }
 
+.searchbar {
+  z-index:100010;
+  position:fixed;
+  margin-top:90%;
+
+}
 .md-tab, .heavy {
   font-size: 14px;
   text-align: center;
