@@ -20,6 +20,14 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
       console.log(processStepService.getOpened().name);
     };
 
+      /**
+       * Insert a space for a new processstep.
+       */
+    $scope.insert = function(position) {
+      processStepService.insertProcessStep(position);
+      $scope.processSteps = processStepService.getProcessSteps();
+    };
+
     $scope.appendProcessStep = function(processStep) {
       var processStepO = new ProcessStep(
         processStep.id,

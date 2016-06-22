@@ -124,4 +124,25 @@ angular.module('wfpcsFrontApp')
       $http.put(uri, processStep)
         .success(callback);
     };
+
+      /**
+       * Insert a empty processStep in the list,
+       * update positions accordingly.
+       * @param processStep
+       */
+    self.insertProcessStep = function(position) {
+      for(var i = 0; i < self.processSteps.length; i++) {
+        if(self.processSteps[i].number == position) {
+          var tmp = new ProcessStep();
+          tmp.setPosition(position);
+          self.processSteps.splice(i, 0, tmp);
+          i++;
+        }
+        if(self.processSteps[i].number >= position) {
+          self.processSteps[i].number++;
+        }
+      }
+      console.log("Service finished.");
+    };
+
   });
