@@ -6,10 +6,10 @@ angular.module('wfpcsFrontApp')
     console.log("Service log");
     var self = this;
     self.processSteps = [
-      new ProcessStep(1, 1, "C", "Hout plaatsen", false, 2, 5, 3),
-      new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
-      new ProcessStep(3, 3, "H", "Hout verfen", true, 7, 0, 9),
-      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3)
+      new ProcessStep(1, 1, "C", "Hout plaatsen",  2, 5, 3),
+      new ProcessStep(2, 2, "H", "Hout slijpen",  2, 5, 3),
+      new ProcessStep(3, 3, "H", "Hout verfen",  7, 0, 9),
+      new ProcessStep(4, 5, "C", "Tafelpoot inpakken",  2, 5, 3)
     ];
 
       /**
