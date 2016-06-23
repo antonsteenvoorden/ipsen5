@@ -153,7 +153,7 @@ angular.module('wfpcsFrontApp')
           });
           i++;
         }
-        if(self.processSteps[i].number >= position) {
+        if(self.processSteps[i].number >= position - 1) {
           self.processSteps[i].number++;
         }
       }
