@@ -100,7 +100,7 @@ angular
       .state('process', {
         url: '/process',
         templateUrl: 'views/tabs/process.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -111,7 +111,7 @@ angular
       .state('process.current', {
         url: '/current',
         templateUrl: 'views/tabs/current.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -122,7 +122,7 @@ angular
       .state('process.improvement', {
         url: '/improvement',
         templateUrl: 'views/tabs/improvement.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -133,7 +133,7 @@ angular
       .state('process.quality', {
         url: '/quality',
         templateUrl: 'views/tabs/quality.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -144,7 +144,7 @@ angular
       .state('process.vendor', {
         url: '/vendor',
         templateUrl: 'views/tabs/vendor.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],

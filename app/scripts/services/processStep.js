@@ -5,12 +5,8 @@ angular.module('wfpcsFrontApp')
   .service('processStepService', function ($rootScope, $window, $http) {
     console.log("Service log");
     var self = this;
-    self.processSteps = [
-      new ProcessStep(1, 1, "C", "Hout plaatsen",  2, 5, 3),
-      new ProcessStep(2, 2, "H", "Hout slijpen",  2, 5, 3),
-      new ProcessStep(3, 3, "H", "Hout verfen",  7, 0, 9),
-      new ProcessStep(4, 5, "C", "Tafelpoot inpakken",  2, 5, 3)
-    ];
+    self.processSteps = [];
+    self.toBeSteps = [];
 
       /**
        * Load the processteps and open te processteps tab.
@@ -24,6 +20,9 @@ angular.module('wfpcsFrontApp')
       $http.get(uri)
         .success(function (result) {
           self.processSteps = result;
+          for(var i = 0; i < self.processSteps.length; i++) {
+            self.toBeSteps.push(self.processSteps[i].optimizationStep);
+          }
           onSuccess(result);
         });
     };
@@ -37,9 +36,13 @@ angular.module('wfpcsFrontApp')
     };
 
     self.getProcessSteps = function () {
-      console.log("get steps called", self.processSteps);
       return self.processSteps;
     };
+
+    self.getToBeSteps = function () {
+      return self.toBeSteps;
+    };
+
     self.saveVendorRating = function (vendorRating) {
       vendorRating.vendor.rating = self.getVendorRatingData(vendorRating);
       console.log(self.replaceProcessStep(vendorRating));
@@ -120,11 +123,21 @@ angular.module('wfpcsFrontApp')
       }
     };
 
+    self.editToBeStep = function(toBeStep, callback) {
+      var uri = '/api/process/' + localStorage.getItem('opened') + '/tobe';
+      var data = {
+        optimizationStep : angular.toJson(toBeStep)
+      };
+      $http.put(uri, data)
+        .success(callback);
+    };
+
     self.editStep = function(processStep, callback) {
       var uri = '/api/process/' + localStorage.getItem('opened') + '/steps';
       $http.put(uri, processStep)
         .success(callback);
     };
+
 
       /**
        * Insert a empty processStep in the list,

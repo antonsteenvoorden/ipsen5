@@ -6,13 +6,13 @@
     <!--directive-->
     <div flex="50" style="border-right:1px solid black;">
       <md-list>
-        <process-step ng-repeat="processStep in processSteps"/>
+        <process-step ng-repeat="processStep in  processSteps | orderBy:number:reverse"></process-step>
         <!--<processstep ng-repeat="stap in stappen.slice().reverse()"></processstep>-->
       </md-list>
     </div>
     <div flex>
       <md-list>
-        <to-be-step ng-repeat="processStep in processSteps"/>
+        <to-be-step ng-repeat="toBeStep in toBeSteps | orderBy:number:reverse"></to-be-step>
         <!--<tobestep ng-repeat="stap in stappen.slice().reverse()"></tobestep>-->
       </md-list>
     </div>
