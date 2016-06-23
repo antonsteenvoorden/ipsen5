@@ -11,7 +11,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     TODO: make the edit processtep method.
      */
     $scope.$state = $state;
-    $scope.process;
+
     $scope.processSteps = processStepService.getProcessSteps();
     $scope.locked = false;
 
