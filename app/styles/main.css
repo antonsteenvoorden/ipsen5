@@ -11,11 +11,12 @@ body {
 }
 
 .searchbar {
-  z-index:100010;
+  background-color:rgba(255,255,255,0);
   position:fixed;
-  margin-top:90%;
-
+  z-index:10;
+  /*margin-top:50%;*/
 }
+
 .md-tab, .heavy {
   font-size: 14px;
   text-align: center;
@@ -283,3 +284,6 @@ button.newCard:hover {
   text-align:center;
 }
 
+.limited-height {
+  height:65%;
+}
