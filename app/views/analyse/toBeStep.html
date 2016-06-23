@@ -18,6 +18,9 @@
   <md-input-container flex>
     <input ng-model="toBeStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="">
   </md-input-container>
+  <md-input-container flex>
+    <input ng-model="toBeStep.action" placeholder="{{'ACTION' | translate}}" aria-label="">
+  </md-input-container>
 
   <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="edit unlock">
     <md-icon class="material-icons">edit</md-icon>

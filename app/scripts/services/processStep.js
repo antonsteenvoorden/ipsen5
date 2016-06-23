@@ -20,11 +20,15 @@ angular.module('wfpcsFrontApp')
       $http.get(uri)
         .success(function (result) {
           self.processSteps = result;
-          for(var i = 0; i < self.processSteps.length; i++) {
-            self.toBeSteps.push(self.processSteps[i].optimizationStep);
-          }
+          self.setToBeSteps(self.processSteps);
           onSuccess(result);
         });
+    };
+
+    self.setToBeSteps = function(processSteps) {
+      for(var i = 0; i < processSteps.length; i++) {
+        self.toBeSteps[i] = (processSteps[i].optimizationStep);
+      }
     };
 
     self.getOpened = function () {
@@ -113,7 +117,7 @@ angular.module('wfpcsFrontApp')
      * Also make the call to the API to remove it.
      */
     self.deleteStep = function(processStep) {
-      var uri = '/api/process/'+ processStep.id +'/steps'
+      var uri = '/api/process/'+ processStep.id +'/steps';
       $http.delete(uri, processStep);
       for(var i = 0; i < self.processSteps.length; i++) {
         if(self.processSteps[i].id == processStep.id) {
@@ -125,9 +129,7 @@ angular.module('wfpcsFrontApp')
 
     self.editToBeStep = function(toBeStep, callback) {
       var uri = '/api/process/' + localStorage.getItem('opened') + '/tobe';
-      var data = {
-        optimizationStep : angular.toJson(toBeStep)
-      };
+      var data = angular.toJson(toBeStep);
       $http.put(uri, data)
         .success(callback);
     };

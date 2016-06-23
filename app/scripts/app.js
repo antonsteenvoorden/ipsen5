@@ -264,6 +264,7 @@ angular
       COST:'Cost',
       HEAD_COUNT:'Head count',
       ENERGY_USAGE:'Energy usage',
+      ACTION:'Action',
 
       CAPACITY:'Capacity',
       CERTIFIED:'Certified',
@@ -353,6 +354,8 @@ angular
       COST:'Cost',
       HEAD_COUNT:'Head count',
       ENERGY_USAGE:'Energy usage',
+      ACTION:'Actie',
+
 
       CAPACITY:'Capaciteit',
       CERTIFIED:'Certified',
