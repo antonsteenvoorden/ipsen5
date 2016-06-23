@@ -57,7 +57,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
 
     $scope.editStep = function(processStep){
       processStepService.editStep(processStep, function(){
-        alert('stap succesvol gewijzigd');
+        console.log(":;oo;");
       });
     };
 }]);
