@@ -64,10 +64,8 @@ angular.module('wfpcsFrontApp')
     };
     self.recoverPassword = function(user, resolved, rejected) {
       var uri ='api/account/recoverpassword';
-      var data = {
-        emailAddress:user.email
-      };
-      $http.get(uri, data)
+      var data = JSON.stringify(user);
+      $http.post(uri, data)
         .success(resolved)
         .error(rejected);
     }

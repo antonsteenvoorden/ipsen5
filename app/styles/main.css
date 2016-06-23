@@ -160,20 +160,20 @@ span.stapnummer {
 }
 .md-button.md-primary {
   background-color: rgb(63,81,181);
-  color:rgba(255,255,255,0.87);
+  color:white !important;
 }
 .md-button.md-primary:hover:not([disabled]) {
   background-color: rgb(63,81,181);
-  color:rgba(255,255,255,0.87);
+  color:white !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 .md-button.md-warn {
   background-color: #f44336;
-  color:rgba(255,255,255,0.87);
+  color:white !important;
 }
 .md-button.md-warn:hover:not([disabled]) {
   background-color: #f44336;
-  color:rgba(255,255,255,0.87);
+  color:white !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 .processCard {

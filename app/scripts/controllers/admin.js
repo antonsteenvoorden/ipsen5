@@ -3,7 +3,10 @@
  */
 angular.module('wfpcsFrontApp')
   .controller('AdminCtrl', function ($scope, $mdToast, $translate, adminService, userService) {
-    $scope.currentCustomer = null;
+    $scope.currentCustomer= {
+      roles:[],
+      permissions:[]
+    };
 
     $scope.allRoles = ["GANGSTER", "OG"];
     $scope.allPermissions = ["CURRENTPROCESS", "Zwemmen met kevers"];
@@ -13,11 +16,10 @@ angular.module('wfpcsFrontApp')
       $scope.allPermissions = result.permissions;
       adminService.getCustomers(function (result) {
         $scope.customers = result;
-        $scope.customers[0].roles = ["TEST"];
         $scope.currentCustomer = $scope.customers[0] || undefined;
       });
     });
-    
+
 
     $scope.openCustomer = function (customer) {
       $scope.currentCustomer = customer;
