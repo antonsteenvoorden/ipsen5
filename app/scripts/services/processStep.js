@@ -127,6 +127,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.editStep = function(processStep, callback) {
+      alert(processStep.number);
       var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
       $http.put(uri, processStep)
         .success(callback);
@@ -142,7 +143,14 @@ angular.module('wfpcsFrontApp')
         if(self.processSteps[i].number == position) {
           var tmp = new ProcessStep();
           tmp.setPosition(position);
-          self.processSteps.splice(i, 0, tmp);
+          var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+          $http.post(uri, tmp).success(function(id) {
+            tmp.id = id;
+            self.processSteps.splice(i, 0, tmp);
+            alert('Processtep inserted, id:' + id);
+          }).error(function(message, status) {
+            alert(message);
+          });
           i++;
         }
         if(self.processSteps[i].number >= position) {
