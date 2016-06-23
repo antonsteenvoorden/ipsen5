@@ -33,6 +33,7 @@ angular.module('wfpcsFrontApp')
     self.callEdit = function (account, resolved, rejected) {
       var uri = 'api/account/' + account.id;
       var data = angular.toJson(account);
+      console.log(data);
       $http.put(uri, data)
         .success(resolved)
         .error(rejected)

@@ -95,7 +95,7 @@
       Roles
     </span>
     </center>
-    <md-chips ng-model="currentCustomer.roles"></md-chips>
+    <md-chips ng-model="currentCustomer.roles" ng-click="removeRole(role)"></md-chips>
     <div layout="row">
       <md-button ng-repeat="role in allRoles" ng-click="addRole(role)">{{role}}</md-button>
     </div>
@@ -104,7 +104,8 @@
       Permissions
     </span>
     </center>
-    <md-chips ng-model="currentCustomer.permissions"></md-chips>
+    <md-chips ng-model="currentCustomer.permissions" ng-click="removePermission(permission)"></md-chips>
+
     <div layout="row" md-padding>
       <md-button ng-repeat="permission in allPermissions" ng-click="addPermission(permission)">{{permission}}
       </md-button>
