@@ -11,7 +11,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     TODO: make the edit processtep method.
      */
     $scope.$state = $state;
-    $scope.process;
+
     $scope.processSteps = processStepService.getProcessSteps();
     $scope.locked = false;
 
@@ -34,7 +34,6 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
         processStep.number,
         processStep.type,
         processStep.name,
-        processStep.bottleneck,
         processStep.time,
         processStep.distance,
         processStep.cost,
@@ -58,7 +57,7 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
 
     $scope.editStep = function(processStep){
       processStepService.editStep(processStep, function(){
-        alert('stap succesvol gewijzigd');
+        console.log(":;oo;");
       });
     };
 }]);

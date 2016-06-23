@@ -33,6 +33,7 @@ angular.module('wfpcsFrontApp')
     self.callEdit = function (account, resolved, rejected) {
       var uri = 'api/account/' + account.id;
       var data = angular.toJson(account);
+      console.log(data);
       $http.put(uri, data)
         .success(resolved)
         .error(rejected)
@@ -62,4 +63,11 @@ angular.module('wfpcsFrontApp')
           alert('Inloggen mislukt: ' + message, status);
         });
     };
+    self.recoverPassword = function(user, resolved, rejected) {
+      var uri ='api/account/recoverpassword';
+      var data = JSON.stringify(user);
+      $http.post(uri, data)
+        .success(resolved)
+        .error(rejected);
+    }
   });

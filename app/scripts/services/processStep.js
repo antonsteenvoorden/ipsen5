@@ -6,10 +6,10 @@ angular.module('wfpcsFrontApp')
     console.log("Service log");
     var self = this;
     self.processSteps = [
-      new ProcessStep(1, 1, "C", "Hout plaatsen", false, 2, 5, 3),
-      new ProcessStep(2, 2, "H", "Hout slijpen", false, 2, 5, 3),
-      new ProcessStep(3, 3, "H", "Hout verfen", true, 7, 0, 9),
-      new ProcessStep(4, 5, "C", "Tafelpoot inpakken", false, 2, 5, 3)
+      new ProcessStep(1, 1, "C", "Hout plaatsen",  2, 5, 3),
+      new ProcessStep(2, 2, "H", "Hout slijpen",  2, 5, 3),
+      new ProcessStep(3, 3, "H", "Hout verfen",  7, 0, 9),
+      new ProcessStep(4, 5, "C", "Tafelpoot inpakken",  2, 5, 3)
     ];
 
       /**
@@ -18,16 +18,13 @@ angular.module('wfpcsFrontApp')
        * @param onSuccess
        */
     self.open = function (process, onSuccess) {
-      sessionStorage.setItem('opened', process.id);
+      localStorage.setItem('opened', process.id);
       console.log(process.id);
       var uri = '/api/process/'+ process.id +'/steps';
       $http.get(uri)
         .success(function (result) {
           self.processSteps = result;
           onSuccess(result);
-        })
-        .error(function (message, status) {
-          alert('Fetching processteps failed : ' + message, status);
         });
     };
 
@@ -36,10 +33,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.fetchOpened = function () {
-      self.opened = $window.localStorage.getItem('openedProcess');
-      for (var property in $window.localStorage.getItem('openedProcess')) {
-        console.log($window.localStorage.getItem('openedProcess').property);
-      }
+      self.opened = $window.localStorage.getItem('opened');
     };
 
     self.getProcessSteps = function () {
@@ -103,8 +97,8 @@ angular.module('wfpcsFrontApp')
       else
         processStep.number = 1;
       self.processSteps.push(processStep);
-      console.log("adding step to process:",sessionStorage.getItem('opened'));
-      var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+      console.log("adding step to process:",localStorage.getItem('opened'));
+      var uri = '/api/process/' + localStorage.getItem('opened') + '/steps';
       $http.post(uri, processStep)
         .success(function() {
           console.log('processstep call made');
@@ -127,7 +121,7 @@ angular.module('wfpcsFrontApp')
     };
 
     self.editStep = function(processStep, callback) {
-      var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+      var uri = '/api/process/' + localStorage.getItem('opened') + '/steps';
       $http.put(uri, processStep)
         .success(callback);
     };
@@ -142,10 +136,16 @@ angular.module('wfpcsFrontApp')
         if(self.processSteps[i].number == position) {
           var tmp = new ProcessStep();
           tmp.setPosition(position);
-          self.processSteps.splice(i, 0, tmp);
+          var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+          $http.post(uri, tmp).success(function(id) {
+            tmp.id = id;
+            self.processSteps.splice(i, 0, tmp);
+          }).error(function(message, status) {
+            console.log(message);
+          });
           i++;
         }
-        if(self.processSteps[i].number >= position) {
+        if(self.processSteps[i].number >= position - 1) {
           self.processSteps[i].number++;
         }
       }
