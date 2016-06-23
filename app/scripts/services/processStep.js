@@ -25,9 +25,6 @@ angular.module('wfpcsFrontApp')
         .success(function (result) {
           self.processSteps = result;
           onSuccess(result);
-        })
-        .error(function (message, status) {
-          alert('Fetching processteps failed : ' + message, status);
         });
     };
 
@@ -139,10 +136,16 @@ angular.module('wfpcsFrontApp')
         if(self.processSteps[i].number == position) {
           var tmp = new ProcessStep();
           tmp.setPosition(position);
-          self.processSteps.splice(i, 0, tmp);
+          var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
+          $http.post(uri, tmp).success(function(id) {
+            tmp.id = id;
+            self.processSteps.splice(i, 0, tmp);
+          }).error(function(message, status) {
+            console.log(message);
+          });
           i++;
         }
-        if(self.processSteps[i].number >= position) {
+        if(self.processSteps[i].number >= position - 1) {
           self.processSteps[i].number++;
         }
       }
