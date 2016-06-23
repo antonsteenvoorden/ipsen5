@@ -18,6 +18,19 @@ angular.module('wfpcsFrontApp')
         });
     };
 
+    self.getThcData = function (callback) {
+      var uri = 'api/data/thc';
+      console.log(uri);
+      var data = angular.toJson(processStepService.getProcessSteps());
+      $http.post(uri, data)
+        .success(function (result) {
+          callback(result);
+        })
+        .error(function (message, status) {
+          alert('Ophalen graph data mislukt: ' + message, status);
+        });
+    };
+
 
 
   });

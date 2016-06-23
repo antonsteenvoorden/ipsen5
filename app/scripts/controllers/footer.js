@@ -13,6 +13,12 @@ angular.module('wfpcsFrontApp').controller('FooterCtrl', function($scope, $state
     taktTime:0
   };
 
+  $scope.thc = {
+    labels:[],
+    values:[]
+  };
+
+
   $scope.CycleInfoIsVisible = false;
   $scope.toggleCycleInfo = function () {
     $scope.CycleInfoIsVisible = !$scope.CycleInfoIsVisible;
@@ -25,7 +31,11 @@ angular.module('wfpcsFrontApp').controller('FooterCtrl', function($scope, $state
       $scope.bottleneckData.bottleneck = result.bottleneck;
       $scope.bottleneckData.taktTime = result.taktTime;
 
-      console.log($scope.bottleneckData);
+      footerService.getThcData(function(result) {
+        $scope.thc.values[0]=result.values;
+        $scope.thc.labels = result.labels;
+
+      })
     });
   }
 });
