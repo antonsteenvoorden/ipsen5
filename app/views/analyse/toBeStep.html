@@ -1,25 +1,25 @@
 <md-list-item class="list-item-height">
   <md-input-container flex>
-    <input ng-model="toBeStep.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label="">
+    <input ng-model="toBeStep.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="toBeStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="">
+    <input ng-model="toBeStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="toBeStep.cost" placeholder="{{'COST' | translate}}" aria-label="">
+    <input ng-model="toBeStep.cost" placeholder="{{'COST' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="toBeStep.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="">
+    <input ng-model="toBeStep.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-input-container flex>
-    <input ng-model="toBeStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="">
+    <input ng-model="toBeStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
   <md-input-container flex>
-    <input ng-model="toBeStep.action" placeholder="{{'ACTION' | translate}}" aria-label="">
+    <input ng-model="toBeStep.action" placeholder="{{'ACTION' | translate}}" aria-label="" ng-disabled="!locked">
   </md-input-container>
 
   <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="edit unlock">
