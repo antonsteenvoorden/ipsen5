@@ -50,12 +50,11 @@
 </div>
 <!--<div style="height:75%; overflow-y:scroll !important;">-->
 <!--tab content-->
-<md-content layout="column" class="limited-height">
+<md-content flex class="limited-height">
 
   <md-list>
     <process-step ng-repeat="processStep in processSteps | filter:searchQuery"></process-step>
   </md-list>
 </md-content>
-<searchbar></searchbar>
 
   <!--</div>-->

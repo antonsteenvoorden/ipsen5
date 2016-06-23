@@ -4,7 +4,7 @@
 'use strict';
 angular.module('wfpcsFrontApp').directive("searchbar", function () {
   return {
-    template: '<div class=\"searchbar\"><label>Search processlist</label><input ng-model=\"searchQuery\"></div>',
+    template: '<div ><label>Search processlist</label><input ng-model=\"searchQuery\"></div>',
     controller:'ProcessCtrl'
   };
 });
