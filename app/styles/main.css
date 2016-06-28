@@ -164,6 +164,10 @@ span.stapnummer {
   margin:0 auto;
 }
 
+.md-fab {
+  width:100px !important;
+  height:100px !important;
+}
 .md-button.md-raised:not([disabled]) {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
@@ -230,8 +234,8 @@ div.newCard {
 }
 
 button.newCard {
-  font-size: 80pt;
-  color: green;
+  font-size:6em !important;
+  color:black !important;
   background-color: white;
 }
 
@@ -240,12 +244,9 @@ button.newCard:active {
 }
 
 button.newCard:hover {
-  color: green;
-  text-shadow:
-    -1px -1px 12px #000000,
-    1px -1px 12px #000000,
-    -1px 1px 12px #000000,
-    1px 1px 12px #000000;
+  font-size:6em !important;
+  color:black !important;
+  text-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .cycleBarChartTab{

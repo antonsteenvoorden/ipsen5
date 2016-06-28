@@ -1,9 +1,8 @@
 <div class="md-padding" layout="row" layout-wrap>
   <process-card ng-repeat="process in processen"></process-card>
   <div class="newCard">
-    <button ng-click="setEdit(false); openAddProcessView();" class="btn newCard">
-      <!--<span class="glyphicon glyphicon-plus-sign"></span>-->
-      <center><md-icon class="material-icons" style="font-size:1em;">add_circle_outline</md-icon></center>
-    </button>
+    <md-button aria-label="menu" ng-click="setEdit(false); openAddProcessView();"  style="font-size:5em;"  class="md-fab md-primary">
+      <center>+</center>
+    </md-button>
   </div>
 </div>
