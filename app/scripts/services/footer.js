@@ -6,7 +6,7 @@ angular.module('wfpcsFrontApp')
     var self = this;
 
     self.getBottleneckData = function (callback) {
-      var uri = 'api/data/bottleneck/' + sessionStorage.getItem('opened');
+      var uri = 'api/data/bottleneck/' + localStorage.getItem('opened');
       console.log(uri);
       var data = angular.toJson(processStepService.getProcessSteps());
       $http.post(uri, data)

@@ -17,8 +17,10 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
        * Insert a space for a new processstep.
        */
     $scope.insert = function(position) {
-      processStepService.insertProcessStep(position);
-      $scope.processSteps = processStepService.getProcessSteps();
+      console.log(position, 'is the number to insert');
+      processStepService.insertProcessStep(position, function(){
+        $scope.processSteps = processStepService.getProcessSteps();
+      });
     };
 
     $scope.appendProcessStep = function(processStep) {
@@ -37,7 +39,9 @@ angular.module('wfpcsFrontApp').controller('ProcessStepCtrl', ['$scope', '$state
     };
 
     $scope.deleteStep = function(processStep) {
-      processStepService.deleteStep(processStep);
+      processStepService.deleteStep(processStep, function(){
+        $scope.processSteps = processStepService.getProcessSteps();
+      });
     };
 
     $scope.editStep = function(processStep){

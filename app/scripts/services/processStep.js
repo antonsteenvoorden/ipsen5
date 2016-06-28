@@ -8,15 +8,15 @@ angular.module('wfpcsFrontApp')
     self.processSteps = [];
     self.toBeSteps = [];
 
-      /**
-       * Load the processteps and open te processteps tab.
-       * @param process
-       * @param onSuccess
-       */
+    /**
+     * Load the processteps and open te processteps tab.
+     * @param process
+     * @param onSuccess
+     */
     self.open = function (process, onSuccess) {
       localStorage.setItem('opened', process.id);
       console.log(process.id);
-      var uri = '/api/process/'+ process.id +'/steps';
+      var uri = '/api/process/' + process.id + '/steps';
       $http.get(uri)
         .success(function (result) {
           self.processSteps = result;
@@ -25,8 +25,8 @@ angular.module('wfpcsFrontApp')
         });
     };
 
-    self.setToBeSteps = function(processSteps) {
-      for(var i = 0; i < processSteps.length; i++) {
+    self.setToBeSteps = function (processSteps) {
+      for (var i = 0; i < processSteps.length; i++) {
         self.toBeSteps[i] = (processSteps[i].optimizationStep);
       }
     };
@@ -97,74 +97,93 @@ angular.module('wfpcsFrontApp')
      * Append the processSteps list with new processStep.
      * Also make the call to the API to save it.
      */
-    self.addProcessStep = function(processStep) {
+    self.addProcessStep = function (processStep) {
       //the new processStep gets the number of the last element plus one.
-      if(self.processSteps.length > 0)
-        processStep.number = self.processSteps[self.processSteps.length -1].number + 1;
+      if (self.processSteps.length > 0)
+        processStep.number = self.processSteps[self.processSteps.length - 1].number + 1;
       else
         processStep.number = 1;
-      self.processSteps.push(processStep);
-      console.log("adding step to process:",localStorage.getItem('opened'));
+
+      console.log("adding step to process:", localStorage.getItem('opened'));
       var uri = '/api/process/' + localStorage.getItem('opened') + '/steps';
       $http.post(uri, processStep)
-        .success(function() {
-          console.log('processstep call made');
+        .success(function (newId) {
+          processStep.id = newId;
+          console.log('processstep call made, id obtained',newId);
         });
+      self.processSteps.push(processStep);
     };
 
     /**
      * Delete the processtep.
      * Also make the call to the API to remove it.
      */
-    self.deleteStep = function(processStep) {
-      var uri = '/api/process/'+ processStep.id +'/steps';
+    self.deleteStep = function (processStep, callback) {
+      var uri = '/api/process/' +localStorage.getItem('opened')  + '/steps/' + processStep.id;
       $http.delete(uri, processStep);
-      for(var i = 0; i < self.processSteps.length; i++) {
-        if(self.processSteps[i].id == processStep.id) {
-          self.processSteps.splice(i, 1);
-          return;
+      self.decreaseAllAfterNumber(processStep.number);
+      callback();
+    };
+
+    self.decreaseAllAfterNumber = function(number) {
+      console.log('going to decrease starting from: ', number);
+
+      for(var i = number-1; i < self.processSteps.length; i++) {
+        if(self.processSteps[i].number == number) {
+         self.processSteps.splice(i,1);
+        }
+        if(self.processSteps[i].number > number) {
+          self.processSteps[i].number--;
         }
       }
     };
 
-    self.editToBeStep = function(toBeStep, callback) {
+    self.editToBeStep = function (toBeStep, callback) {
       var uri = '/api/process/' + localStorage.getItem('opened') + '/tobe';
       var data = angular.toJson(toBeStep);
       $http.put(uri, data)
         .success(callback);
     };
 
-    self.editStep = function(processStep, callback) {
+    self.editStep = function (processStep, callback) {
       var uri = '/api/process/' + localStorage.getItem('opened') + '/steps';
       $http.put(uri, processStep)
         .success(callback);
     };
 
 
-      /**
-       * Insert a empty processStep in the list,
-       * update positions accordingly.
-       * @param processStep
-       */
-    self.insertProcessStep = function(position) {
-      for(var i = 0; i < self.processSteps.length; i++) {
-        if(self.processSteps[i].number == position) {
+    /**
+     * Insert a empty processStep in the list,
+     * update positions accordingly.
+     * @param processStep
+     */
+    self.insertProcessStep = function (position, callback) {
+      for (var i = 0; i < self.processSteps.length; i++) {
+        console.log(self.processSteps[i]);
+
+        if (self.processSteps[i].number > position) {
+          self.processSteps[i].number +=1;
+        }
+
+        if (self.processSteps[i].number == position) {
           var tmp = new ProcessStep();
           tmp.setPosition(position);
-          var uri = '/api/process/' + sessionStorage.getItem('opened') + '/steps';
-          $http.post(uri, tmp).success(function(id) {
-            tmp.id = id;
-            self.processSteps.splice(i, 0, tmp);
-          }).error(function(message, status) {
-            console.log(message);
-          });
+          self.postProcessStep(tmp, callback);
+          self.processSteps.splice(i, 0, tmp);
+          self.processSteps[i+1].number++;
           i++;
         }
-        if(self.processSteps[i].number >= position - 1) {
-          self.processSteps[i].number++;
-        }
       }
-      console.log("Service finished.");
     };
 
+    self.postProcessStep = function (processStep, callback) {
+      var uri = '/api/process/' + localStorage.getItem('opened') + '/steps';
+      $http.post(uri, processStep)
+        .success(function (id) {
+          processStep.id = id;
+          callback();
+        }).error(function (message, status) {
+        console.log(message);
+      });
+    }
   });

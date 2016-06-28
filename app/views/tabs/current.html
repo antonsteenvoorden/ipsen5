@@ -1,4 +1,6 @@
-<div layout flex class="list-item-height">
+<div layout class="list-item-height">
+  <span flex="5">
+    </span>
   <div layout="column" class="list-item-height" flex>
     <!--<span >Activity Type</span>-->
     <md-radio-group ng-model="processStep.type" layout="row">
@@ -53,8 +55,8 @@
 <md-content flex class="limited-height">
 
   <md-list>
-    <process-step ng-repeat="processStep in processSteps | orderBy:number:reverse | filter:searchQuery"></process-step>
+    <process-step ng-repeat="processStep in processSteps | orderBy:processStep.number:reverse | filter:searchQuery"></process-step>
   </md-list>
 </md-content>
 
-  <!--</div>-->
+<!--</div>-->
