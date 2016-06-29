@@ -110,8 +110,8 @@ angular.module('wfpcsFrontApp')
         .success(function (newId) {
           processStep.id = newId;
           console.log('processstep call made, id obtained',newId);
+          self.processSteps.push(processStep);
         });
-      self.processSteps.push(processStep);
     };
 
     /**
@@ -129,11 +129,12 @@ angular.module('wfpcsFrontApp')
       console.log('going to decrease starting from: ', number);
 
       for(var i = number-1; i < self.processSteps.length; i++) {
-        if(self.processSteps[i].number == number) {
-         self.processSteps.splice(i,1);
-        }
         if(self.processSteps[i].number > number) {
           self.processSteps[i].number--;
+        }
+        if(self.processSteps[i].number == number) {
+         self.processSteps.splice(i,1);
+          i++;
         }
       }
     };
