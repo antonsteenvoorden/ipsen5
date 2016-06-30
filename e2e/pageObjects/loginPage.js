@@ -25,6 +25,7 @@ var LoginPage = function() {
 
   var navAccountButton = element(by.id('nav.account'));
   var logOutButton = element(by.id('nav.account.signout'));
+  
   self.get = function() {
     browser.get(browser.baseUrl + 'login');
   };
