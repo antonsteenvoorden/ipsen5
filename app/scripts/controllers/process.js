@@ -22,7 +22,6 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
       processService.setNew();
   };
 
-  //TODO: DIT WORDT IN IEDERE CONTROLLER OPGEHAALD, DAAROM HEB IK PROCESSCARD CONTROLLER GEMAAKT, KUNNEN DE REST VAN DEZE FUNCTIES WEG?
   processService.loadProcesses(function(result){
     $scope.processen = result;
   });
@@ -37,7 +36,9 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     var process = self.prepareProcess();
     processService.newProcess(process, function(){
       ngDialog.close();
-      $location.reload();
+      processService.loadProcesses(function(result){
+        $scope.processen = result;
+      });
     });
   };
 
@@ -45,7 +46,9 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     var process = self.prepareProcess();
     processService.updateProcess(process, function() {
       ngDialog.close();
-      $location.reload();
+      processService.loadProcesses(function(result){
+        $scope.processen = result;
+      });
     });
 
   };
