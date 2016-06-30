@@ -7,7 +7,7 @@ exports.config = {
     'specs/login/login-spec.js'
   ],
   // seleniumAddress: 'http://localhost:4444/wd/hub',
-  baseUrl: 'http://0.0.0.0:8086/',
+  baseUrl: 'http://127.0.0.1:8086/#/',
   framework: 'mocha',
   browserName: 'chrome',
 
