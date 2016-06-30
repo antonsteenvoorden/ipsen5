@@ -1,5 +1,6 @@
 /**
- * Created by Roy on 26-5-2016.
+ * Created by Roy and Anton on 26-5-2016.
+ * Used for containing and obtaining the processteps from the service and api
  */
 angular.module('wfpcsFrontApp').controller('AnalyseCtrl', ['$scope', '$state', 'processService', 'processStepService',
   function($scope, $state, processService, processStepService) {
