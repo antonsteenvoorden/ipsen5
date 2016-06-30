@@ -7,6 +7,7 @@
  * @description
  * # MainCtrl
  * Controller of the wfpcsFrontApp
+ * Used by all features for users
  */
 angular.module('wfpcsFrontApp')
   .controller('UserCtrl', function ($scope, $rootScope, $translate, $state, $mdToast, $http, authenticationService, userService) {
@@ -52,6 +53,10 @@ angular.module('wfpcsFrontApp')
       return authenticationService.authenticated;
     };
 
+    /**
+     * register call on service
+     * @param user
+       */
     $scope.callRegister = function (user) {
       userService.callRegister(user, function(){
         $mdToast.show($mdToast.simple().textContent($translate.instant('REGISTERSUCCESS')));
@@ -61,6 +66,10 @@ angular.module('wfpcsFrontApp')
       });
     };
 
+    /**
+     * authenticate call on authenticationservice and userservice
+     * @param authenticator
+       */
     self.authenticate = function(authenticator) {
       authenticationService.setAccessId(authenticator.username);
       authenticationService.setAccessKey(authenticator.password);
@@ -81,7 +90,11 @@ angular.module('wfpcsFrontApp')
         return succesful;
       });
     };
-    
+
+    /**
+     * used to reset the password
+     * @param user
+       */
     $scope.recover = function(user) {
       userService.recoverPassword(user, function(){
         $mdToast.show($mdToast.simple().textContent($translate.instant('MAILSUCCESS')));

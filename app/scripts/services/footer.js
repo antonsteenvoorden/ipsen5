@@ -1,5 +1,6 @@
 /**
  * Created by Anton on 22/06/2016.
+ * Used to obtain data calculated by the api used in the graphs
  */
 angular.module('wfpcsFrontApp')
   .service('footerService', function ($http, $window, processStepService) {

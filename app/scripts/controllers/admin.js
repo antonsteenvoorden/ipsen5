@@ -1,5 +1,6 @@
 /**
  * Created by Anton on 14-6-2016.
+ * Admin dashboard features
  */
 angular.module('wfpcsFrontApp')
   .controller('AdminCtrl', function ($scope, $mdToast, $translate, adminService, userService) {
@@ -11,6 +12,10 @@ angular.module('wfpcsFrontApp')
     $scope.allRoles = ["GANGSTER", "OG"];
     $scope.allPermissions = ["CURRENTPROCESS", "Zwemmen met kevers"];
 
+    /**
+     * obtain all possible roles and permissions to display as buttons
+     * These roles and permissions can be added to the users
+     */
     adminService.getPermissions(function (result) {
       $scope.allRoles = result.roles;
       $scope.allPermissions = result.permissions;
@@ -27,6 +32,10 @@ angular.module('wfpcsFrontApp')
     };
 
 
+    /**
+     * Save a customer
+     * @param customer
+       */
     $scope.edit = function (customer) {
       userService.callEdit(customer, function () {
         $mdToast.show($mdToast.simple().textContent($translate.instant('CUSTOMEREDITSUCCESS')));
@@ -35,6 +44,9 @@ angular.module('wfpcsFrontApp')
       });
     };
 
+    /**
+     * AAd roles, permissions and delete roles and permissions
+       */
     $scope.addRole = function (role) {
       if (!($scope.currentCustomer.roles.indexOf(role) >= 0)) {
         $scope.currentCustomer.roles.push(role);

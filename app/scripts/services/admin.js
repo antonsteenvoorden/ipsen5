@@ -1,5 +1,6 @@
 /**
  * Created by Anton on 14-6-2016.
+ * Used to obtain data used by admin dashboard
  */
 angular.module('wfpcsFrontApp')
   .service('adminService', function ($http) {

@@ -1,5 +1,6 @@
 /**
  * Created by Anton on 18-5-2016.
+ * Checks if user should see certain buttons
  */
 'use strict';
 angular

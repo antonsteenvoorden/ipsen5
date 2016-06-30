@@ -1,5 +1,7 @@
 /**
  * Created by Roy on 26-5-2016.
+ * @Author Roy, Anton
+ * Used to CRUD processSteps
  */
 angular.module('wfpcsFrontApp')
   .service('processStepService', function ($rootScope, $window, $http) {

@@ -1,5 +1,6 @@
 /**
  * Created by Anton on 08/06/2016.
+ * Used to CRUD users
  */
 'use strict';
 angular.module('wfpcsFrontApp')

@@ -1,6 +1,7 @@
 // jshint ignore: start
 /**
  * Created by Anton on 17-5-2016.
+ * Stores all info related to authentication of users
  */
 'use strict';
 angular.module('wfpcsFrontApp')
@@ -14,7 +15,7 @@ angular.module('wfpcsFrontApp')
     self.authenticated = false;
 
 
-// GETTERS & SETTERS
+    // GETTERS & SETTERS
     self.getAccessId = function () {
       return self.accessId;
     };
@@ -116,6 +117,10 @@ angular.module('wfpcsFrontApp')
     };
 
 
+    /**
+     * used to send data encrypted in base64 over the line
+     * @type {{keyStr: string, encode: Base64.encode, decode: Base64.decode}}
+       */
     var Base64 = {
       keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 

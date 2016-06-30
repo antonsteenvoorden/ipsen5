@@ -32,6 +32,10 @@ angular.module('wfpcsFrontApp').controller('AnalyseCtrl', ['$scope', '$state', '
       $scope.processSteps = processStepService.getProcessSteps();
     };
 
+    /**
+     * Adds processtep to the end of the list
+     * @param processStep
+       */
     $scope.appendProcessStep = function(processStep) {
       var processStepO = new ProcessStep(
         processStep.id,
@@ -47,14 +51,25 @@ angular.module('wfpcsFrontApp').controller('AnalyseCtrl', ['$scope', '$state', '
       processStepService.addProcessStep(processStepO);
     };
 
+    /**
+     * gets processsteps from the service
+     */
     $scope.loadProcessSteps = function() {
       $scope.processSteps = processStepService.getProcessSteps();
     };
 
+    /**
+     * Deletes processtep from the list
+     * @param processStep
+       */
     $scope.deleteStep = function(processStep) {
       processStepService.deleteStep(processStep);
     };
 
+    /**
+     * update processtep
+     * @param processStep
+       */
     $scope.editStep = function(processStep){
       processStepService.editStep(processStep, function(){
         console.log(":;oo;");

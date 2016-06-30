@@ -1,5 +1,7 @@
 /**
  * Created by Sven on 1-6-2016.
+ * Finished by Anton
+ * Used to obtain info for the footer
  */
 'use strict';
 
@@ -24,6 +26,10 @@ angular.module('wfpcsFrontApp').controller('FooterCtrl', function($scope, $state
     $scope.CycleInfoIsVisible = !$scope.CycleInfoIsVisible;
   };
 
+  /**
+   * gets called when clicked on "Show content"
+   * obtains the data calculated by the api
+   */
   $scope.refreshData = function() {
     footerService.getBottleneckData(function(result) {
       $scope.bottleneckData.values[0] = result.values;
