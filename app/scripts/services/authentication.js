@@ -1,6 +1,7 @@
 // jshint ignore: start
 /**
  * Created by Anton on 17-5-2016.
+ * Stores all info related to authentication of users
  */
 'use strict';
 angular.module('wfpcsFrontApp')
@@ -14,7 +15,7 @@ angular.module('wfpcsFrontApp')
     self.authenticated = false;
 
 
-// GETTERS & SETTERS
+    // GETTERS & SETTERS
     self.getAccessId = function () {
       return self.accessId;
     };
@@ -29,6 +30,17 @@ angular.module('wfpcsFrontApp')
 
     self.setAccessKey = function (key) {
       self.accessKey = key;
+    };
+
+    self.setRoles = function () {
+
+    };
+    self.getRoles = function () {
+      if ($rootScope.authenticator.roles) {
+        return $rootScope.authenticator.roles;
+      } else {
+        return [];
+      }
     };
 
     self.getPermissions = function () {
@@ -51,7 +63,7 @@ angular.module('wfpcsFrontApp')
       $rootScope.authenticator = user;
     };
 
-    self.getAuthenticator = function(){
+    self.getAuthenticator = function () {
       return $rootScope.authenticator;
     };
 
@@ -61,7 +73,7 @@ angular.module('wfpcsFrontApp')
 
     self.isAuthenticated = function () {
       if (!self.authenticated) {
-        restoreAuthentication();
+        self.restoreAuthentication();
       }
       return self.authenticated;
     };
@@ -73,16 +85,16 @@ angular.module('wfpcsFrontApp')
 
     self.storeAuthentication = function (user) {
       var authenticator = angular.toJson(user);
+      user.password = self.getAccessId();
       var storage = $window.localStorage;
       storage.setItem('authenticator', authenticator);
     };
 
-    var restoreAuthentication = function () {
+    self.restoreAuthentication = function () {
       var authenticator = $window.localStorage.getItem('authenticator');
 
       if (authenticator !== null) {
         authenticator = JSON.parse(authenticator);
-
         self.setAccessId(authenticator.username);
         self.setAccessKey(authenticator.password);
         //self.setPermissions(authenticator.permissions);
@@ -105,6 +117,10 @@ angular.module('wfpcsFrontApp')
     };
 
 
+    /**
+     * used to send data encrypted in base64 over the line
+     * @type {{keyStr: string, encode: Base64.encode, decode: Base64.decode}}
+       */
     var Base64 = {
       keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 

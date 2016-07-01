@@ -60,7 +60,18 @@ angular
       })
       .state('myprofile', {
         url: '/myprofile',
-        templateUrl: 'views/myprofile.html',
+        templateUrl: 'views/profile.html',
+        controller: 'UserCtrl',
+        data: {
+          permissions: {
+            only: ['isAuthenticated'],
+            redirectTo: 'login'
+          }
+        }
+      })
+      .state('changepassword', {
+        url: '/changepassword',
+        templateUrl: 'views/changepassword.html',
         controller: 'UserCtrl',
         data: {
           permissions: {
@@ -89,7 +100,7 @@ angular
       .state('process', {
         url: '/process',
         templateUrl: 'views/tabs/process.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -100,7 +111,7 @@ angular
       .state('process.current', {
         url: '/current',
         templateUrl: 'views/tabs/current.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -111,7 +122,7 @@ angular
       .state('process.improvement', {
         url: '/improvement',
         templateUrl: 'views/tabs/improvement.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -122,7 +133,7 @@ angular
       .state('process.quality', {
         url: '/quality',
         templateUrl: 'views/tabs/quality.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -133,7 +144,7 @@ angular
       .state('process.vendor', {
         url: '/vendor',
         templateUrl: 'views/tabs/vendor.html',
-        controller: 'ProcessStepCtrl',
+        controller: 'AnalyseCtrl',
         data: {
           permissions: {
             only: ['isAuthenticated'],
@@ -153,15 +164,14 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'views/test.html',
-        controller: 'MainCtrl',
-        controllerAs: 'about',
-        data: {
-          permissions: {
-            only: ['isAdmin'],
-            redirectTo: '401'
-          }
-        }
+        templateUrl: 'views/adminpanel.html',
+        controller: 'AdminCtrl'
+        ////data: {
+        ////  permissions: {
+        ////    only: ['isAdmin'],
+        ////    redirectTo: '401'
+        ////  }
+        ////}
       });
   })
 
@@ -180,6 +190,9 @@ angular
       LOGINFAIL: 'Log in failed! Make sure you enter the correct credentials',
       REGISTERSUCCESS:'An email has been sent (Fake message)',
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
+      CUSTOMEREDITSUCCESS:'Account has been updated',
+      CUSTOMEREDITFAIL:'Account update failed',
+      PASSWORDEDITSUCCESS:'Password updated successfully',
       USERNAME: 'Username',
       PASSWORD: 'Password',
       LOGINBUTTON: 'Sign in',
@@ -191,7 +204,8 @@ angular
       RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
       RECOVER_PASSWORD_INSTRUCTIONS2: 'An email will be send with further instructions',
       RECOVER_PASSWORD_BUTTON: 'Send recovery email',
-
+      MAILSUCCES:'An email has been sent',
+      MAILFAIL:'Something went wrong.. Is this email the correct one?',
       ENGLISH: 'English',
       BASE: 'Dutch',
       MYPROFILE: 'My profile',
@@ -199,6 +213,7 @@ angular
       HOME: 'Dashboard',
       PURCHASE: 'Purchase',
       CONTACT: 'Contact',
+      ADMIN:'Admin Dashboard',
       CURRENT: 'As-is',
       TOBE: 'To-be',
       QUALITY: 'Test',
@@ -249,6 +264,7 @@ angular
       COST:'Cost',
       HEAD_COUNT:'Head count',
       ENERGY_USAGE:'Energy usage',
+      ACTION:'Action',
 
       CAPACITY:'Capacity',
       CERTIFIED:'Certified',
@@ -264,6 +280,9 @@ angular
       LOGINFAIL: 'Inloggen niet gelukt! Zorg dat je de goede gegevens invult!',
       REGISTERSUCCESS:'Er is een mail verstuurd (Nep)',
       REGISTERFAIL:'Register failed.. Try another username and make sure your info is correct',
+      CUSTOMEREDITSUCCESS:'Account is bijgewerkt',
+      CUSTOMEREDITFAIL:'Account bijwerken niet geslaagd',
+      PASSWORDEDITSUCCESS:'Wachtwoord succesvol gewijzigd',
       USERNAME: 'Gebruikersnaam',
       PASSWORD: 'Wachtwoord',
       LOGINBUTTON: 'Aanmelden',
@@ -272,10 +291,11 @@ angular
       SAVECHANGEBUTTON: 'Wijzig',
 
       RECOVER_PASSWORD: 'I forgot my password',
-      RECOVER_PASSWORD_INSTRUCTIONS: 'Please fill in your emailadress',
-      RECOVER_PASSWORD_INSTRUCTIONS2: 'An email will be send with further instructions',
-      RECOVER_PASSWORD_BUTTON: 'Send recovery email',
-
+      RECOVER_PASSWORD_INSTRUCTIONS: 'Voer je emailadres in',
+      RECOVER_PASSWORD_INSTRUCTIONS2: 'Er wordt een email verstuurd met verdere instructies',
+      RECOVER_PASSWORD_BUTTON: 'Verstuur',
+      MAILSUCCES:'Een email is verstuurd',
+      MAILFAIL:'Er is iets mis gegaan.. Is dit het correcte emailadres?',
       ENGLISH: 'Engels',
       BASE: 'Nederlands',
       MYPROFILE: 'Mijn profiel',
@@ -283,6 +303,7 @@ angular
       HOME: 'Dashboard',
       PURCHASE: 'Aankopen',
       CONTACT: 'Contact',
+      ADMIN:'Admin Dashboard',
       CURRENT: 'Huidig',
       TOBE: 'Gewenst',
       QUALITY: 'Kwaliteit',
@@ -333,6 +354,8 @@ angular
       COST:'Cost',
       HEAD_COUNT:'Head count',
       ENERGY_USAGE:'Energy usage',
+      ACTION:'Actie',
+
 
       CAPACITY:'Capaciteit',
       CERTIFIED:'Certified',

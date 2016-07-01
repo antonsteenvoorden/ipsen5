@@ -4,10 +4,13 @@
 exports.config = {
   //test will run in order noted as below
   specs: [
-    'specs/login/login-spec.js'
+    'specs/login/login-spec.js',
+    'specs/profile/my-profile-spec.js',
+    'specs/language/language-spec.js',
+    'specs/dashboard/process-spec.js'
   ],
   // seleniumAddress: 'http://localhost:4444/wd/hub',
-  baseUrl: 'http://0.0.0.0:8086/',
+  baseUrl: 'http://127.0.0.1:8086/#/',
   framework: 'mocha',
   browserName: 'chrome',
 

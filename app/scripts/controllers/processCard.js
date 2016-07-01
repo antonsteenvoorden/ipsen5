@@ -1,6 +1,7 @@
 // jshint ignore: start
 /**
  * Created by Anton on 11-6-2016.
+ *  * @Author Roy, Anton
  */
 'use strict';
 
@@ -25,18 +26,11 @@ angular.module('wfpcsFrontApp').controller('ProcessCardCtrl', ['$scope', '$state
       processService.setNew();
   };
 
+
   /**
-   * TODO: Vind deze oplossing toch niet zo chill Anton,
-   * TODO: Twee methoden die maar een regel verschillen.
+   * add new process
    */
   $scope.addProcess = function() {
-    //var process = new Process();
-    //process.id = $scope.newProcess.id;
-    //process.name = $scope.newProcess.name;
-    //process.date = $scope.newProcess.date;
-    //process.batchSize = $scope.newProcess.batchSize;
-    //process.hoursPerDay = $scope.newProcess.hoursPerDay;
-    //process.piecesPerDay = $scope.newProcess.piecesPerDay;
     var process = self.prepareProcess();
     processService.newProcess(process, function(){
       ngDialog.close();

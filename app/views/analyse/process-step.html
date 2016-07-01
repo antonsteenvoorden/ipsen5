@@ -43,7 +43,7 @@
   </md-input-container>
 
   <div layout="row" flex ng-show="$state.current.name == 'process.current'">
-    <md-button ng-show="!locked" ng-click="insert(processtep)" aria-label="Insert row">
+    <md-button ng-show="!locked" ng-click="insert(processStep.number)" aria-label="Insert row">
       <span class="glyphicon glyphicon-plus"></span>
     </md-button>
 
@@ -58,3 +58,4 @@
       </md-button>
   </div>
 </md-list-item>
+<!--process step list item. Gets repeated for each item in the list in the processstep service-->

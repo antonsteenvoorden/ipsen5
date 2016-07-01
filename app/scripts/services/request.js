@@ -12,7 +12,7 @@
  * @param {object} $rootScope The root scope.
  * @param {object} authService The authentication service.
  */
-angular.module('wfpcsFrontApp').service('requestService', function ($q, $rootScope, authenticationService) {
+angular.module('wfpcsFrontApp').service('requestService', function ($q, $rootScope, $window, authenticationService) {
   /**
    * Self-reference used for internal referencing.
    */
@@ -34,11 +34,10 @@ angular.module('wfpcsFrontApp').service('requestService', function ($q, $rootSco
   self.request = function (config) {
     config.headers = config.headers || {};
 
-    // if (authenticationService.isAuthenticated()) {
-    console.log(authenticationService.createAuthorizationString());
-      config.headers['Authorization'] = authenticationService.createAuthorizationString(); // jshint ignore:line
-    // }
-
+     if (!authenticationService.isAuthenticated()) {
+       authenticationService.restoreAuthentication();
+     }
+    config.headers['Authorization'] = authenticationService.createAuthorizationString(); // jshint ignore:line
     requestOpened();
 
     return config || $q.when(config);
@@ -72,7 +71,7 @@ angular.module('wfpcsFrontApp').service('requestService', function ($q, $rootSco
     return $q.reject(response);
   };
 
-  /**
+    /**
    * Increments the number of open requests.
    */
   var requestOpened = function () {

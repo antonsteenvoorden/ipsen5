@@ -22,7 +22,6 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
       processService.setNew();
   };
 
-  //TODO: DIT WORDT IN IEDERE CONTROLLER OPGEHAALD, DAAROM HEB IK PROCESSCARD CONTROLLER GEMAAKT, KUNNEN DE REST VAN DEZE FUNCTIES WEG?
   processService.loadProcesses(function(result){
     $scope.processen = result;
   });
@@ -34,17 +33,12 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
    */
   //Add a new process
   $scope.addProcess = function() {
-    //var process = new Process();
-    //process.id = $scope.newProcess.id;
-    //process.name = $scope.newProcess.name;
-    //process.date = $scope.newProcess.date;
-    //process.batchSize = $scope.newProcess.batchSize;
-    //process.hoursPerDay = $scope.newProcess.hoursPerDay;
-    //process.piecesPerDay = $scope.newProcess.piecesPerDay;
     var process = self.prepareProcess();
     processService.newProcess(process, function(){
       ngDialog.close();
-      $location.reload();
+      processService.loadProcesses(function(result){
+        $scope.processen = result;
+      });
     });
   };
 
@@ -52,7 +46,9 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     var process = self.prepareProcess();
     processService.updateProcess(process, function() {
       ngDialog.close();
-      $location.reload();
+      processService.loadProcesses(function(result){
+        $scope.processen = result;
+      });
     });
 
   };
@@ -81,23 +77,6 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     ngDialog.close();
   };
 
-  /**
-   * Delete process with given process id.
-   * @param id
-     */
-  $scope.deleteProcess = function(id) {
-    processService.deleteProcess(id, function(){
-      $window.location.reload();
-    });
-  };
-
-  $scope.editProcess = function(editableProcess) {
-    processService.setEditableProcess(editableProcess);
-    ngDialog.open({
-      template: '<newprocess></newprocess>',
-      plain: true
-    });
-  };
 
   $scope.getProcess = function() {
     $scope.newProcess = processService.getEditableProcess();
@@ -108,22 +87,6 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
       $state.go('process.current');
     });
 
-  };
-
-  $scope.add = function() {
-    $scope.stappen.push({value: $scope.stappen.length + 1});
-  };
-
-  $scope.insert = function(stap) {
-    $scope.stappen.splice(stap + 1, 0, {value: stap + 1});
-  };
-
-  $scope.removeLast = function() {
-    $scope.stappen.pop();
-  };
-
-  $scope.remove = function(stap) {
-    $scope.stappen.splice(stap -1, 1);
   };
 
 }]);

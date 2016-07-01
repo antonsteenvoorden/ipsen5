@@ -5,6 +5,6 @@
 angular.module('wfpcsFrontApp').directive("toBeStep", function () {
   return {
     templateUrl: 'views/analyse/tobestep.html',
-    controller:'ProcessCtrl'
+    controller:'ToBeStepCtrl'
   };
 });

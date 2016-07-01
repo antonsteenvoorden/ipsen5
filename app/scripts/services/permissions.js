@@ -1,5 +1,6 @@
 /**
  * Created by Anton on 18-5-2016.
+ * Checks if user should see certain buttons
  */
 'use strict';
 angular
@@ -12,6 +13,8 @@ angular
       });
     PermissionStore
       .definePermission('isAdmin', function () {
-        return authenticationService.getPermissions().indexOf('ADMIN') > -1;
+        authenticationService.restoreAuthentication();
+        var permissions = authenticationService.getRoles();
+        return permissions.indexOf('ADMIN') > -1;
       });
   }]);

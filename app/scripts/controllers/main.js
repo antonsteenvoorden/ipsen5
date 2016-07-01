@@ -6,6 +6,7 @@
  * @description
  * # MainCtrl
  * Controller of the wfpcsFrontApp
+ * Used to watch the authentication function
  */
 angular.module('wfpcsFrontApp')
   .controller('MainCtrl', function ($scope, $translate, $state, authenticationService) {

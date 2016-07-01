@@ -10,6 +10,13 @@ body {
 
 }
 
+.searchbar {
+  background-color:rgba(255,255,255,0);
+  position:fixed;
+  z-index:10;
+  /*margin-top:50%;*/
+}
+
 .md-tab, .heavy {
   font-size: 14px;
   text-align: center;
@@ -45,9 +52,10 @@ body {
   position: fixed;
   bottom: 0px;
   color: #777;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   width: 100%;
   max-height: 90%;
+  z-index:5;
 }
 /* the toggle bar in the footer
 The borders let you see where you can click to hide/show the footer
@@ -55,7 +63,10 @@ The borders let you see where you can click to hide/show the footer
 .TopAndBottomBorder
 {
   border-top: 1px solid rgb(63,81,181);
-  border-bottom: 1px solid rgb(63,81,181);
+}
+
+.chartAreaWrapper {
+  overflow-x: scroll;
 }
 
 .container-narrow > hr {
@@ -134,7 +145,9 @@ div.processContainer div:nth-child(odd) {
 }
 
 span.stapnummer {
-  padding-right: 20px;
+  margin-left: 35px;
+  margin-right: -30px;
+  margin-top: 20px;
 }
 
 .navigation {
@@ -151,25 +164,29 @@ span.stapnummer {
   margin:0 auto;
 }
 
+.md-fab {
+  width:100px !important;
+  height:100px !important;
+}
 .md-button.md-raised:not([disabled]) {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 .md-button.md-primary {
   background-color: rgb(63,81,181);
-  color:rgba(255,255,255,0.87);
+  color:white !important;
 }
 .md-button.md-primary:hover:not([disabled]) {
   background-color: rgb(63,81,181);
-  color:rgba(255,255,255,0.87);
+  color:white !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 .md-button.md-warn {
   background-color: #f44336;
-  color:rgba(255,255,255,0.87);
+  color:white !important;
 }
 .md-button.md-warn:hover:not([disabled]) {
   background-color: #f44336;
-  color:rgba(255,255,255,0.87);
+  color:white !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 .processCard {
@@ -217,8 +234,8 @@ div.newCard {
 }
 
 button.newCard {
-  font-size: 80pt;
-  color: green;
+  font-size:6em !important;
+  color:black !important;
   background-color: white;
 }
 
@@ -227,12 +244,9 @@ button.newCard:active {
 }
 
 button.newCard:hover {
-  color: green;
-  text-shadow:
-    -1px -1px 12px #000000,
-    1px -1px 12px #000000,
-    -1px 1px 12px #000000,
-    1px 1px 12px #000000;
+  font-size:6em !important;
+  color:black !important;
+  text-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .cycleBarChartTab{
@@ -273,3 +287,6 @@ button.newCard:hover {
   text-align:center;
 }
 
+.limited-height {
+  height:65%;
+}

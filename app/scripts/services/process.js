@@ -1,6 +1,8 @@
 // jshint ignore: start
 /**
  * Created by Roy on 22-5-2016.
+ *  * @Author Roy, Anton
+ * Used to create store, restore processes used in the dashboard
  */
 'use strict';
 angular.module('wfpcsFrontApp')
