@@ -21,10 +21,6 @@
         <label>Pieces per Day</label>
         <input ng-model="newProcess.piecesPerDay" />
       </md-input-container>
-      <md-input-container>
-        <label>Version</label>
-        <input ng-model="newProcess.version"/>
-      </md-input-container>
       <md-button ng-click="cancel()">Annuleren</md-button>
       <md-button id="newprocess.submit" ng-hide="getEdit()" ng-click="addProcess()">Opslaan</md-button>
       <md-button ng-hide="!getEdit()" ng-click="updateProcess(newProcess)">Bijwerken</md-button>

@@ -128,15 +128,15 @@ angular.module('wfpcsFrontApp')
     };
 
     self.decreaseAllAfterNumber = function(number) {
-      console.log('going to decrease starting from: ', number);
-
       for(var i = number-1; i < self.processSteps.length; i++) {
-        if(self.processSteps[i].number > number) {
-          self.processSteps[i].number--;
+        if (self.processSteps[i].number == number) {
+          self.processSteps.splice(i, 1);
         }
-        if(self.processSteps[i].number == number) {
-         self.processSteps.splice(i,1);
-          i++;
+      }
+      console.log('second loop starting from: ', number);
+      for(var j = 0; j < self.processSteps.length; j++) {
+        if(self.processSteps[j].number > number) {
+          self.processSteps[j].number--;
         }
       }
     };
