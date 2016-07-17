@@ -1,4 +1,8 @@
 // jshint ignore: start
+/**
+ * Created by Anton on 11-6-2016.
+ *  * @Author Roy, Anton
+ */
 'use strict';
 
 /**
@@ -8,7 +12,7 @@
  * # ProcessCtrl
  * Controller of the wfpcsFrontApp
  */
-angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '$location', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $location, ngDialog, processService, processStepService) {
+angular.module('wfpcsFrontApp').controller('ProcessCardCtrl', ['$scope', '$state', '$window', 'ngDialog', 'processService', 'processStepService', function($scope, $state, $window, ngDialog, processService, processStepService) {
   $scope.$state = $state;
 
   $scope.getEdit = function() {
@@ -22,33 +26,22 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
       processService.setNew();
   };
 
-  processService.loadProcesses(function(result){
-    $scope.processen = result;
-  });
-
 
   /**
-   * TODO: Vind deze oplossing toch niet zo chill Anton,
-   * TODO: Twee methoden die maar een regel verschillen.
+   * add new process
    */
-  //Add a new process
   $scope.addProcess = function() {
     var process = self.prepareProcess();
     processService.newProcess(process, function(){
       ngDialog.close();
-      processService.loadProcesses(function(result){
-        $scope.processen = result;
-      });
+      $window.location.reload();
     });
   };
 
-  $scope.updateProcess = function() {
-    var process = self.prepareProcess();
+  $scope.updateProcess = function(process) {
     processService.updateProcess(process, function() {
       ngDialog.close();
-      processService.loadProcesses(function(result){
-        $scope.processen = result;
-      });
+      $window.location.reload();
     });
 
   };
@@ -77,6 +70,24 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
     ngDialog.close();
   };
 
+  /**
+   * Delete process with given process id.
+   * @param id
+   */
+  $scope.deleteProcess = function(id) {
+    processService.deleteProcess(id);
+    processService.deleteProcess(id, function(){
+      $window.location.reload();
+    });
+  };
+
+  $scope.editProcess = function(editableProcess) {
+    processService.setEditableProcess(editableProcess);
+    ngDialog.open({
+      template: '<newprocess></newprocess>',
+      plain: true
+    });
+  };
 
   $scope.getProcess = function() {
     $scope.newProcess = processService.getEditableProcess();
@@ -89,4 +100,21 @@ angular.module('wfpcsFrontApp').controller('ProcessCtrl', ['$scope', '$state', '
 
   };
 
+  $scope.add = function() {
+    $scope.stappen.push({value: $scope.stappen.length + 1});
+  };
+
+  $scope.insert = function(stap) {
+    $scope.stappen.splice(stap + 1, 0, {value: stap + 1});
+  };
+
+  $scope.removeLast = function() {
+    $scope.stappen.pop();
+  };
+
+  $scope.remove = function(stap) {
+    $scope.stappen.splice(stap -1, 1);
+  };
+
 }]);
+

@@ -1,20 +1,66 @@
-<!-- Analyse menu -->
 <md-toolbar layout="column" layout-align>
+  <!-- Analyse menu -->
   <div class="md-toolbar-tools">
     <span>Work Floor Process Control Analists</span>
     <!-- fill up the space between left and right area -->
     <span flex="5"></span>
-    <md-button>
-      Home
+    <div ng-if="isAuthenticated">
+      <md-button class="heavy" id="nav.home" ui-sref="dashboard">
+        {{'HOME' | translate}}
+      </md-button>
+
+      <!--<md-button class="heavy" id="nav.purchase">-->
+        <!--{{'PURCHASE' | translate}}-->
+      <!--</md-button>-->
+
+    <!--<md-button class="heavy" id="nav.contact" ui-sref="contact">-->
+      <!--{{'CONTACT' | translate}}-->
+    <!--</md-button>-->
+
+      <md-button permission permission-only="'isAdmin'" class="heavy" id="nav.admin" ui-sref="admin">
+      {{'ADMIN' | translate}}
     </md-button>
 
-    <md-button>
-      Purchase
-    </md-button>
 
-    <md-button>
-      Contact
-    </md-button>
+    </div>
+
+    <span flex></span>
+    <div ng-if="isAuthenticated">
+      <md-menu ng-controller="UserCtrl" md-offset="0 50">
+        <md-button id="nav.account" ng-click="$mdOpenMenu($event)" class="md-icon-button">
+          <md-icon class="material-icons" ng-click="">account_circle</md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button id="nav.account.myprofile" ui-sref="myprofile" aria-label="Change language">{{'MYPROFILE' | translate}}
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button id="nav.account.signout" ng-click="logOut()" aria-label="Sign out">{{'SIGNOUT' | translate}}
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+
+    <md-menu ng-controller="MenuCtrl" md-offset="0 50">
+      <md-button id="nav.settings" ng-click="$mdOpenMenu($event)" class="md-icon-button">
+        <md-icon class="material-icons" ng-click="">language</md-icon>
+      </md-button>
+      <md-menu-content>
+        <md-menu-item>
+          <md-button id="nav.settings.en" ng-click="changeLanguage('en')" aria-label="Change language">{{'ENGLISH' |
+            translate}}
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button id="nav.settings.nl" ng-click="changeLanguage('nl')" aria-label="Change language">{{'BASE' |
+            translate}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
   </div>
 </md-toolbar>
 

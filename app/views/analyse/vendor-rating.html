@@ -1,0 +1,78 @@
+<md-list-item class="list-item-height"  ng-controller="VendorCtrl">
+    <span flex="5" class="stapnummer">
+      {{processStep.index}}
+    </span>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.capacity" placeholder="{{'CAPACITY' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.quality" placeholder="{{'QUALITY' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.certified" placeholder="{{'CERTIFIED' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.cost" placeholder="{{'COST' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.clock" placeholder="{{'CLOCK' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.complaints" placeholder="{{'COMPLAINTS' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.csr" placeholder="{{'CSR' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.cash" placeholder="{{'CASH' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container flex>
+    <md-select ng-model="processStep.vendor.culture" placeholder="{{'CULTURE' | translate}}" aria-label="" ng-disabled="!locked">
+      <md-option ng-value="2"> {{'LOW' | translate}}</md-option>
+      <md-option ng-value="3"> {{'HIGH' | translate}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <div flex>
+  <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="">
+    <md-icon class="material-icons">edit</md-icon>
+  </md-button>
+    <md-button ng-show="locked" aria-label="" ng-click="locked = !locked; save(processStep)">
+      <md-icon class="material-icons">save</md-icon>
+    </md-button>
+  </div>
+
+</md-list-item>

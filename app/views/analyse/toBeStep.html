@@ -1,0 +1,32 @@
+<md-list-item class="list-item-height">
+  <md-input-container flex>
+    <input ng-model="toBeStep.distance" placeholder="{{'TRAVEL_DISTANCE' | translate}}" aria-label="" ng-disabled="!locked">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="toBeStep.time" placeholder="{{'CYCLE_TIME' | translate}}" aria-label="" ng-disabled="!locked">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="toBeStep.cost" placeholder="{{'COST' | translate}}" aria-label="" ng-disabled="!locked">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="toBeStep.headCount" placeholder="{{'HEAD_COUNT' | translate}}" aria-label="" ng-disabled="!locked">
+  </md-input-container>
+
+  <md-input-container flex>
+    <input ng-model="toBeStep.energy" placeholder="{{'ENERGY_USAGE' | translate}}" aria-label="" ng-disabled="!locked">
+  </md-input-container>
+  <md-input-container flex>
+    <input ng-model="toBeStep.action" placeholder="{{'ACTION' | translate}}" aria-label="" ng-disabled="!locked">
+  </md-input-container>
+
+  <md-button ng-show="!locked" ng-click="locked = !locked" aria-label="edit unlock">
+    <md-icon class="material-icons">edit</md-icon>
+  </md-button>
+  <md-button ng-show="locked" aria-label="" ng-click="locked = !locked; editStep(toBeStep)">
+    <md-icon class="material-icons">save</md-icon>
+  </md-button>
+</md-list-item>
+<!--To be step list item. Gets repeated for each item in the list in the processstep service-->

@@ -6,15 +6,32 @@
 }
 
 body {
-  padding: 0;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.searchbar {
+  background-color:rgba(255,255,255,0);
+  position:fixed;
+  z-index:10;
+  /*margin-top:50%;*/
+}
+
+.md-tab, .heavy {
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  padding: 12px 24px;
+  transition: background-color .35s cubic-bezier(.35,0,.25,1);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  text-transform: uppercase;
+  float: left;
+  font-weight: 600;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Custom page header */
@@ -32,9 +49,24 @@ body {
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  position: fixed;
+  bottom: 0px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  background-color: #ffffff !important;
+  width: 100%;
+  max-height: 90%;
+  z-index:5;
+}
+/* the toggle bar in the footer
+The borders let you see where you can click to hide/show the footer
+*/
+.TopAndBottomBorder
+{
+  border-top: 1px solid rgb(63,81,181);
+}
+
+.chartAreaWrapper {
+  overflow-x: scroll;
 }
 
 .container-narrow > hr {
@@ -113,10 +145,148 @@ div.processContainer div:nth-child(odd) {
 }
 
 span.stapnummer {
-  padding-right: 20px;
+  margin-left: 35px;
+  margin-right: -30px;
+  margin-top: 20px;
+}
+
+.navigation {
+  font-weight:500;
 }
 
 .full-size {
   width:100%;
   float:left;
+}
+
+.login-image {
+  width:200px;
+  margin:0 auto;
+}
+
+.md-fab {
+  width:100px !important;
+  height:100px !important;
+}
+.md-button.md-raised:not([disabled]) {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.md-button.md-primary {
+  background-color: rgb(63,81,181);
+  color:white !important;
+}
+.md-button.md-primary:hover:not([disabled]) {
+  background-color: rgb(63,81,181);
+  color:white !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.md-button.md-warn {
+  background-color: #f44336;
+  color:white !important;
+}
+.md-button.md-warn:hover:not([disabled]) {
+  background-color: #f44336;
+  color:white !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.processCard {
+  width: 300px;
+  background-color: #92e3b5;
+  border:1px;
+  margin: 30px 50px;
+}
+
+.processCard p {
+  float: right;
+}
+
+.md-title {
+  font-size: 24pt;
+}
+/*  Process Dashboard Section.
+    Selector of md-card-* elements is recognized, and working
+    IDE is drunk.*/
+md-card-title {
+  color: #FFFFFF;
+}
+
+md-card-header {
+  margin-bottom: 0px;
+  padding-bottom: 0px !important;
+}
+
+md-card-content {
+  padding-top: 0px !important;
+  margin-top: 0px;
+}
+
+md-card-content ul {
+  list-style-type: none;
+}
+
+md-card-content button {
+  background-color: #f5a948;
+}
+
+div.newCard {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+button.newCard {
+  font-size:6em !important;
+  color:black !important;
+  background-color: white;
+}
+
+button.newCard:active {
+  color: green;
+}
+
+button.newCard:hover {
+  font-size:6em !important;
+  color:black !important;
+  text-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cycleBarChartTab{
+  font-size: 10pt;
+  border-top: 1px solid rgb(00,00,00);
+  border-bottom: 1px solid rgb(00,00,00);
+  border-left: 1px solid rgb(00,00,00);
+  border-right: 1px solid rgb(00,00,00);
+  width: 100%;
+}
+
+.list-item-height {
+  height:70px !important;
+  border-bottom:1px;
+  align-items:flex-start !important;
+}
+.list-item-height md-radio-group {
+  padding:0 !important;
+  margin:auto 1% auto 0 !important;
+}
+
+:-webkit-input-placeholder {
+  opacity:0 !important;
+}
+::-webkit-input-placeholder {
+  opacity:0 !important;
+}
+:-moz-placeholder {
+  opacity:0 !important;
+}
+::-moz-placeholder {
+  opacity:0 !important;
+}
+:-ms-input-placeholder {
+  opacity:0 !important;
+}
+.label {
+  text-align:center;
+}
+
+.limited-height {
+  height:65%;
 }

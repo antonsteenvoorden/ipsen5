@@ -1,12 +1,19 @@
-# wfpcs-front
+#RELEASE
+Deze branch wordt gedeployed
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+Zie develop readme voor setup
 
-## Build & development
+Voer altijd deze commands uit
 
-Run `grunt` for building and `grunt serve` for preview.
+bower install
+npm install
 
-## Testing
+Voer deze command uit:
+./node_modules/grunt-protractor-runner/scripts/webdriver-manager-update
+ 
+Op windhoos: node ./node_modules/grunt-protractor-runner/scripts/webdriver-manager-update
+Om de selenium brower te installeren voor de e2e-test
 
-Running `grunt test` will run the unit tests with karma.
+Om bower components te linken:
+
+mklink /j "app/bower_components" "bower_components"
